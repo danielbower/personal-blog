@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Daniel Bower is a product manger and entrepreneur originally from Birmingham, UK.
+Daniel Bower is a [product manger and entrepreneur](https://www.linkedin.com/in/danielbower/) originally from Birmingham, UK.
 
 He studied Politics and Economics at the University of Manchester before moving to London in 2006.
 
