@@ -14,6 +14,6 @@ When it arrived in the post a few days ago it brought a huge smile to my face. N
 
 Thank you Dennis, your photo is now sitting proudly on my sideboard and the certificate you wrote out alongside it.
 
-<img src="/assets/img/dan-rosedale.jpg" alt="Dan at the top of the Rosedale Chimney">
+<img src="/assets/img/dan-rosedale.png" alt="Dan at the top of the Rosedale Chimney">
 
-<img src="/assets/img/dennis-letter.jpg" alt="Dennis' letter to Dan">
+<img src="/assets/img/dennis-letter.png" alt="Dennis' letter to Dan">

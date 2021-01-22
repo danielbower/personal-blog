@@ -10,7 +10,7 @@ I’m talking about ‘Circles’ which were in fact 'Lists’ done time before 
 
 What Google did was make Circles front-and-centre of it’s UE, and in beautiful way too. Every time I add someone I’m pushed into adding them to a Circle too.
 
-<img src="/assets/img/g-plus-circle.jpg" alt="Google Plus Circle UI">
+<img src="/assets/img/g-plus-circle.png" alt="Google Plus Circle UI">
 
 Twitter should do this too, and save me, and many other users, from the flood of coming tweets. If they don’t, I fear people may drastically reduce the number of people they follow, or move away from Twitter entirely - neither are in the bird’s best interests.
 
