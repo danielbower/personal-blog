@@ -4,7 +4,7 @@ layout: default
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="article_header">
-    <h1 class="article_title" itemprop="name headline" style="color:#4b4bd2">{{ page.title }}</h1>
+    <h1 class="article_title" itemprop="name headline">{{ page.title }}</h1>
     <p class="article_meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%e %B, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
   </header>
 
