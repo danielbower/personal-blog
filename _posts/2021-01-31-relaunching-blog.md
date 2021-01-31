@@ -8,10 +8,12 @@ I started blogging when I went to university, probably in the second year, as, c
 
 I've wanted to move away from Tumblr for a while now. I tried Substack shortly after it launched, but felt its functionality to be limiting; plus I'm not really interested in creating an email newsletter. Then, while studying for [my master's]({%- post_url 2020-09-09-digital-economy-msc -%}), I was given the opportunity to learn Jekyll, and with it the chance to relaunch my blog too.
 
-The last time I made a website Git didn't exist, and while I've had a general understanding of how it works, getting to use it myself has been really fun. VSCode proved to be a great place to get my head around the concepts and terminology, however I was keen to use Git via the command line, and thanks to the help of my student buddy Euginie, after after few weeks of making some rookie mistakes it all started to click.
+The last time I made a website Git didn't exist, and while I've had a general understanding of how it works, getting to use it myself has been really fun. VSCode proved to be a great place to get my head around the concepts and terminology, however I was keen to use Git via the command line, and thanks to the help of my student buddy [Euginie](https://github.com/eugenierqs), after after few weeks of making some rookie mistakes it all started to click.
 
-Adding Jekyll to my blogging workflow has been really easy. I was already drafting everything in IA Writer using Markdown so nothing has had to change there. And replacing Tumblr hosting with the command line and Github (which automatically pushes everything to Netlify) means I'll continue to develop my knowledge of Git.
+Adding Jekyll to my blogging workflow has been really easy. I was already drafting everything in IA Writer using Markdown so nothing has had to change there. Replacing Tumblr hosting with the command line and Github (which automatically deploys everything to Netlify) has been straight forward and it also means I'll continue to develop my knowledge of Git. By managing the site myself I'll continue to expand my knowledge of Liquid and Sass. This first iteration of my blog is pretty basic, however, I plan to use Github Issues to store ideas for new features and work through them to as a way of improving my skills. My roadmap includes:
 
-Managing the site myself means I'll continue to make use of Liquid and Sass. This first iteration of my blog is pretty basic, for example the archive is just a long list of posts. However, I plan to use Github Issues to store ideas for new features and work through them to as a way of improving my skills.
+- Updating the archive to include year headings and pagination
+- An open graph and Twitter cards implementation
+- A new accent colour for post headings
 
 Overall I am really happy with the last few months of progress and can see this being the way I manage my blog for a long time to come.
