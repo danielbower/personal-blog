@@ -167,6 +167,8 @@ h6 { font-size: 1.1rem; line-height: 1.6;  letter-spacing: 0; }
   h6 { font-size: 1.1rem; }
 }
 
+h1.article_title { color: #4b4bd2}
+
 p {
   margin-top: 0; }
 
@@ -186,6 +188,9 @@ a:hover {
   border-bottom:1px dotted;
 }
 
+a.purple {
+  color: #4b4bd2
+}
 
 
 // TODO
