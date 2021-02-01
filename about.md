@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
 permalink: /about/
+title: About
 ---
 
 Daniel Bower is a [product manger and entrepreneur](https://www.linkedin.com/in/danielbower/) originally from Birmingham, UK.
