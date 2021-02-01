@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Home
+title: Daniel Bower
 ---
 
 <div class="home">
@@ -10,7 +10,7 @@ title: Home
 
     <article class="post_card post">
       <header class="post_header">
-        <h2 class="post_title"><a class="purple" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
+        <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
         <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
       </header>
       <div class="post_excerpt">
@@ -57,6 +57,6 @@ title: Home
     </article>
     {% endfor %}
 
-    <div class="pagination older-post"><a href="./archive">Archive</a></div>
+    <div class="pagination older-post"><a href="./archive/">Archive</a></div>
   </div>
 </div>
