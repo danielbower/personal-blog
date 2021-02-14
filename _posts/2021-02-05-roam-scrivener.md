@@ -4,6 +4,10 @@ title:  "Using Roam and Scrivener"
 date: 2021-02-05
 categories:
 ---
+UPDATE: It appears that in order for this to work correctly you need to have your [Roam instance set to public](https://www.roamstack.com/roam-data-outside-roam/#shared-databases-walkthrough-public-db). Following [a conversation with someone in tech support at Literature and Latte](https://www.literatureandlatte.com/forum/viewtopic.php?p=331361#p331361) (the team behind Scrivener) I was told that their web page files are "not able to handle authentication" and will error if the page you link to is not publicly viewable.
+
+---
+
 Since starting my master's programme [Roam](https://roamresearch.com) has become an indispensable tool. I use it as my research diary and for more general note taking. The bidirectional links are incredibly powerful, allowing me to easily link ideas together and create new pages on the fly for the purpose of revisiting at a later date. Then there are the slash commands, the knowledge map and lightning fast search. This post is by no means a review, but I thought it was worth mentioning how good I think the app is for starters.
 
 Another new app I've fallen for is [Scrivener](https://www.literatureandlatte.com/scrivener/overview). Scrivener is a word processor in that it competes with the likes of Word and GDocs, but is different from then in that it's targeted at people who are writing long form content. Novelists, screenwriters, academics etc. What's nice about Scrivener is that it has a dedicated research section, the content of which is ignored when you come to compile your final document. This has been really useful as I can take notes from other papers within Scrivener when working on my own.
