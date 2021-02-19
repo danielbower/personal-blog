@@ -10,7 +10,7 @@ He studied Politics and Economics at the University of Manchester before moving 
 
 In 2008, along with Duncan Jennings, Max Jennings and Richard Foister he founded [VoucherCodes](https://vouchercodes.co.uk) which grew into Europe’s largest online coupon business. In 2011 VoucherCodes was sold to RetailMeNot, Inc. of Austin Texas where he took on responsibility for product management for all of their European businesses. RetailMeNot had its IPO on the NASDAQ in the summer of July 2013.
 
-In 2015 the same team launched Hoop, a platform that connected families with local activity organisers. Hoop was twice voted an ‘App of the Year’ by Apple. It was installed over 1.5M times and its tools were used by over 5,000 small businesses to manage schedules, handle bookings and take payment. Hoop was closed in the summer of 2020.
+In 2015 the same team launched [Hoop](https://hoop.co.uk), a platform that connected families with local activity organisers. Hoop was twice voted an ‘App of the Year’ by Apple. It was installed over 1.5M times and its tools were used by over 5,000 small businesses to manage schedules, handle bookings and take payment. Hoop was closed in the summer of 2020.
 
 He is currently studying towards a master’s degree in Digital Economy at King’s College London. His research interests include labour platforms, platform regulation, interoperability and kill zones.
 
