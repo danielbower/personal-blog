@@ -18,17 +18,17 @@ This consideration presents a more challenging flaw in the middleware model in m
 
 So what to do? I can see a solution coming from a few sources.
 
-We could mandate that this remains the responsibility of the platform owner. If they are benefitting from the advertising revenue, it could be argued that they should foot the bill for moderation. This does nothing for our concern about centralised power, however.
+We could mandate that moderation remains the responsibility of the platform owner. If they are benefitting from the advertising revenue, it could be argued that they should foot the bill for moderation. This does nothing for our concern about centralised power, however.
 
 An alternative would be to make the state responsible for moderation, probably through a statutory corporate body or QUANGO like Ofcom (the UK's telecoms regulator) or the British Board of Film Classification (BBFC). A hybrid of the two could also work. For example, a British Board of Social Media Moderation (BBSMM) could create a framework that the platform was required to adhere to, enforceable by spot checks and fines. This body could also oversee the welfare of content moderators (assuming some were employed locally) as [the challenging working conditions they face is well documented](https://www.theverge.com/2019/2/25/18229714/cognizant-facebook-content-moderator-interviews-trauma-working-conditions-arizona).
 
-Whether these rules apply on a user level, meaning the moderation applies wherever the user happens to be located. Or they apply on an IP level, wherever the user *accesses* the platform is an interested question, but not insurmountable one.
+Whether these rules apply on a user level, meaning the moderation applies wherever the user happens to be located. Or they apply on an IP level, wherever the user accesses the platform is an interesting question, but not insurmountable one.
 
-With censorship taken care two editorial processes remain, labelling and ranking, both of which are less labour intensive and therefore more likely to result in a dynamic middleware market.
+With censorship taken care of two editorial processes remain, labelling and ranking, both of which are less labour intensive and therefore more likely to result in a dynamic middleware market.
 
 Some labelling could be handled by algorithms written by a middleware developer, for example, labelling any content that includes references to Covid vaccines. However, some labelling may require human oversight, for example fact checking organisations like FullFact rely on a team of human checkers.
 
-Fact checking services that rely on human input will not keep up with the velocity of social content. However, real-time fact checking need not be the goal. A user could choose to opt-out of content that has been flagged for fact checking, it could be labelled as requiring fact checking, or they could be shown the unchecked content but notified if it is labelled retrospectively. Once again, this is why *choice* is critical. Decisions as impactful as the few described above should not be left solely in the hands of the platform owner.
+Fact checking services that rely on human input will not keep up with the velocity of social content. However, real-time fact checking need not be the goal. A user could choose to opt-out of content that has been flagged for fact checking, it could be labelled as requiring fact checking, or they could be shown the unchecked content but notified if it is labelled retrospectively. Once again, this is why choice is critical. Decisions as impactful as the few described above should not be left solely in the hands of the platform owner.
 
 Ranking is the process most suited to a middleware marketplace. Sequentially it follows censorship and labelling meaning all the content available to rank has been cleared for publication. It's then down to the user's chosen algorithm to decide how the content available should be prioritised based on the preference data it has. This is not to say that this is an easy task, but that it is one more suited to a software only solution, one that could written by a single developer, in an ideal world, the end user themselves.
 
