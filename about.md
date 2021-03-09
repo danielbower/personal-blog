@@ -4,7 +4,7 @@ permalink: /about/
 title: About
 ---
 
-I'm Dan, a product manger and entrepreneur originally from Birmingham in the UK.
+I'm Dan, a product manger and entrepreneur originally from Birmingham in the UK and now living in Hackney with my partner and son.
 
 I studied Politics and Economics at the University of Manchester before moving to London in 2006.
 
@@ -18,7 +18,7 @@ In my spare time I'm a keen runner, and organise Hackney’s junior parkrun ever
 
 I blog around once a week on a [variety of topics](/archive/), however recently my posts have aligned closely with my [research interests](/research/).
 
-I live in Hackney with my partner and son.
+If you'd like to get in touch, please do. Hint: this-domain at gmail.com
 
 ---
 
