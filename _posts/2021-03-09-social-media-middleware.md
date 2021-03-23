@@ -22,7 +22,7 @@ We could mandate that moderation remains the responsibility of the platform owne
 
 An alternative would be to make the state responsible for moderation, probably through a statutory corporate body or QUANGO like Ofcom (the UK's telecoms regulator) or the British Board of Film Classification (BBFC). A hybrid of the two could also work. For example, a British Board of Social Media Moderation (BBSMM) could create a framework that the platform was required to adhere to, enforceable by spot checks and fines. This body could also oversee the welfare of content moderators (assuming some were employed locally) as [the challenging working conditions they face is well documented](https://www.theverge.com/2019/2/25/18229714/cognizant-facebook-content-moderator-interviews-trauma-working-conditions-arizona).
 
-Whether these rules apply on a user level, meaning the moderation applies wherever the user happens to be located. Or they apply on an IP level, wherever the user accesses the platform is an interesting question, but not insurmountable one.
+Whether these rules apply on a user level, meaning the moderation applies wherever the user happens to be located. Or they apply on an IP level, wherever the user accesses the platform is an interesting question, but not an insurmountable one.
 
 With censorship taken care of two editorial processes remain, labelling and ranking, both of which are less labour intensive and therefore more likely to result in a dynamic middleware market.
 
