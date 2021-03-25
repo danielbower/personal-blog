@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "AlgoTransparency and Middleware"
-date: 2021-03-26
+date: 2021-03-27
 categories:
 ---
 Earlier this week I came across [AlgoTransparency](https://www.algotransparency.org), an interest group founded by Guillaume Chaslot who many people will recognise from The Social Dilemma. AlgoTransparency has commendable aims, they wish to:
