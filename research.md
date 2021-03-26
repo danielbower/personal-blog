@@ -12,7 +12,7 @@ One pretty evident change is the power of "big tech". At the start of 2006 users
 
 - **Interoperability as a regulatory tool**. Mandating the "opening up" of large platforms to provide users with more control over their data and to foster more innovation.
 
-- **Algorithmic power**. The most important algorithms in our day to day lives are controlled by a handful of companies, this is an overt centralisation of power that society must reject.
+- **Algorithm power**. The most important algorithms in our day to day lives are controlled by a handful of companies, this is an overt centralisation of power that society must reject.
 
 - **Kill zones**. There is a growing body of evidence that the presence of "big tech" within a market is stifling innovation due to the vacuum in funding they seem to create.
 
