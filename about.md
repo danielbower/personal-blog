@@ -14,7 +14,7 @@ In 2015 the same team launched Hoop, a platform that connected families with loc
 
 I am currently studying towards a master’s degree in Digital Economy in The Department of Digital Humanities (DDH) at King’s College London.
 
-In my spare time I'm a keen runner, and organise Hackney’s junior parkrun every Sunday in London Fields. I also sits on the board of Picfair, a licensing platform for photography, and have made a handful of other angel investments.
+In my spare time I'm a keen runner, and organise Hackney’s junior parkrun every Sunday in London Fields. I also sit on the board of Picfair, a licensing platform for photography, and have made a handful of other angel investments.
 
 I blog around once a week on a [variety of topics](/archive/), however recently my posts have aligned closely with my [research interests](/research/).
 
@@ -22,4 +22,4 @@ If you'd like to get in touch, please do. Hint: this-domain at gmail.com
 
 ---
 
-_This is a [Jekyll](https://jekyllrb.com/) blog that makes use of the [simple](https://github.com/wild-flame/jekyll-simple) theme by [David Lin](https://github.com/wild-flame)._
+_This is a [Jekyll](https://jekyllrb.com/) blog that makes use of the [simple](https://github.com/wild-flame/jekyll-simple) theme by [David Lin](https://github.com/wild-flame). The entire blog is available to download via [my GitHub](https://github.com/danielbower/)._
