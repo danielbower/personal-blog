@@ -103,7 +103,7 @@ As the founder of Napster, a music sharing website that gained tens of millions 
 
 Fast forward to 2021 and this idea is supported by the fact that, at the time of writing, Facebook is the sixth largest company in the world by market capitalisation and in total eight of the ten largest companies in the world benefit from the underlying generativity of the digital products and service they create (TradingView, 2021). Generativity may make the world of digital entrepreneurship uniquely uncertain, but it also contributes to the creation of huge financial returns.
 
-## What are the arguments against this?
+## NEEDS A HEADING!
 
 My aim for this post was to provide an explanation for a counter intuitive observation: that digital entrepreneurs are undeterred by the increased levels of uncertainty they face when starting a new venture. I’ve argued that there is a duality to Jonathan Zittrain’s theory of technological generativity that explains both where this uncertainty comes from, and how digital entrepreneurs are empowered to overcome it.  
 
