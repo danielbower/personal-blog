@@ -12,7 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Daniel Bower is a product manager and entreprenuer. He blogs around once a week on topics as varied as politics, economics, product management, technology and startups.
 baseurl: # the subpath of your site, e.g. /blog
 url: "https://danielbower.com" # the base hostname & protocol for your site
-twitter_username: danielbower
+twitter_username:
 
 # Build settings
 markdown: kramdown

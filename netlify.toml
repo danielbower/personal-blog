@@ -1,0 +1,23 @@
+[[redirects]]
+  from = "/post/638930666016374784/your-music-not-mine-and-switching-to-tidal"
+  to = "/music/2020/12/30/tidal.html"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "https://suspicious-ritchie-a3d8aa.netlify.app/"
+  to = "https://danielbower.com"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/637161173139259392/private-equity-and-remote-work"
+  to = "/2020/12/10/private-equity-remote-work.html"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "post/634856924010119168/brian-armstrong-and-a-new-surge-of-rational"
+  to = "/2020/11/15/rational-control-silicon-valley.html"
+  status = 301
+  force = false
