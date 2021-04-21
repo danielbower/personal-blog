@@ -64,7 +64,7 @@ Digital products are generative by virtue of their reprogrammable, recombinable 
 
 Digital infrastructure also plays a role in overcoming the uncertainty a generative digital ecosystem creates. Makerspaces and data analytics platforms, for example, enable digital entrepreneurs to find small audiences in order to test their products (Hatch, 2013, cited in Nambisan, 2017). By conducting a series of tests (as opposed to a traditional launch) they can search out product market fit before making use of those same platforms to scale rapidly (Ries, 2011). This same process is also supported by cloud computing, which allows for the horizontal scaling of the computing power necessary to support larger audiences (Nambisan, 2017, p. 1032).
 
-Zittrain argued that generative technology had four features: capacity for leverage; adaptability; ease of mastery and accessibility (Zittrain, 2006, p. 1981). From my brief observations above we can see how digital products, platforms and infrastructure align with each of these features. They provide digital entrepreneurs with set of new set of tools that can be repurposed in a variety of ways; they are unique to the digital ecosystem; and they democratise the entrepreneurial process through their ease of use and widespread adoption ([Aldrich, 2014](http://journals.aom.org/doi/10.5465/ambpp.2014.10622symposium)). In short, the generative capacity of digital technology has created the uncertain environment digital entrepreneurs face, but also provided them with the tools to overcome it.
+Zittrain argues that generative technology has four features: capacity for leverage; adaptability; ease of mastery and accessibility (Zittrain, 2006, p. 1981). From my brief observations above we can see how digital products, platforms and infrastructure align with each of these features. They provide digital entrepreneurs with set of new set of tools that can be repurposed in a variety of ways; they are unique to the digital ecosystem; and they democratise the entrepreneurial process through their ease of use and widespread adoption ([Aldrich, 2014](http://journals.aom.org/doi/10.5465/ambpp.2014.10622symposium)). In short, the generative capacity of digital technology has created the uncertain environment digital entrepreneurs face, but also provided them with the tools to overcome it.
 
 ## Network effects, disruption and moats
 
@@ -140,7 +140,7 @@ Huang, J. et al. (2017) Growing on Steroids: Rapidly Scaling the User Base of Di
 
 Hull, C. E. et al. (2007) Taking advantage of digital opportunities: a typology of digital entrepreneurship. *International Journal of Networking and Virtual Organisations*. 4 (3). [Online]. Available from: <http://www.inderscience.com/link.php?id=15166>(Accessed 30 March 2021).
 
-Kirkpatrick, D. (n.d.) With a Little Help From His Friends. *Vanity Fair*. [Online]. Available from: <https://www.vanityfair.com/culture/2010/10/sean-parker-201010> (Accessed 30 March 2021).
+Kirkpatrick, D. (2010) With a Little Help From His Friends. *Vanity Fair*. [Online]. Available from: <https://www.vanityfair.com/culture/2010/10/sean-parker-201010> (Accessed 30 March 2021).
 
 McKelvie, A. et al. (2011) Unpacking the uncertainty construct: Implications for entrepreneurial action. *Journal of Business Venturing*. 26 (3), 273–292. [Online]. Available from: <https://linkinghub.elsevier.com/retrieve/pii/S0883902609001062> (Accessed 25 March 2021).
 
