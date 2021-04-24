@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "Generativity, uncertainty and digital entrepreneurship"
-date: 2021-04-21
+date: 2021-04-19
 categories:
 ---
 ---
@@ -9,11 +10,11 @@ categories:
 
 ---
 
-In 2006 The Harvard Law Review published Jonathan Zittrain’s seminal paper on [The Generative Internet](https://dash.harvard.edu/handle/1/9385626). In it Zittrain explains how technological generativity – put simply, technology’s capacity for unprompted change – has been a driving force behind many of the innovations we rely on today (Zittrain, 2006, p. 1980). Since its publication the concept of technological generativity has been discussed by a diverse field of scholars. However, it is within the domain of digital entrepreneurship that it first caught my eye, no doubt a product of my own time as a digital entrepreneur.
+In 2006 The Harvard Law Review published Jonathan Zittrain’s seminal paper on [The Generative Internet](https://dash.harvard.edu/handle/1/9385626). In it Zittrain explains how technological generativity – put simply, technology’s capacity for unprompted change – has been a driving force behind many of the innovations we rely on today (Zittrain, 2006, p. 1980). Since its publication the concept of technological generativity has been discussed by a diverse field of scholars. However, it's within the domain of digital entrepreneurship that it first caught my eye, no doubt a product of my own time as a digital entrepreneur.
 
-One example comes from [Satish Nambisan’s 2017 paper](https://journals.sagepub.com/doi/10.1111/etap.12254) paper that details how the generative nature of digital technology is one of the reasons digital entrepreneurship is uniquely affected by uncertainty. If networked technology is capable of unprompted change, it becomes harder for digital entrepreneur’s to control the trajectory of the products and services they create (Nambisan, 2017). This idea caught my attention as it is widely known that tech startups (in many countries at least) are living through a moment of record investment ([Tech Nation, 2021](https://technation.io/report2021)). And, if it’s common sense that greater uncertainty leads to a decline in the propensity for entrepreneurial action ([McKelvie et al., 2011, p. 274](https://linkinghub.elsevier.com/retrieve/pii/S0883902609001062)), what then is enabling digital entrepreneurs to overcome apparent contradiction?
+One example comes from [Nambisan’s 2017 paper](https://journals.sagepub.com/doi/10.1111/etap.12254) paper that details how the generative nature of digital technology is one of the reasons digital entrepreneurship is uniquely affected by uncertainty. If networked technology is capable of unprompted change, it becomes harder for digital entrepreneur’s to control the trajectory of the products and services they create (Nambisan, 2017). This idea caught my attention as it's widely known that tech startups are living through a moment of record investment ([Tech Nation, 2021](https://technation.io/report2021)). And, if it’s common sense that greater uncertainty leads to a decline in the propensity for entrepreneurial action ([McKelvie et al., 2011, p. 274](https://linkinghub.elsevier.com/retrieve/pii/S0883902609001062)), what then is enabling digital entrepreneurs to overcome apparent contradiction?
 
-In this blog post I will argue that the generative forces contributing to this entrepreneurial uncertainty are also the forces that enable digital entrepreneurs to overcome it. In the first half I will briefly review the nature of uncertainty within entrepreneurship, before introducing the concept of generativity and explaining how it creates a uniquely uncertain environment for digital entrepreneurs. In the second half I will explain how generativity contributes to new affordances that motivates digital entrepreneurs and enables them to succeed.
+In this post I will argue that the generative forces contributing to this entrepreneurial uncertainty are also the forces that enable digital entrepreneurs to overcome it. In the first half I will briefly review the nature of uncertainty within entrepreneurship, before introducing the concept of generativity and explaining how it creates a uniquely uncertain environment for digital entrepreneurs. In the second half I will explain how generativity contributes to new affordances that motivates digital entrepreneurs and enables them to succeed.
 
 ## The role of uncertainty within entrepreneurship
 
@@ -27,9 +28,9 @@ With all of this in mind it’s unsurprising that uncertainty is a regular featu
 
 This post is specifically concerned with the nature of uncertainty within digital entrepreneurship. With that in mind it’s worth briefly unpacking by what I mean by digital entrepreneurship before moving on.
 
-In simple terms digital entrepreneurship is a sub-categorisation of entrepreneurship that differs from the traditional form in that a significant part of the business process has been digitised ([Hull at al., 2007](http://www.inderscience.com/link.php?id=15166)). However, a definition as wide as this would include companies who, for example, had digitised internal processes but not digitised any of their customer facing components. While there is no doubt that these companies should still be considered “digital” it’s important to clarify that for the purpose of this post I am concerned with digital ventures that produce digital products and services for use by their customers.
+In simple terms digital entrepreneurship is a sub-categorisation of entrepreneurship that differs from the traditional form in that a significant part of the business process has been digitised ([Hull at al., 2007](http://www.inderscience.com/link.php?id=15166)). However, a definition as wide as this would include companies who, for example, had digitised internal processes but not digitised any of their customer facing components. While there is no doubt that these companies should still be considered “digital” it’s important to clarify that for the purpose of this post I am concerned with ventures that produce digital products and services for use by their customers.
 
-Digital entrepreneurship, in which digital ventures launch digital products and services, is a domain uniquely affected by uncertainty (Nambisan, 2017). At the root of this observation is the generative nature of the digital artefacts being created by digital entrepreneurs (Huang et al., 2017). Generativity means that they can evolve in an unpredictable fashion and outside of the control of their creator (Zittrain, 2006, p. 1980). Put another way, when a digital entrepreneur launches a new digital product or service, its underlying generativity will lead to change that the entrepreneur will not have been able to predict or control.
+Digital entrepreneurship, in which digital ventures launch digital products and services, is a domain uniquely affected by uncertainty (Nambisan, 2017). At the root of this observation is the generative nature of the digital artefacts being created by digital entrepreneurs (Huang et al., 2017). Generativity means that they can evolve in an unpredictable fashion and outside of the control of their creator (Zittrain, 2006, p. 1980). Put another way, when a digital entrepreneur launches a new digital product, it's underlying generativity will lead to change that the entrepreneur will not have been able to predict or control.
 
 Nambisan (2017) synthesises these ideas and offers two observations about the nature of uncertainty within digital entrepreneurship. First, that the introduction of digital technology to the entrepreneurial process has made outcomes less bounded. This is driven by products that are *“incomplete and in a state of flux”*, themselves impacted by other digital artefacts and the capability of digital platform owners to infuse new generative potential into the products that make use of them (Nambisan, 2017, p. 1033). Second, that digital technology makes the role of the entrepreneur less predefined than traditional entrepreneurship, as it introduces a network of actors who have varying goals and motives and yet contribute to the same initiative (Nambisan, 2017).
 
@@ -37,7 +38,7 @@ It is evident that, when compared to the traditional image of an entrepreneur, t
 
 ## Generative potential
 
-For the remainder of this blog post I will argue that, as well as being a key contributor to entrepreneurial uncertainty, the generative nature of digital technology supports digital entrepreneurs in four important ways. However, before I introduce these observations, it is worth returning to Zittrain’s paper briefly.
+For the remainder of this blog post I will argue that, as well as being a key contributor to entrepreneurial uncertainty, the generative nature of digital technology supports digital entrepreneurs in four important ways. However, before I introduce these observations, it's worth returning to Zittrain’s paper briefly.
 
 While Zittrain’s paper has informed to our understanding of uncertainty within digital entrepreneurship, the original intention of the paper was to point out the power of generative technology, a force that had contributed to the:
 
@@ -63,7 +64,7 @@ Digital products are generative by virtue of their reprogrammable, recombinable 
 
 Digital infrastructure also plays a role in overcoming the uncertainty a generative digital ecosystem creates. Makerspaces and data analytics platforms, for example, enable digital entrepreneurs to find small audiences in order to test their products (Hatch, 2013, cited in Nambisan, 2017). By conducting a series of tests (as opposed to a traditional launch) they can search out product market fit before making use of those same platforms to scale rapidly (Ries, 2011). This same process is also supported by cloud computing, which allows for the horizontal scaling of the computing power necessary to support larger audiences (Nambisan, 2017, p. 1032).
 
-Zittrain argued that generative technology had four features: capacity for leverage; adaptability; ease of mastery and accessibility (Zittrain, 2006, p. 1981). From my brief observations above we can see how digital products, platforms and infrastructure align with each of these features. They provide digital entrepreneurs with set of new set of tools that can be repurposed in a variety of ways; they are unique to the digital ecosystem; and they democratise the entrepreneurial process through their ease of use and widespread adoption ([Aldrich, 2014](http://journals.aom.org/doi/10.5465/ambpp.2014.10622symposium)). In short, the generative capacity of digital technology has created the uncertain environment digital entrepreneurs face, but also provided them with the tools to overcome it.
+Zittrain argues that generative technology has four features: capacity for leverage; adaptability; ease of mastery and accessibility (Zittrain, 2006, p. 1981). From my brief observations above we can see how digital products, platforms and infrastructure align with each of these features. They provide digital entrepreneurs with set of new set of tools that can be repurposed in a variety of ways; they are unique to the digital ecosystem; and they democratise the entrepreneurial process through their ease of use and widespread adoption ([Aldrich, 2014](http://journals.aom.org/doi/10.5465/ambpp.2014.10622symposium)). In short, the generative capacity of digital technology has created the uncertain environment digital entrepreneurs face, but also provided them with the tools to overcome it.
 
 ## Network effects, disruption and moats
 
@@ -115,7 +116,7 @@ I should note that observing generativity’s duality is not a new idea. My argu
 
 One of the challenges I have faced while researching for this post is finding many notable criticisms of Zittrain’s work. On one level this in itself is a criticism of his ideas, a good theory should hold against critique after all. But this too may be a byproduct of the theory’s simple elegance, as David Post notes in his review Zittrain’s 2008 book:
 
- > *“Stating  the  obvious”—articulating  a  proposition  in  such  a  way that (pretty much) everyone involved in the discussion agrees that it is obvious—moves  discussion  and  debate  forward  in  constructive ways ([Post, 2010, p. 104](http://ssrn.com/abstract=165076)).*
+ > *“Stating  the  obvious”—articulating  a  proposition  in  such  a  way that (pretty much) everyone involved in the discussion agrees that  obvious—moves  discussion  and  debate  forward  in  constructive ways ([Post, 2010, p. 104](http://ssrn.com/abstract=165076)).*
 
 I wouldn’t expect this blog post to be met with such high praise, however, I too hope that the strength of my argument lies in the relative simplicity of what I have observed.
 
@@ -139,7 +140,7 @@ Huang, J. et al. (2017) Growing on Steroids: Rapidly Scaling the User Base of Di
 
 Hull, C. E. et al. (2007) Taking advantage of digital opportunities: a typology of digital entrepreneurship. *International Journal of Networking and Virtual Organisations*. 4 (3). [Online]. Available from: <http://www.inderscience.com/link.php?id=15166>(Accessed 30 March 2021).
 
-Kirkpatrick, D. (n.d.) With a Little Help From His Friends. *Vanity Fair*. [Online]. Available from: <https://www.vanityfair.com/culture/2010/10/sean-parker-201010> (Accessed 30 March 2021).
+Kirkpatrick, D. (2010) With a Little Help From His Friends. *Vanity Fair*. [Online]. Available from: <https://www.vanityfair.com/culture/2010/10/sean-parker-201010> (Accessed 30 March 2021).
 
 McKelvie, A. et al. (2011) Unpacking the uncertainty construct: Implications for entrepreneurial action. *Journal of Business Venturing*. 26 (3), 273–292. [Online]. Available from: <https://linkinghub.elsevier.com/retrieve/pii/S0883902609001062> (Accessed 25 March 2021).
 
