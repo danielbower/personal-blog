@@ -26,7 +26,7 @@ What is so nightmarish about Bentham's design is the totality of it. The prisone
 
 One of the things that often gets over looked when discussing the Panopticon is that Bentham was, in part, interested in the question of who guards the guards? James Crimmins explains how, to this end, Bentham developed "the inspection principle" that would ensure that the warden and their subordinates would be subject to public observation from time to time. Bentham thought the close observation of the prisoner would help root our bad behaviour, but he recognised that this went both ways. If the guards weren't watched as well, what was to stop them acting irresponsibly? <a id="ref2" href="#ftn2"><sup>2</sup></a>
 
-The complete failure of governments around the world to successfully regulate social media suggests that 400 years on from Bentham and we're still struggling with the guards problem. What is more, given the hugely complex issues surrounding the safe implementation of digital worlds. And a business model that ties time spent online with profit so ruthlessly. It feels to me like we should be both concerned by Meta's expansion into the metaverse, and reject the notion that they can govern themselves effectively.
+The complete failure of governments around the world to successfully regulate social media suggests that 200 years on from Bentham and we're still struggling with the guards problem. What is more, given the hugely complex issues surrounding the safe implementation of digital worlds. And a business model that ties time spent online with profit so ruthlessly. It feels to me like we should be both concerned by Meta's expansion into the metaverse, and reject the notion that they can govern themselves effectively.
 
 ---
 
