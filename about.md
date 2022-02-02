@@ -2,6 +2,7 @@
 layout: page
 permalink: /about/
 title: About
+og: "Daniel Bower is a product manager and entrepreneur living in London."
 ---
 
 I'm Dan, a product manger and entrepreneur originally from Birmingham in the UK and now living in Hackney with my partner, son and daughter.
