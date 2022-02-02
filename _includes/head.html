@@ -6,14 +6,13 @@
 
   <title>
 
-    {% if page.permalink == "/about/" %}Daniel Bower – {% endif %}
-    {% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
+    {% if page.permalink == "/about/" %}Daniel Bower – {% endif %}{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}
 
   </title>
 
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="description" content="{{ page.og }}">
   <meta property="og:title" content="{{ page.title }}" />
-  <meta property="og:description" content=" {{ page.excerpt }}" />
+  <meta property="og:description" content=" {{ page.og }}" />
 
   <!-- Plausible Analytics -->
 

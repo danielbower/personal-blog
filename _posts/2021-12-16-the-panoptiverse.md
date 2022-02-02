@@ -3,7 +3,7 @@ layout: post
 title:  "The Panoptiverse"
 date: 2021-12-16
 categories:
-excerpt: "Facebook, the metaverse and the social media Panopticon."
+og: "Facebook, the metaverse and the social media Panopticon."
 ---
 Shortly after the Facebook Connect keynote, the one where Zuckerberg introduced Meta and their vision for the Metaverse to the world, a meme did the rounds:
 
