@@ -3,7 +3,7 @@ layout: post
 title:  "The Perpetual Job Hunt"
 date: 2022-02-02
 categories:
-og: "Job hunting shouldn't be a mode, you should always be looking for a new job"
+og: "You should always be hunting for a new job."
 ---
 Yesterday I read an interesting post from [Alex Chesser on job hunting](https://alexchesser.medium.com/career-advice-nobody-gave-me-never-ignore-a-recruiter-4474eac9556). After reading [I   followed up with a few tweets](https://twitter.com/danielbower/status/1488615110449012741), specifically responding to this point in the post which I thought was spot on:
 
