@@ -6,7 +6,7 @@ categories:
 ---
 ---
 
-*This post has been submitted as part of an assessment for [my master's degree]({%- post_url 2020-09-09-digital-economy-msc -%}).*
+*This post was submitted as part of an assessment for my master's degree. You may also be interested in reading my [master's research](/music-streaming-venture-capital-kill-zones).*
 
 ---
 
