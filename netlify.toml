@@ -21,3 +21,9 @@
   to = "/2020/11/15/rational-control-silicon-valley.html"
   status = 301
   force = false
+
+  [[redirects]]
+    from = "/research/"
+    to = "/kill-zones-music-streaming-venture-capital/"
+    status = 301
+    force = false
