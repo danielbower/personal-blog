@@ -1,0 +1,31 @@
+---
+layout: default
+title: Daniel Bower
+permalink: /testing-testing/
+---
+
+<div>
+    <h1>My name is Daniel Bower. I am an entrepreneur and student of political economy.
+    <h1>I blog about the evolving power of big tech.</h1>
+  
+    <p>Read more about me, subscribe to my blog via RSS or follow me on Twitter. Oh and thanks for stopping by.</p>
+  
+    <h4>Latest Posts</h4>
+    
+  {% for post in site.posts limit:5%}
+  
+  <article class="post_card post">
+    <header class="post_header">
+      <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
+      <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
+    </header>
+  
+  {% endfor %}
+
+</div>
+
+<div>
+    
+    <a href="./archive/">Blog Archive</a>
+
+</div>
