@@ -1,21 +1,18 @@
 ---
-layout: default
-title: Daniel Bower – Archive
-permalink: /archive/
+layout: page
+permalink: /today-i-learned/
+title: Today I Learned
+og: "TIL blog posts from Daniel Bower."
 ---
 
 <div>
 
-  <h2>Archive</h2>
-
-  <p>I have been blogging since 2004 using various different domains and publishing platforms – hands up if you remember Typepad?!</p>
-
-  <p>I blog about anything that takes my fancy, however recently my posts have tended to focus on political economy and startups, ideally a combination of the two. This focus stems from my time running startups and my recent <a href="/music-streaming-venture-capital-kill-zones/">master's research</a>.</p>
+  <p>I have found that publishing my thoughts, and therefore capturing them in a way that another person could understand, to be very effective way of both retaining knowledge and better understading my subject matter. These TIL or 'Today I Learned' posts are all examples of this practice and are very much inspiried by <a href="https://simonwillison.net/2022/Nov/6/what-to-blog-about/">an original post from Simon Willison</a></p>
 
   <hr>
 
   <section class="archive_list">
-  {% for post in site.posts %}
+  {% for post in site.categories['Today I Learned'] %}
   <div class="post_title">
   <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
   <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
@@ -45,5 +42,5 @@ permalink: /archive/
   </section>
 
   -->
-
+  
   </div>
