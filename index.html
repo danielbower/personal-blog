@@ -4,60 +4,37 @@ title: Daniel Bower
 og: "The personal blog of Daniel Bower"
 ---
 
-<div class="home">
-  <div class="post-list">
+<div>
+    <h1 style = "font-weight: bold">Hi, my name is Dan. I am an entrepreneur and student of political economy living in London. </h1?>
+        
+    <hr/>
+        
+        <h3>I mostly blog about "big tech" – its origin and evolution.</h3>
+  
+            <p>I recently completed research at King's College into <a href="/music-streaming-venture-capital-kill-zones/">venture financing kill zones</a>.  I am Mentor at <a href="https://seedcamp.com">Seedcamp</a> and sit on the board of two startups.</p> 
+    
+            <p>You can read more <a href="/about/">about me</a>, subscribe to my blog via RSS or <a href="https://twitter.com/danielbower">follow me on Twitter</a>.</p> 
+        
+            <p>Thanks for stopping by!</p>
+    
+    <hr/>
+  
+    <h3>Latest Posts</h3>
+    
+  {% for post in site.posts limit:5%}
+  
+  <article class="post_card post">
+    <header class="post_header">
+      <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
+      <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
+    </header>
+  
+  {% endfor %}
 
-    {% for post in site.posts limit:5%}
+</div>
 
-    <article class="post_card post">
-      <header class="post_header">
-        <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
-        <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
-      </header>
-      <div class="post_excerpt">
-        <p>
-          {% if post.description %}
-          {{ post.description}}
-          {% else %}
-          {{ post.excerpt }}
-          {% endif %}
-          <!--- <a class="read-more" href="{{ post.url | prepend: site.baseurl }}"> »  </a> --->
-        </p>
-      </div>
-      <footer class="post_meta">
+<div>
+    
+    <a href="./archive/">Archive</a>
 
-
-        {% if post.location %}
-        <span class="author-location">
-          <div data-icon="ei-location"></div>
-          <a href=https://www.google.com/maps/place/{{post.location}}">{{ post.location }}</a>
-        </span>
-        {% endif %}
-        <!--
-        {% for category in post.categories %}
-        <a href="{{"/category/" | append: category | prepend: site.baseurl }}">
-          <data data-icon="ei-archive"></data>
-          {{category}}</a>
-        {% endfor %}
-        -->
-
-        <!--
-        {% if post.author %}
-        <span class="author_meta">
-          <img src="{{site.baseurl}}/assets/img/{{post.author}}.jpg"></img>
-          <span>David Lin</span>
-        </span>
-        {% endif %}
-        -->
-
-        <!--p class="readmore">
-          <a href=""><data data-icon="ei-arrow-right"></data>Read this article  </a>
-        </p-->
-      </footer>
-      <hr/>
-    </article>
-    {% endfor %}
-
-    <div class="pagination older-post"><a href="./archive/">Archive</a></div>
-  </div>
 </div>

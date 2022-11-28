@@ -15,9 +15,9 @@ In 2015 the same team launched Hoop, a platform that connected families with loc
 
 I have recently completed a master's degree at The Department of Digital Humanities (DDH), King's College London where I looked into the relationship between monopolies and innovation, specifically, if the presence of large technology platforms reduces the flow of venture capital funding into startups operating in similar markets. For the purpose of my research, I examined venture financing for music and audio startups in North America and Europe and also conducted the first academic interviews with VCs from both continents. You can read my research on [venture capital kill zones](/music-streaming-venture-capital-kill-zones/) in full on this blog.
 
-In my spare time I'm a keen runner, and organise Hackney’s junior parkrun every Sunday in London Fields. I sit on the board of Picfair, a licensing platform for photography, and have made a handful of other angel investments.
+In my spare time I'm a keen runner, mentor at Seedcamp and sit on the board of two startups.
 
-I blog on a [variety of topics](/archive/), however the focus tends to be startups and political economy, ideally a combination of the two!
+The current focus of this blog is the power of big tech, specifically its origins and society's evolving response. It's been up and running since 2004 and in that time I have posted on a [variety of topics](/archive/).
 
 If you'd like to get in touch, please do. Hint: my name at gmail dot com.
 

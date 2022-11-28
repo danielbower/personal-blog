@@ -5,9 +5,21 @@ layout: default
 
   <header class="article_header">
     <h1 class="article_title" itemprop="name headline">{{ page.title }}</h1>
-    <p class="article_meta"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%e %B, %Y" }}</time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+    <p class="article_meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%e %B, %Y" }}</time>
+        
+        {% if post %}
+        {% assign categories = post.categories %}
+        {% else %}
+        {% assign categories = page.categories %}
+        {% endif %}
+        {% for category in categories %}
+        • <a href="{{site.baseurl}}/{{category|slugify}}">{{category}}</a>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+        {% endfor %}
+        
   </header>
-
+  
   <div class="article-content" itemprop="articleBody">
     {{ page.content }}
   </div>
