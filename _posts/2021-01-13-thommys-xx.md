@@ -2,7 +2,7 @@
 layout: post
 title:  "The Thommy's XX"
 date: 2021-01-13
-categories: thommys
+categories:
 ---
 
 > _Every year my friend Thom hosts a year-in-review group newsletter called [The Thommy’s](https://groups.google.com/g/the-thommys). Forty questions on music, movies, films, book and other bits of pop culture. I’ve been taking part since 2006._
