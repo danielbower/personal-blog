@@ -24,4 +24,4 @@ Similarly, when Thompson says...
 
 There has been junk content for as long as humans have been able to publish it. It was a problem in my pre-Internet school years, and in the quarter of a century since then humans have proven themselves adept at creating even more of it.
 
-No doubt text systhesis models create will produce ever more junk at the direction of its human users. But, despite how the emergence of ChatGPT might make it appear, the need to be trained in the methods of spotting junk is a problem of today, not one of the future.
+No doubt text systhesis models will create will produce ever more junk at the direction of its human users. But, despite how the emergence of ChatGPT might make it appear, the need to be trained in the methods of spotting junk is a problem of today, not one of the future.
