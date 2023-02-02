@@ -12,7 +12,7 @@ og: "What Are Big Tech Kill Zones?"
 
 ---
 
-The origin of the term "kill zone" – with regard to startups, big tech and venture financing that is – can be pinpointed pretty easily. In 2018 Albert Wegner of Union Square Ventures was part of [a panel on startups and innocation](https://youtu.be/8icWaFFmehg) as part of an antitrust series being run by the University of Chicago's Stigler Centre. While talking about some of the problems large digitial platforms create, Wegner mentioned that when in discussion with another investor about their investment strategies they said they were:
+The origin of the term "kill zone" – with regard to startups, big tech and venture financing that is – can be pinpointed pretty easily. In 2018 Albert Wegner of Union Square Ventures was involved in [a panel on startups and innovation](https://youtu.be/8icWaFFmehg) as part of an antitrust series being run by the University of Chicago's Stigler Centre. While talking about some of the problems large digitial platforms create, Wegner mentioned that, when in discussion with another investor about their investment strategies, they said they were:
 
 > ...only investing in things that are not in the Facebook, Amazon, Apple, Google kill zone.
 
