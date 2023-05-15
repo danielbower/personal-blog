@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "Back on Spotify"
-date: 2014-05-12  
+date: 2014-05-12
 categories:
 ---
-About a year ago [I gave Spotify a hard time about some features that it lacked](% {%- post_url 2013-03-24-switching-to-rdio -%}). I stayed true to my word and have remained a die hard Rdio user
+About a year ago [I gave Spotify a hard time about some features that it lacked]({%- post_url 2013-03-24-switching-to-rdio -%}). I stayed true to my word and have remained a die hard Rdio user
 
 Spotify has always had many advantages over Rdio: its catalogue is better; it’s faster; and more of my friends use it, it’s more ‘social.’ But as a way to organise music it’s always lacked behind Rdio and that’s why I stayed away.
 
