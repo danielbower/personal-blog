@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Switching to Rdio"
-date: 2013-03-24  
+date: 2013-03-24
 categories:
 ---
 Over the last week or so I’ve been testing our Rdio, motivated by [my frustration at the way Spotify handles albums]({% post_url 2013-03-13-the-problem-with-albums-spotify %}), but also because recent Spotify updates have got to me. Too much focus on the social features and not enough on the core experience - Daniel Ek is evidently a great business man but I have no interest in his music taste. Nor that of Justin Beiber or Katy Perry, seriously what is going on with those recommendations?

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Solving wireless audio"
-date: 2013-10-16  
+date: 2013-10-16
 categories:
 ---
 The answer to the title of the post is often “Sonos + Spotify.” The Spotify piece of this is all well and good - although I use Rdio - and in some circumstances the Sonos part is too, for your TV. But if like me you have an amp, a CD player and hand built speakers, you’ll want to make sure you’re making the most out of them too.
