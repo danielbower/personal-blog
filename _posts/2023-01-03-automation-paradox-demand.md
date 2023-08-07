@@ -2,7 +2,6 @@
 layout: post
 title:  "The Automation Paradox and Demand"
 date: 2023-01-03
-categories: [Today I Learned]
 og: "The Automation Paradox and Demand"
 ---
 

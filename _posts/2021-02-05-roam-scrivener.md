@@ -2,7 +2,6 @@
 layout: post
 title:  "Using Roam and Scrivener"
 date: 2021-02-05
-categories: [Today I Learned]
 ---
 UPDATE: It appears that in order for this to work correctly you need to have your [Roam instance set to public](https://www.roamstack.com/roam-data-outside-roam/#shared-databases-walkthrough-public-db). Following [a conversation with someone in tech support at Literature and Latte](https://www.literatureandlatte.com/forum/viewtopic.php?p=331361#p331361) (the team behind Scrivener) I was told that their web page files are "not able to handle authentication" and will error if the page you link to is not publicly viewable.
 

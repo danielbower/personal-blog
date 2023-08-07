@@ -1,46 +1,23 @@
 ---
 layout: page
-permalink: /new-ideas/
-title: New Ideas
+permalink: /link-rolling/
+title: Link Rolling
 og: "New ideas uncovered by Daniel Bower."
 ---
 
 <div>
 
-  <p>In the spirit of my TIL, or <a href="/today-i-learned/">Today I Learned</a>, posts, I've decided to create a new category for my blog called 'New Ideas'. Like my TIL posts the posts here are primarily to support my own learning. However, where TILs tend to be more technical in nature, these posts will concern new ways of thinking about the past, present and future. They aren't things I have <em>learnt</em> per se, just new ways of looking at the world that caught my attention.
+  <p>Links I find interesting along with some brief commentary.</p>
 
   <hr>
 
   <section class="archive_list">
-  {% for post in site.categories['New Ideas'] %}
+  {% for post in site.categories['Link Rolling'] %}
   <div class="post_title">
   <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
   <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
   </div>
   {% endfor %}
   </section>
-
-  <!-- ORIGINAL THEME LAYOUT
-
-  <section class="archive_list">
-    {% for category in site.categories %}
-
-    <div class="category-name">
-      <h2>{{ category | first }}</h2>
-    </div>
-    {% for post in category.last %}
-
-    <div class="post_title">
-      <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-      <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
-    </div>
-
-    {% endfor %}
-
-    {% endfor %}
-
-  </section>
-
-  -->
 
   </div>
