@@ -13,11 +13,13 @@ In 2008, along with Duncan Jennings, Max Jennings and Richard Foister I founded 
 
 In 2015 the same team launched Hoop, a platform that connected families with local activity organisers. Hoop was twice voted an ‘App of the Year’ by Apple. It was installed over 1.5M times and its tools were used by over 5,000 small businesses to manage schedules, handle bookings and take payment. Hoop was closed in the summer of 2020.
 
-I have recently completed a master's degree at The Department of Digital Humanities (DDH), King's College London where I looked into the relationship between monopolies and innovation, specifically, if the presence of large technology platforms reduces the flow of venture capital funding into startups operating in similar markets. For the purpose of my research, I examined venture financing for music and audio startups in North America and Europe and also conducted the first academic interviews with VCs from both continents. You can read my research on [venture capital kill zones](/music-streaming-venture-capital-kill-zones/) in full on this blog.
+In 2021 I completed a master's degree at The Department of Digital Humanities (DDH), King's College London where I looked into the relationship between monopolies and innovation, specifically, if the presence of large technology platforms reduces the flow of venture capital funding into startups operating in similar markets. You can read my research on [venture capital kill zones](/music-streaming-venture-capital-kill-zones/) in full on this blog.
+
+In 2022 along with Harriet Matheson and Nicola Carr I founded [Jetty](https://jetty.co.uk). A recruitment platform that aims to reimagine how we codify professional skills and experience.
 
 In my spare time I'm a keen runner, mentor at Seedcamp and sit on the board of two startups.
 
-The current focus of this blog is the power of big tech, specifically its origins and society's evolving response. It's been up and running since 2004 and in that time I have posted on a [variety of topics](/archive/).
+This blog has been up and running since 2004. I post on a [wide variety of topics](/archive/).
 
 If you'd like to get in touch, please do. Hint: my name at gmail dot com.
 

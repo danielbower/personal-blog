@@ -2,7 +2,6 @@
 layout: post
 title:  "The Powell Memorandum"
 date: 2022-11-19
-categories: [Today I Learned]
 og: "The Powell Memoradum"
 ---
 
