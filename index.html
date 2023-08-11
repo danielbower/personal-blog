@@ -5,36 +5,40 @@ og: "The personal blog of Daniel Bower"
 ---
 
 <div>
-    <h1 style = "font-weight: bold">Hi, my name is Dan. I am an entrepreneur and student living in London. </h1>
-        
-    <hr/>
-        
-        <h3>I like to blog about the political economy of innovation, startups and big tech.</h3>
-  
-            <p>I recently completed research at King's College into <a href="/music-streaming-venture-capital-kill-zones/">venture financing kill zones</a>.  I am Mentor at <a href="https://seedcamp.com">Seedcamp</a> and sit on the board of two startups.</p> 
-    
-            <p>You can read more <a href="/about/">about me</a>, subscribe to my blog via RSS or <a href="https://twitter.com/danielbower">follow me on Twitter</a>.</p> 
-        
-            <p>Thanks for stopping by!</p>
-    
-    <hr/>
-  
+    <h1 style="font-weight: bold">Hi, my name is Dan. I am an entrepreneur and student living in London. </h1>
+
+    <hr />
+
+    <h3>I like to blog about the political economy of innovation, startups and big tech.</h3>
+
+    <p>I recently completed research at King's College into <a
+            href="/music-streaming-venture-capital-kill-zones/">venture financing kill zones</a>. I am Mentor at <a
+            href="https://seedcamp.com">Seedcamp</a> and sit on the board of two startups.</p>
+
+    <p>You can read more <a href="/about/">about me</a>, subscribe to my blog via RSS or <a
+            href="https://twitter.com/danielbower">follow me on Twitter</a>.</p>
+
+    <p>Thanks for stopping by!</p>
+
+    <hr />
+
     <h3>Latest Posts</h3>
-    
-  {% for post in site.posts limit:5%}
-  
-  <article class="post_card post">
+
+    {% for post in site.posts limit:7%}
+    {% unless post.title == "Link Roll" %}
     <header class="post_header">
-      <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a></h2>
-      <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
+        <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{
+                post.title}}</a></h2>
+        <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
     </header>
-  
-  {% endfor %}
+
+    {% endunless %}
+    {% endfor %}
 
 </div>
 
 <div>
-    
+
     <a href="./archive/">Archive</a>
 
 </div>
