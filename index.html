@@ -25,7 +25,7 @@ og: "The personal blog of Daniel Bower"
     <h3>Latest Posts</h3>
 
     {% for post in site.posts limit:7%}
-    {% unless post.title == "Link Roll" %}
+    {% unless post.title == "Link roll" %}
     <header class="post_header">
         <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{
                 post.title}}</a></h2>

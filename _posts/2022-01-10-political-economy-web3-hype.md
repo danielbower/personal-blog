@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "The Political Economy of Web3 Hype"
+title: "The political economy of web3 hype"
 date: 2022-01-07
 categories:
+og: "The political economy of web3 hype"
 ---
 Like many technology enthusiasts I have watched the hype surrounding web3 build with interest. I have found it particularly interesting to read often opposing takes from people I admire and trust. This short-ish essay (it clocks in at ~1,200 words) is not an attempt to convince you about web3 in either direction. I am wholly unqualified to do that. The question that I want to try and answer is, what are the forces driving the hype we are witnessing?
 

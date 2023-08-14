@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Panoptiverse"
+title: "The Panoptiverse"
 date: 2021-12-16
 categories:
 og: "Facebook, the metaverse and the social media Panopticon."

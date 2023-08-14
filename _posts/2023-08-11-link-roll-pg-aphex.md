@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Link Roll"
+title: "Link roll"
 date: 2023-08-11
 categories: [Link Rolling]
-og: "Interesting Links from Daniel Bower for 11th of August 2023"
+og: "Interesting links from Daniel Bower for 11th of August 2023"
 ---
 
 → [Paul Graham on Ambition, Art and Evaulating Talent](https://conversationswithtyler.com/episodes/paul-graham/)

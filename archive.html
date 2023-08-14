@@ -19,7 +19,7 @@ permalink: /archive/
 
     <section class="archive_list">
         {% for post in site.posts %}
-        {% unless post.title == "Link Roll" %}
+        {% unless post.title == "Link roll" %}
         <div class="post_title">
             <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
             <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Social Media and Middleware"
+title:  "Social media and middleware"
 date: 2021-03-09
 categories:
 ---

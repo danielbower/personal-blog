@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "AI Content and Critical Thinking"
+title: "AI content and critical thinking"
 date: 2022-12-05
 categories:
-og: "AI Content and Critical Thinking"
+og: "AI content and critical thinking"
 ---
 
 When I was in year nine at school (around the age of 14) I recall an English class in which the teacher encouraged us ask questions of the article we were reading. What does the writer think about this issue? How are they presenting the data? Do they consider the other side of the argument? What is the agenda on the publisher? She was asking us to think critically about the source material, and it had, as you can probably gather given that it was 25 years ago, an effect on me.
@@ -12,7 +12,7 @@ I was reminded of this lesson when reading [Ben Thompson's thoughful piece on Ch
 
 > The solution will be to start with Internet assumptions, which means abundance, and choosing Locke and Montesquieu over Hobbes: instead of insisting on top-down control of information, embrace abundance, and entrust individuals to figure it out. In the case of AI, don’t ban it for students — or anyone else for that matter; leverage it to create an educational model that starts with the assumption that content is free and the real skill is editing it into something true or beautiful; only then will it be valuable and reliable.
 
-I appears to me, however, that much of this has already come to pass. 
+I appears to me, however, that much of this has already come to pass.
 
 On the abundance of information, well, the present is already awash with content of minimal value or that is patently false. It won't take you long to find publicly traded companies publishng mundanities in order to aribtrage clicks. Or, to find vast swathes of information that is, at best, nonsense, at worst, deliberately false, on social media.
 

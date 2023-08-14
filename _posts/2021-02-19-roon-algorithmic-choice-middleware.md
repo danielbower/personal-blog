@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Roon, Algorithmic Choice and Platform Middleware"
+title:  "Roon, algorithmic choice and platform middleware"
 date: 2021-02-19
 categories:
 ---

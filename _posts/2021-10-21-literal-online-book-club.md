@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Literal and some thoughts on online book clubs"
+title: "Literal and some thoughts on online book clubs"
 date: 2021-10-21
 categories:
 ---

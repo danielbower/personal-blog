@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "The Origin of 'Levelling Up'"
+title: "The origin of 'levelling up'"
 date: 2023-06-18
-og: "The Origin of 'Levelling Up'"
+og: "The origin of 'levelling up'"
 ---
 
 Levelling up, the term used in the UK the describe the redressing of the politcal and economic inequality of the north / south divide, sounds unqiuely modern. In a world where the langauge of life can take on a game like quality, think, "beast mode" and "noob", it is unsurprising, albeit admittedly naive, that I was of the belief that "levelling up" related to gaming too.
