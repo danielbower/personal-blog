@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Powell Memorandum"
+title: "The Powell Memorandum"
 date: 2022-11-19
 og: "The Powell Memoradum"
 ---
