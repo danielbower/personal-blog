@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Opening new Sure Start centres must coincide with an open data plan"
-date: 2019-11-18  
+date: 2019-11-18
 categories:
 ---
 Earlier in the year Hoop was approached by MIT to take part in their annual competition [SOLVE](https://solve.mit.edu/). The theme was early child development, and they were interested to learn more about the problem Hoop addressed, and how we’re solving it.

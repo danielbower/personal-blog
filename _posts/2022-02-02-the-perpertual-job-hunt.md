@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Perpetual Job Hunt"
+title: "The perpetual job hunt"
 date: 2022-02-02
 categories:
 og: "You should always be hunting for a new job."

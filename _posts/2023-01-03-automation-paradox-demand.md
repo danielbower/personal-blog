@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "The Automation Paradox and Demand"
+title: "The automation paradox and demand"
 date: 2023-01-03
-og: "The Automation Paradox and Demand"
+og: "The automation paradox and demand"
 ---
 
 The Automation Paradox or the Automation Myth asks why, despite many claims to the contrary, has automation yet to create widespread unemployment? Two things caused me to return to this question in recent months. First, the public beta of the [ChatGPT](), the text synthesis app from OpenAI. Second, finishing James Bessen's fantastic book, [The New Goliaths]().

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Thoughts on six months of further eduction: Covid, distance learning and degree supply"
+title: "Thoughts on six months of further eduction: Covid, distance learning and degree supply"
 date: 2021-06-07
 categories:
 ---

@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "What Are Big Tech Kill Zones?"
+title:  "What are big tech kill zones?"
 date: 2023-01-06
 categories:
-og: "What Are Big Tech Kill Zones?"
+og: "What are big tech kill zones?"
 ---
 
 ---
@@ -28,7 +28,7 @@ In the second definition **a kill zone is created shortly *after* an acquisition
 
 The final definition has little to do with acquistion and instead, **a kill zone occurs when a startup operates within the "orbit" of big tech** and thus could easily be replicated. Investors in Tile, the bluetooth tracker startup, know this story all too well.
 
-To complicate matters further still, in 2021 the excellent, and highly cited [Killer Acquistions](https://www.journals.uchicago.edu/doi/10.1086/712506) paper was published in the Journal of Political Economy. This study looked specifically at the pharmaceuticals industry, and found examples of smaller companies being acquired simply to shut down projects that may compete with the existing products of the acquirer. 
+To complicate matters further still, in 2021 the excellent, and highly cited [Killer Acquistions](https://www.journals.uchicago.edu/doi/10.1086/712506) paper was published in the Journal of Political Economy. This study looked specifically at the pharmaceuticals industry, and found examples of smaller companies being acquired simply to shut down projects that may compete with the existing products of the acquirer.
 
 While there may well be examples of this kind of behaviour within the world of tech, it is not what the kill zone phenomenon concerns. What binds all of the above definitions together is the reduction of venture financing into startups as a result of the presence or behaviour of big tech.
 

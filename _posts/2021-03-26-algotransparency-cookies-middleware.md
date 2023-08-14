@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "AlgoTransparency, Cookies and Middleware"
+title:  "AlgoTransparency, cookies and middleware"
 date: 2021-03-26
 categories:
 ---

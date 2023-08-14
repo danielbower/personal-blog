@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Link Roll"
+title: "Link roll"
 date: 2023-06-17
 categories: [Link Rolling]
-og: "Interesting Links from Daniel Bower for 17th of June 2023"
+og: "Interesting links from Daniel Bower for 17th of June 2023"
 ---
 
 → [Lina Khan Fires a Crooked CEO](https://www.thebignewsletter.com/p/lina-khan-fires-a-crooked-ceo)
