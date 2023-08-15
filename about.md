@@ -15,9 +15,9 @@ In 2015 the same team launched Hoop, a platform that connected families with loc
 
 In 2021 I completed a master's degree at The Department of Digital Humanities (DDH), King's College London where I looked into the relationship between monopolies and innovation, specifically, if the presence of large technology platforms reduces the flow of venture capital funding into startups operating in similar markets. You can read my research on [venture capital kill zones](/music-streaming-venture-capital-kill-zones/) in full on this blog.
 
-In 2022 along with Harriet Matheson and Nicola Carr I founded [Jetty](https://jetty.co.uk). A recruitment platform that aims to reimagine how we codify professional skills and experience.
+In 2022 along with Harriet Matheson and Nicola Carr I founded [Jetty](https://jetty.co.uk). A talent sourcing platform that aims to reimagine how we codify professional skills and experience.
 
-In my spare time I'm a keen runner, mentor at Seedcamp and sit on the board of two startups.
+In my spare time I'm a keen runner, part of Seedcamp's [Expert Collective](https://seedcamp.com/our-network/) and sit on the board of two startups.
 
 This blog has been up and running since 2004. I post on a [wide variety of topics](/archive/).
 
