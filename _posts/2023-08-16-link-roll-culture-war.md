@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Link roll"
+title: "Link Roll • Culture wars now and then"
 date: 2023-08-16
 categories: [Link Rolling]
 og: "Interesting links from Daniel Bower for 16th August 2023"

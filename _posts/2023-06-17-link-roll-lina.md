@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Link roll"
+title: "Link roll • The negative signaling of M&A"
 date: 2023-06-17
 categories: [Link Rolling]
 og: "Interesting links from Daniel Bower for 17th of June 2023"
