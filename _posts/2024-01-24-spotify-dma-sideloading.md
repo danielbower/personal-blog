@@ -10,7 +10,7 @@ As someone with an interest in music, digital platforms and competition, the new
 
 *NB: The DMA refers to The Digital Markets Act an EU directive that will, at least from some readings of it, require Apple to allow "side loading" of apps. In other words, users of iOS will be able to install apps on their iPhones without needing to go via the App Store, much like user's of macOS can.*
 
-There are a few things that interested me about the Spotify:
+There are a few things that interested me about the Spotify release:
 
 1. If interpretation of the DMA is put on a scale with Spotify and Apple at either ends, then this one skews heavily towards Spotify. There is no real surprise here, it's a Spotify release after-all, but it flies in the face of the recent Epic case in the US where Apple's implementation of the rules weren't anywhere near what Sweeney et al. were hoping.
 
