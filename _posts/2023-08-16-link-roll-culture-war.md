@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Link Roll • Culture wars now and then"
+title: "Culture wars now and then"
 date: 2023-08-16
 categories: [Link Rolling]
-og: "Interesting links from Daniel Bower for 16th August 2023"
+og: "Culture wars now and then"
 ---
 
 → [Country Music’s Culture Wars and the Remaking of Nashville](https://www.newyorker.com/magazine/2023/07/24/country-musics-culture-wars-and-the-remaking-of-nashville)
