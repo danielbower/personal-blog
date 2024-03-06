@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Link Roll • pg's ambition for the UK and Avril 14th"
+title: "pg's ambition for the UK and Avril 14th"
 date: 2023-08-11
 categories: [Link Rolling]
-og: "Interesting links from Daniel Bower for 11th of August 2023"
+og: "pg's ambition for the UK and Avril 14th"
 ---
 
 → [Paul Graham on Ambition, Art and Evaulating Talent](https://conversationswithtyler.com/episodes/paul-graham/)
