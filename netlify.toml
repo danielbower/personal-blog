@@ -1,5 +1,5 @@
 [build.environment]
-  RUBY_VERSION = "3.1.0"
+  RUBY_VERSION = "3.1.0"bundle
 
 [[redirects]]
   from = "/post/638930666016374784/your-music-not-mine-and-switching-to-tidal"
