@@ -31,3 +31,5 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 gem "ffi", "~> 1.17.0"
 
 gem "webrick", "~> 1.8.2"
+
+gem "rexml", "~> 3.3.9"
