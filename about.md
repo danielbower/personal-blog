@@ -15,7 +15,7 @@ In 2015 the same team launched Hoop, a platform that connected families with loc
 
 In 2021 I completed a master's degree at The Department of Digital Humanities (DDH), King's College London where I looked into the relationship between monopolies and innovation, specifically, if the presence of large technology platforms reduces the flow of venture capital funding into startups operating in similar markets. You can read my research on [venture capital kill zones](/music-streaming-venture-capital-kill-zones/) in full on this blog.
 
-In 2022 helped co-found [Jetty](https://jetty.co.uk), a recruitment marketplace for senior marketing leaders.
+In 2024 I joined NHS England as Head of Product for Digital Screening.
 
 In my spare time I'm a keen runner, part of Seedcamp's [Expert Collective](https://seedcamp.com/our-network/) and sit on the board of two early stage startups.
 
