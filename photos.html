@@ -1,0 +1,19 @@
+---
+layout: default
+title: Photos
+---
+
+<div class="photos">
+    <h1>Photos</h1>
+    
+    <div class="photo-grid">
+        {% for photo in site.data.photos %}
+            <div class="photo-item">
+                <p><img src="/assets/img/photos/{{ photo.filename }}" alt="{{ photo.alt }}" /></p>
+                <p class="caption">{{ photo.caption }}</p>
+                    <time class="post_date">{{ photo.date | date: "%e %B, %Y" }}</time>
+                <hr />
+            </div>
+        {% endfor %}
+    </div>
+</div> 

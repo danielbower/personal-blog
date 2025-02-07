@@ -27,7 +27,8 @@ og: "The personal blog of Daniel Bower"
     <p>Thanks for stopping by!</p>
 
     <p>
-        <img src="assets/img/wittering.jpg" />
+        {% assign latest_photo = site.data.photos | sort: 'date' | reverse | first %}
+        <img src="/assets/img/photos/{{ latest_photo.filename }}" alt="{{ latest_photo.alt }}" />
     </p>
 
     <hr />
