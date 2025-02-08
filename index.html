@@ -12,23 +12,32 @@ og: "The personal blog of Daniel Bower"
 
     <hr />
     <p>
-        I am currently working as Head of Product, Digital Screening for NHS
-        England, where we are building a new technology platform for the 10
-        million people who are screened each year, and the NHS staff who deliver
+        After close to 20 years in startups, I am now working as Head of Product, Digital Screening at NHS
+        England. Together, we are building a new technology platform for the 10
+        million people who are screened each year and the NHS staff who deliver
         these services.
     </p>
 
     <p>
         You can read more <a href="/about/">about me</a>, browse my
-        <a href="/archive/">archive</a>, subscribe to my blog using
+        <a href="/archive/">archive</a>, check out my <a href="/photos/">photos</a>, subscribe to my blog using
         <a href="https://danielbower.com/feed.xml">RSS</a> or
-        <a href="https://linkedin.com/in/danielbower">connect via LinkedIn</a>.
+        <a href="https://linkedin.com/in/danielbower">connect via LinkedIn</a>. I also like to rate (and occasionally
+        review) films on <a href="https://letterboxd.com/danielbower/">Letterboxd</a>.
     </p>
+
     <p>Thanks for stopping by!</p>
 
     <p>
-        {% assign latest_photo = site.data.photos | sort: 'date' | reverse | first %}
-        <img src="/assets/img/photos/{{ latest_photo.filename }}" alt="{{ latest_photo.alt }}" />
+        {% for photo in site.data.photos | sort: 'date' | reverse | limit: 1 %}
+        <img src="/assets/img/photos/{{ photo.filename }}" alt="{{ photo.caption }}">
+    
+    <!-- <p class="caption">{{ photo.caption }}</p> -->
+    
+    <!-- <time class="post_date">{{ photo.date | date: "%e %B, %Y" }}</time> -->
+    
+    {% endfor %}
+    
     </p>
 
     <hr />
@@ -38,9 +47,7 @@ og: "The personal blog of Daniel Bower"
     {% for post in site.posts limit:7%}
     <header class="post_header">
         <h2 class="post_title">
-            <a class="post_title" href="{{ post.url | prepend: site.baseurl }}"
-                >{{ post.title}}</a
-            >
+            <a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
         </h2>
         <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
     </header>
