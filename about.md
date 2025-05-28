@@ -47,4 +47,4 @@ I’ve kept a journal for 10 years now and it’s full of notes about my work an
  
 Nick Katz from the Primary Care team said I had “youthful energy” which was ironic because it was on my 40th birthday! I definitely try to keep a youthful outlook, and hope I can do that for as long as possible. Childlike curiosity is great and we only grow old because we stop playing after all.
 
-I think I am projecting here… My friends would probably say I am a pain in the a**e because I don’t shut.
+I think I am projecting here… My friends would probably say I am a pain in the a**e because I don’t shut up.
