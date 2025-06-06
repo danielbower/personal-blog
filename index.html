@@ -28,17 +28,12 @@ og: "The personal blog of Daniel Bower"
 
     <p>Thanks for stopping by!</p>
 
-    <p>
-        {% for photo in site.data.photos | sort: 'date' | reverse | limit: 1 %}
-        <img src="/assets/img/photos/{{ photo.filename }}" alt="{{ photo.caption }}">
-    
-    <!-- <p class="caption">{{ photo.caption }}</p> -->
-    
-    <!-- <time class="post_date">{{ photo.date | date: "%e %B, %Y" }}</time> -->
-    
-    {% endfor %}
-    
-    </p>
+    <div class="latest-photo">
+        {% assign sorted_photos = site.data.photos | sort: 'date' | reverse %}
+        {% for photo in sorted_photos limit: 1 %}
+            <p><img src="/assets/img/photos/{{ photo.filename }}" alt="{{ photo.alt }}" /></p>
+        {% endfor %}
+    </div>
 
     <hr />
 
