@@ -191,6 +191,7 @@ body {
   height: 150px;
   display: flex;
   align-items: center;
+  margin-top: 4rem;
 }
 
 .site-footer .container {
@@ -634,4 +635,59 @@ hr {
   font-size: 1.4rem;
   display: block;
   margin-bottom: 0.5rem;
+}
+
+/* Author Section */
+.author {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 1rem 0;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.author .authorimage {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.author .authorinfo {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.author .authorinfo p {
+  margin-bottom: 1rem;
+}
+
+.author .authorinfo p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 800px) {
+  .author {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 1rem !important;
+    margin: 3rem 0 !important;
+  }
+  .author .authorimage {
+    width: 100px !important;
+    height: 100px !important;
+    min-width: 100px !important;
+    margin-bottom: 1rem !important;
+  }
+  .author .authorinfo {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
 } 
