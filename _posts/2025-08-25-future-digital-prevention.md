@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Why lung cancer screening is a glimpse of into the future of digital prevention"
+title: "Why lung cancer screening is a glimpse into the future of digital prevention"
 date: 2025-08-25
 categories:
 og: "Why lung cancer screening is a glimpse of into the future of digital prevention"
