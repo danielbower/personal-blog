@@ -1,3 +1,8 @@
+- filename: italian-riviera-2025-08-11.jpg
+  caption: "The Italian Riviera by boat"
+  alt: "A view of the Italian Riviera."
+  date: 2025-08-11
+
 - filename: moseley-park-2025-05-21.jpg
   caption: "A walk in Moseley Park with Mum."
   alt: "View over the lake in Moseley Park, Birmingham."
@@ -13,7 +18,7 @@
   alt: "View over Manchester Central from the street."
   date: 2025-02-26
 
-- filename: canary-wharf-2025-02-24.jpg 
+- filename: canary-wharf-2025-02-24.jpg
   caption: "Commuting home from Canary Wharf"
   alt: "A view of Canary Wharf at night from the Jubilee Line entrance."
   date: 2025-02-24
@@ -38,14 +43,12 @@
   alt: "A group of friends celebrating a birthday party."
   date: 2024-10-05
 
-- filename: malham-2024-09-21.jpg 
+- filename: malham-2024-09-21.jpg
   caption: "Malham Cove in Yorkshire"
   alt: "View from the lake near Malham Cove in Yorkshire."
   date: 2024-09-21
 
-- filename: serralves-2024-08-15.jpg 
+- filename: serralves-2024-08-15.jpg
   caption: "Plane flies over Serralves museum near Porto"
   alt: "A plane flies over trees near the Serralves museum reserve near Porto, Portugal."
   date: 2024-08-15
-
-
