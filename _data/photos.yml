@@ -8,6 +8,16 @@
   alt: "A wall with a 'free the canary's' written on it."
   date: 2025-04-12
 
+- filename: manchester-2025-02-26.jpg
+  caption: "Nice to be back in Manchester and first time at HETT"
+  alt: "View over Manchester Central from the street."
+  date: 2025-02-26
+
+- filename: canary-wharf-2025-02-24.jpg 
+  caption: "Commuting home from Canary Wharf"
+  alt: "A view of Canary Wharf at night from the Jubilee Line entrance."
+  date: 2025-02-24
+
 - filename: deal-2025-01-10.jpg
   caption: "The beach at Deal in Kent"
   alt: "View over the stoney beach at Deal in Kent England."
@@ -23,15 +33,10 @@
   alt: "Dimly lit park in Hackney, England."
   date: 2024-11-02
 
-- filename: manchester-2025-02-26.jpg
-  caption: "Nice to be back in Manchester and first time at HETT"
-  alt: "View over Manchester Central from the street."
-  date: 2025-02-26
-
-- filename: canary-wharf-2025-02-24.jpg 
-  caption: "Commuting home from Canary Wharf"
-  alt: "A view of Canary Wharf at night from the Jubilee Line entrance."
-  date: 2025-02-24
+- filename: party-2024-10-05.jpg
+  caption: "More life"
+  alt: "A group of friends celebrating a birthday party."
+  date: 2024-10-05
 
 - filename: malham-2024-09-21.jpg 
   caption: "Malham Cove in Yorkshire"
@@ -42,10 +47,5 @@
   caption: "Plane flies over Serralves museum near Porto"
   alt: "A plane flies over trees near the Serralves museum reserve near Porto, Portugal."
   date: 2024-08-15
-
-- filename: party-2024-10-05.jpg
-  caption: "More life"
-  alt: "A group of friends celebrating a birthday party."
-  date: 2024-10-05
 
 
