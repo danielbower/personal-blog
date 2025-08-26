@@ -12,18 +12,20 @@ og: "The personal blog of Daniel Bower"
 
     <hr />
     <p>
-        After close to 20 years in startups, I am now working as Head of Product for Digital Screening at NHS
-        England. Together, we are building a new technology platform for the 10
-        million people who are screened each year and the NHS staff who deliver
-        these services.
+        After close to 20 years in startups, I am now working as Head of Product
+        Screening at NHS England. Together, we are building digital services for
+        the 10 million people who are screened each year and the NHS staff who
+        support them.
     </p>
 
     <p>
         You can read more <a href="/about/">about me</a>, browse my
-        <a href="/archive/">archive</a>, check out my <a href="/photos/">photos</a>, subscribe to my blog using
+        <a href="/archive/">archive</a>, check out my
+        <a href="/photos/">photos</a>, subscribe to my blog using
         <a href="https://danielbower.com/feed.xml">RSS</a> or
-        <a href="https://linkedin.com/in/danielbower">connect via LinkedIn</a>. I also like to rate (and occasionally
-        review) films on <a href="https://letterboxd.com/danielbower/">Letterboxd</a>.
+        <a href="https://linkedin.com/in/danielbower">connect via LinkedIn</a>.
+        I also like to rate (and occasionally review) films on
+        <a href="https://letterboxd.com/danielbower/">Letterboxd</a>.
     </p>
 
     <p>Thanks for stopping by!</p>
@@ -31,7 +33,12 @@ og: "The personal blog of Daniel Bower"
     <div class="latest-photo">
         {% assign sorted_photos = site.data.photos | sort: 'date' | reverse %}
         {% for photo in sorted_photos limit: 1 %}
-            <p><img src="/assets/img/photos/{{ photo.filename }}" alt="{{ photo.alt }}" /></p>
+        <p>
+            <img
+                src="/assets/img/photos/{{ photo.filename }}"
+                alt="{{ photo.alt }}"
+            />
+        </p>
         {% endfor %}
     </div>
 
@@ -42,7 +49,9 @@ og: "The personal blog of Daniel Bower"
     {% for post in site.posts limit:7%}
     <header class="post_header">
         <h2 class="post_title">
-            <a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+            <a class="post_title" href="{{ post.url | prepend: site.baseurl }}"
+                >{{ post.title}}</a
+            >
         </h2>
         <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
     </header>
