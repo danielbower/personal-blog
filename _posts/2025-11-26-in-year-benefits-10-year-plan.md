@@ -3,7 +3,7 @@ layout: post
 title: "In-year benefits and the 10 Year Plan for the NHS"
 date: 2025-11-26
 categories: 
-og: "In-year benefits and the 10 Year Plan for the NHS"
+og: "A focus on in-year benefits jeopardises the 10 Year Plan."
 ---
 
 Imagine my surprise on joining NHS England to discover that it had a secret sugar addiction. Not the kind that you might find in staff vending machine, but the kind of sugary hit that comes for craving in-year benefits.
