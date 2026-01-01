@@ -11,11 +11,11 @@ This Washington Post story from the end of last year caught my attention. TLDR; 
 
 The article reminded me of a concept in architecture called sightlines. Sightlines are the consideration a designer gives to a visitor's view in a specific location. As you can imagine, this is particularly important in stadium and concert venue design, but also in the placement of streets and monuments, see, for example, the [Axe historique](https://en.wikipedia.org/wiki/Axe_historique) in Paris.
 
-In theme parks sightlines are also deployed in reverse, that is, to ensure that certain things are hidden from visitors. You don’t want to catch a glimpse of Mickey on his cigarette break, nor a cowboy walking through Tomorrowland, and so you design the park accordingly. It kills the illusion otherwise.
+In theme parks sightlines are also deployed in reverse, that is, to ensure that certain things are _hidden_ from visitors. You don’t want to catch a glimpse of Mickey on his cigarette break, nor a cowboy walking through Tomorrowland, and so you design the park accordingly. It kills the illusion otherwise.
 
 Technology deserves similar terminology. 
 
-A technological sightline could be the practice of obfuscating the human labour that goes into making a technological product or service. Food gets delivered "at the tap of button" but it's the person on a bike who gets it across town. A car can "see" as long humans spend millions of hours labelling images of traffic lights.
+A _technological sightline_ could be the practice of obfuscating the human labour that goes into making a technological product or service. Food gets delivered "at the tap of button" but it's the person on a bike who gets it across town. A car can "see" as long humans spend millions of hours labelling images of traffic lights.
 
 So we are living in a theme park? 
 
