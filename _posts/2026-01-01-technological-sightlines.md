@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Post Title"
+title: "Technological sightlines"
 date: 2026-01-01
 categories: [Link Rolling]
 ---
