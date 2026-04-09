@@ -29,7 +29,7 @@ It is in the _application_ of these concepts where things start to go wrong.
 
 # Predicting the future
 
-NHS England seems to think those responsible for business planning are also able to predict the future. Deliverables are demanded, not just for the coming financial year, but, oftentimes, for many years after that too. This is the cardinal sin of any planning process and a tell tell sign of a digitally immature organisation. Problems and outcomes (along with their measures) should be sticky, deliverables should be loose. As product managers the world over will tell you: no good roadmap survives contact with reality, why would a business plan be any different?
+NHS England seems to think those responsible for business planning are also able to predict the future. Deliverables are demanded, not just for the coming financial year, but, oftentimes, for many years after that too. This is the cardinal sin of any planning process and a tell tale sign of a digitally immature organisation. Problems and outcomes (along with their measures) should be sticky, deliverables should be loose. As product managers the world over will tell you: no good roadmap survives contact with reality, why would a business plan be any different?
 
 To make matters worse, your plan will become a feature of upwards reporting. Dug up on a monthly or quarterly basis like some archaeological artefact on which the future was foretold. When it turns out, as it often does, that those predictions were wrong, the owner is chastised and the artefact returned to the ground (call it SharePoint), only for the process to be repeated again. It is not, as the cliche goes, a “living document”, which can be edited, in a non-judgemental way, as new information comes to light.
 
