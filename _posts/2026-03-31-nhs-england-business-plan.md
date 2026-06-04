@@ -4,6 +4,7 @@ title: "Writing a business plan in NHS England"
 date: 2026-03-31
 categories:
 og: "Writing a business plan in NHS England"
+published: false
 ---
 
 Towards the back end of last year myself and Alex Segrove were asked to take responsibility for a new business plan for the ["digital bit" of adult screening in England](https://www.digital-prevention-services.nhs.uk/screening/).
