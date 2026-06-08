@@ -32,7 +32,7 @@ gem "ffi", "~> 1.17.0"
 
 gem "webrick", "~> 1.8.2"
 
-gem "rexml", "~> 3.3.9"
+gem "rexml", "~> 3.4.2"
 gem "csv"
 gem "logger"
 gem "base64"
