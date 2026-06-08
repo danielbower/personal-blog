@@ -6,7 +6,7 @@ categories:
 og: ""
 ---
 
-For my birthday my Mum bought me a copy of Gods of New York by Jonathan Maher. The book in a history of New York in the 80s that centres around some of the cities most interesting characters.
+For my birthday my Mum bought me a copy of Gods of New York by Jonathan Maher. The book is a history of New York in the 80s that centres around some of the cities most interesting characters.
 
 “Gods” to me suggested power in a traditional sense: politics, money etc., and with this in mind, the title lets the book down as the cast is as actually a much more diverse set. Yes there is Ed Koch, Roy Cohn and Donald Trump. But there is also Al Sharpton, Twana Brolley and Larry Kramer. I can’t recommend the book highly enough, but this isn’t a really review. It’s about *how* I read it. 
 
