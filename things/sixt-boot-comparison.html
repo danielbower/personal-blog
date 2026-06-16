@@ -1,0 +1,161 @@
+---
+layout: default
+title: Sixt Boot Comparison
+permalink: /things/sixt-boot-comparison/
+---
+
+<style>
+  .wrap { overflow-x: auto; border: 1px dotted var(--grey-color-light); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    table-layout: fixed;
+    min-width: 480px;
+  }
+
+  thead th {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--grey-color);
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px dotted var(--grey-color-light);
+    white-space: nowrap;
+  }
+
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--text-color); }
+
+  .sort-icon { margin-left: 4px; opacity: 0.35; }
+  .sort-icon.active { opacity: 1; color: var(--accent); }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px dotted var(--grey-color-light);
+    vertical-align: middle;
+    font-size: 1em;
+    color: var(--text-color);
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  .col-car  { width: 32%; }
+  .col-boot { width: 15%; }
+  .col-bar  { width: 28%; }
+  .col-src  { width: 25%; }
+
+  .bar-wrap {
+    background: #eef;
+    border-radius: 3px;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .bar { height: 8px; border-radius: 3px; background: var(--brand-color); }
+
+  a.src {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--grey-color-light);
+  }
+  a.src:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>
+
+<h1>Sixt Car Boot Comparison</h1>
+
+<p>I don't own a car and so when my family and I need a car we rent. More often than not we'll rent from Sixt: they are local to us, the prices are reasonable and their customer service is good. Like all car rental companies, Sixt make it hard to understand how big a car's boot is. Is two small bags and one medium one enough? What does two large bags mean? And so on. The size of every car boot is freely available, so I can only assume the uncertainty generates more revenue.</p>
+
+<p>To make my life easier I made this Sixt car boot comparison table. Some things to note:</p>
+
+<ul>
+<li>This is not every Sixt car, just the ones I have rented.</li>
+<li>Each boot size is measured with the seats up.</li>
+<li>In my experience, you need a boot as big as the one in a Volvo XC60 (483 L) to go camping with a family of four.</li>
+</ul>
+
+<p>I hope you find it useful!</p>
+
+<div class="wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-car sortable" onclick="sortBy('name')">Car <span class="sort-icon" id="sort-icon-name">↕</span></th>
+        <th class="col-boot sortable" onclick="sortBy('vol')">Boot <span class="sort-icon" id="sort-icon-vol">↕</span></th>
+        <th class="col-bar">Relative size</th>
+        <th class="col-src">Source</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<script>
+const MAX_VOL = 652;
+const cars = [
+  { name:"VW Golf",             vol:381, src:"https://www.carbuyer.co.uk/volkswagen/golf/practicality",      lbl:"Carbuyer" },
+  { name:"Audi Q2",             vol:405, src:"https://www.carbuyer.co.uk/audi/q2/practicality",              lbl:"Carbuyer" },
+  { name:"Citroën C3",          vol:310, src:"https://www.parkers.co.uk/citroen/c3/review/practicality/",    lbl:"Parkers"  },
+  { name:"Citroën C3 Aircross",  vol:460, src:"https://www.carbuyer.co.uk/citroen/c3-aircross/practicality", lbl:"Carbuyer" },
+  { name:"Peugeot 408",         vol:536, src:"https://www.parkers.co.uk/peugeot/408/review/practicality/",   lbl:"Parkers"  },
+  { name:"VW T-Cross",          vol:385, src:"https://www.carbuyer.co.uk/volkswagen/t-cross/practicality",   lbl:"Carbuyer" },
+  { name:"Peugeot 308 SW",      vol:548, src:"https://www.carbuyer.co.uk/peugeot/308/308-sw-estate",         lbl:"Carbuyer" },
+  { name:"VW ID.4",             vol:543, src:"https://www.carbuyer.co.uk/volkswagen/id4/practicality",       lbl:"Carbuyer" },
+  { name:"VW ID.5",             vol:549, src:"https://www.carbuyer.co.uk/volkswagen/id5/practicality",       lbl:"Carbuyer" },
+  { name:"Volvo XC60",          vol:483, src:"https://www.carbuyer.co.uk/volvo/xc60/practicality",           lbl:"Carbuyer" },
+  { name:"VW Tiguan",           vol:652, src:"https://www.carbuyer.co.uk/volkswagen/tiguan/practicality",    lbl:"Carbuyer" },
+];
+
+let sortCol = 'name';
+let sortDir = 'asc';
+
+function getSorted(list) {
+  return [...list].sort((a, b) => {
+    const valA = sortCol === 'name' ? a.name : a.vol;
+    const valB = sortCol === 'name' ? b.name : b.vol;
+    if (valA < valB) return sortDir === 'asc' ? -1 : 1;
+    if (valA > valB) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+}
+
+function updateIcons() {
+  ['name', 'vol'].forEach(col => {
+    const icon = document.getElementById('sort-icon-' + col);
+    if (col !== sortCol) { icon.textContent = '↕'; icon.className = 'sort-icon'; }
+    else { icon.textContent = sortDir === 'asc' ? '↑' : '↓'; icon.className = 'sort-icon active'; }
+  });
+}
+
+function sortBy(col) {
+  if (sortCol === col) {
+    sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+  } else {
+    sortCol = col;
+    sortDir = 'asc';
+  }
+  updateIcons();
+  render();
+}
+
+function render() {
+  document.getElementById('tbody').innerHTML = getSorted(cars).map(c => {
+    const pct = Math.round(c.vol / MAX_VOL * 100);
+    return `<tr>
+      <td>${c.name}</td>
+      <td>${c.vol} L</td>
+      <td><div class="bar-wrap"><div class="bar" style="width:${pct}%"></div></div></td>
+      <td><a class="src" href="${c.src}" target="_blank">${c.lbl}</a></td>
+    </tr>`;
+  }).join('');
+}
+
+updateIcons();
+render();
+</script>

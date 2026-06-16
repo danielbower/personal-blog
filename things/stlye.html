@@ -1,0 +1,352 @@
+---
+layout: default
+title: Style
+permalink: /things/style/
+---
+
+<style>
+  .ds-section {
+    margin-bottom: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px dotted #b1b1b1;
+  }
+  .ds-section:last-child {
+    border-bottom: none;
+  }
+  .ds-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #828282;
+    margin-bottom: 0.5rem;
+    border-bottom: none !important;
+  }
+  .ds-name {
+    font-size: 1.3rem;
+    color: #4b4bd2;
+    font-family: monospace;
+    margin-bottom: 1.5rem;
+    display: block;
+    border-bottom: none !important;
+  }
+  .ds-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .ds-item {
+    flex: 1;
+    min-width: 200px;
+  }
+  .ds-swatch {
+    height: 60px;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+  .ds-swatch-label {
+    font-size: 1.2rem;
+    color: #828282;
+  }
+  .ds-swatch-value {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #4d4d4d;
+  }
+  .ds-type-scale .ds-item {
+    min-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .ds-type-meta {
+    font-size: 1.1rem;
+    font-family: monospace;
+    color: #828282;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  .ds-link-example {
+    margin-bottom: 1rem;
+  }
+  .ds-spacing-block {
+    background: #eef;
+    height: 100%;
+    min-height: 30px;
+  }
+  .ds-spacing-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .ds-spacing-label {
+    min-width: 120px;
+    font-size: 1.2rem;
+    font-family: monospace;
+    color: #4d4d4d;
+  }
+  .code-block {
+    background-color: #eef;
+    padding: 1.5rem;
+    font-family: monospace;
+    font-size: 1.3rem;
+    color: #586e75;
+    line-height: 1.6;
+    overflow-x: auto;
+  }
+  .ds-nav-example ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<h1>Style</h1>
+<div class="ds-section">
+<p>I use this page to help Claude/Codex style the things I make. It's also useful to keep track of the different components in use across my site.</p>
+</div>
+
+<!-- Colors -->
+<div class="ds-section">
+  <p class="ds-label">Foundation</p>
+  <h2>Colours</h2>
+  <div class="ds-row">
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#111;"></div>
+      <div class="ds-swatch-label">Text</div>
+      <div class="ds-swatch-value">--text-color · #111</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#fdfdfd; border: 1px solid #e1e1e1;"></div>
+      <div class="ds-swatch-label">Background</div>
+      <div class="ds-swatch-value">--background-color · #fdfdfd</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#4b4bd2;"></div>
+      <div class="ds-swatch-label">Accent (links, titles)</div>
+      <div class="ds-swatch-value">#4b4bd2</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#2a7ae2;"></div>
+      <div class="ds-swatch-label">Brand</div>
+      <div class="ds-swatch-value">--brand-color · #2a7ae2</div>
+    </div>
+  </div>
+  <div class="ds-row">
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#828282;"></div>
+      <div class="ds-swatch-label">Grey</div>
+      <div class="ds-swatch-value">--grey-color · #828282</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#b1b1b1;"></div>
+      <div class="ds-swatch-label">Grey Light</div>
+      <div class="ds-swatch-value">--grey-color-light · #b1b1b1</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#4d4d4d;"></div>
+      <div class="ds-swatch-label">Grey Dark</div>
+      <div class="ds-swatch-value">--grey-color-dark · #4d4d4d</div>
+    </div>
+    <div class="ds-item">
+      <div class="ds-swatch" style="background:#FAFAFB; border: 1px solid #e1e1e1;"></div>
+      <div class="ds-swatch-label">Footer Background</div>
+      <div class="ds-swatch-value">#FAFAFB</div>
+    </div>
+  </div>
+</div>
+
+<!-- Typography Scale -->
+<div class="ds-section ds-type-scale">
+  <p class="ds-label">Foundation</p>
+  <h2>Type Scale</h2>
+  <p style="color:#828282; font-size:1.3rem; margin-bottom:2rem;">Base: 16px root / 1.5em body (≈ 15px). Font stack: -apple-system-font, Helvetica Neue, sans-serif.</p>
+
+  <div class="ds-item">
+    <span class="ds-type-meta">h1 · 2.4rem (≥550px) · line-height 1.2</span>
+    <h1 style="margin-bottom:0.5rem;">Page Title</h1>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">h1.article_title · colour #4b4bd2</span>
+    <h1 class="article_title" style="margin-bottom:0.5rem;">Post Title</h1>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">h2 · 2.2rem (≥550px) · line-height 1.25</span>
+    <h2 style="margin-bottom:0.5rem;">Section Heading</h2>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">h3 · 2.0rem (≥550px) · line-height 1.3</span>
+    <h3 style="margin-bottom:0.5rem;">Sub-section Heading</h3>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">h4 · 1.7rem (≥550px) · line-height 1.35</span>
+    <h4 style="margin-bottom:0.5rem;">Minor Heading</h4>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">h5 · 1.4rem (≥550px) · line-height 1.5</span>
+    <h5 style="margin-bottom:0.5rem;">Small Heading</h5>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">h6 · 1.1rem · line-height 1.6</span>
+    <h6 style="margin-bottom:0.5rem;">Smallest Heading</h6>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">p · 1.5em body · line-height 1.6 · weight 400</span>
+    <p>Body copy. Longer passages of text look like this. The blog uses a comfortable reading measure with sensible line-height so articles are easy to read at length. Words break cleanly on narrow viewports.</p>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">.small-font · 1.2rem</span>
+    <p class="small-font">Small text — used in footers and supplementary notes.</p>
+  </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">.post_date · 1.4rem · color #888</span>
+    <p class="post_date">14 January 2025</p>
+  </div>
+</div>
+
+<!-- Links -->
+<div class="ds-section">
+  <p class="ds-label">Elements</p>
+  <h2>Links</h2>
+
+  <div class="ds-link-example">
+    <span class="ds-type-meta">Default link — colour inherits text, dotted underline</span>
+    <p>Here is some text with <a href="#">a standard link</a> inside a paragraph.</p>
+  </div>
+  <div class="ds-link-example">
+    <span class="ds-type-meta">a.post_title — colour #4b4bd2</span>
+    <p><a href="#" class="post_title">Post Title Link</a></p>
+  </div>
+  <div class="ds-link-example">
+    <span class="ds-type-meta">.article-content a — dotted border, black hover</span>
+    <div class="article-content">
+      <p>An <a href="#">in-article hyperlink</a> with dotted underline and black hover state.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Post List -->
+<div class="ds-section">
+  <p class="ds-label">Components</p>
+  <h2>Post List Item</h2>
+  <span class="ds-name">.post_header / .post_title / .post_date</span>
+
+  {% for post in site.posts limit:3 %}
+  <header class="post_header">
+    <h2 class="post_title"><a class="post_title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+    <time class="post_date">{{ post.date | date: "%e %B, %Y" }}</time>
+  </header>
+  {% endfor %}
+
+  <p class="readmore"><a href="{{ site.baseurl }}/archive/">Read more →</a></p>
+</div>
+
+<!-- Blockquote -->
+<div class="ds-section">
+  <p class="ds-label">Elements</p>
+  <h2>Blockquote</h2>
+  <span class="ds-name">blockquote</span>
+
+  <div class="article-content">
+    <blockquote>
+      <p>From the heart, it's a start, a work of art.</p>
+    </blockquote>
+  </div>
+</div>
+
+<!-- HR -->
+<div class="ds-section">
+  <p class="ds-label">Elements</p>
+  <h2>Horizontal Rule</h2>
+  <span class="ds-name">hr</span>
+
+  <p>Content above the rule.</p>
+  <hr>
+  <p>Content below the rule.</p>
+</div>
+
+<!-- Code -->
+<div class="ds-section">
+  <p class="ds-label">Elements</p>
+  <h2>Code Block</h2>
+  <span class="ds-name">.highlight</span>
+
+  <div class="highlight code-block">
+<pre><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">"Hello, "</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">(</span><span class="s2">"World"</span><span class="p">))</span></pre>
+  </div>
+</div>
+
+<!-- Article Footer -->
+<div class="ds-section">
+  <p class="ds-label">Components</p>
+  <h2>Article Footer</h2>
+  <span class="ds-name">.article-footer · includes author.html</span>
+
+  <footer class="article-footer">
+    {% include author.html %}
+  </footer>
+</div>
+
+<!-- Site Header -->
+<div class="ds-section">
+  <p class="ds-label">Components</p>
+  <h2>Site Header</h2>
+  <span class="ds-name">header.html · h2.logo / .nav / .site-nav / .page-link</span>
+
+  <div style="overflow: hidden;">
+    {% include header.html %}
+  </div>
+</div>
+
+<!-- Spacing -->
+<div class="ds-section">
+  <p class="ds-label">Foundation</p>
+  <h2>Spacing</h2>
+
+  <div class="ds-spacing-item">
+    <span class="ds-spacing-label">--spacing-unit</span>
+    <div class="ds-spacing-block" style="width: 30px;"></div>
+    <span style="font-size:1.2rem; color:#828282;">30px</span>
+  </div>
+  <div class="ds-spacing-item">
+    <span class="ds-spacing-label">Container padding (mobile)</span>
+    <div class="ds-spacing-block" style="width: 10px;"></div>
+    <span style="font-size:1.2rem; color:#828282;">10px</span>
+  </div>
+  <div class="ds-spacing-item">
+    <span class="ds-spacing-label">Container padding (tablet+)</span>
+    <div class="ds-spacing-block" style="width: 32px;"></div>
+    <span style="font-size:1.2rem; color:#828282;">64px / 32px</span>
+  </div>
+  <div class="ds-spacing-item">
+    <span class="ds-spacing-label">Footer margin-top</span>
+    <div class="ds-spacing-block" style="width: 40px;"></div>
+    <span style="font-size:1.2rem; color:#828282;">4rem</span>
+  </div>
+</div>
+
+<!-- Layout -->
+<div class="ds-section">
+  <p class="ds-label">Foundation</p>
+  <h2>Layout Grid</h2>
+  <p style="color:#828282; font-size:1.3rem; margin-bottom: 1.5rem;">Max content width: 960px. Page uses a sidebar (3 col) + main (9 col) split above 781px. Columns have 4% right margin.</p>
+
+  <div style="display:flex; gap: 8px; align-items:stretch; margin-bottom:1rem;">
+    <div style="flex:3; background:#eef; padding:1rem; font-size:1.2rem; font-family:monospace; color:#4b4bd2; text-align:center;">3 col<br><span style="color:#828282;">Header / Nav</span></div>
+    <div style="flex:9; background:#f0f8ff; padding:1rem; font-size:1.2rem; font-family:monospace; color:#4b4bd2; text-align:center;">9 col<br><span style="color:#828282;">Main content</span></div>
+  </div>
+  <p style="font-size:1.2rem; color:#828282;">Below 781px: single column, stacked layout.</p>
+</div>
+
+<!-- Site Footer -->
+<div class="ds-section">
+  <p class="ds-label">Components</p>
+  <h2>Site Footer</h2>
+  <span class="ds-name">footer.html · .site-footer</span>
+
+  {% include footer.html %}
+</div>
