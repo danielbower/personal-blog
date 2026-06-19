@@ -6,7 +6,7 @@ permalink: /things/
 
 # Things
 
-Making stuff with and LLM in the drivers seat has me feel like I am 14 again. Making things with my computer as a kid led me into a 20+ year long career and I have loved every minute of it.
+Making stuff with an LLM in the driver's seat has me feel like I am 14 again. Making things with my computer as a kid led me into a 20+ year long career and I have loved every minute of it.
 
 But the more time I spent leading people, the less time I spent making things. And if you don't spend time making things you quickly forget how to do it.
 
