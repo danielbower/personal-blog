@@ -1,0 +1,446 @@
+---
+layout: default
+title: World Cup 2026 Flag Quiz
+permalink: /things/flag-quiz/
+---
+
+<style>
+  #game {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #2d7a3a;
+    border: 3px solid #fff;
+    border-radius: 4px;
+    padding: 2rem;
+    color: #fff;
+  }
+
+  #hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+  }
+
+  #timer {
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  #timer.urgent {
+    color: #ff6b6b;
+  }
+
+  #level-badge {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.25rem;
+  }
+
+  #level-label {
+    text-align: center;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  #country-name {
+    font-size: 2.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  #question {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  #choices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .choice {
+    font-size: 4rem;
+    line-height: 1;
+    padding: 1rem 0.5rem;
+    border: 1px dotted rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.08);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.1s, background 0.1s;
+  }
+
+  .choice:hover {
+    border-color: #fff;
+    border-style: solid;
+    background: rgba(255,255,255,0.18);
+  }
+
+  .choice.correct {
+    border-color: #fff;
+    border-style: solid;
+    background: rgba(255,255,255,0.3);
+  }
+
+  .choice.wrong {
+    opacity: 0.2;
+  }
+
+  #feedback {
+    text-align: center;
+    font-size: 1.3rem;
+    min-height: 2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  #score-line {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 2rem;
+    font-family: monospace;
+  }
+
+  #next-btn {
+    display: none;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #fff;
+    background: none;
+    font-family: inherit;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #next-btn:hover {
+    background: #fff;
+    color: #2d7a3a;
+  }
+
+  /* Start screen */
+  #start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 540px;
+    text-align: center;
+  }
+
+  #start-screen p {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+  }
+
+  /* End screen */
+  #end-screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 540px;
+    text-align: center;
+  }
+
+  #end-screen h2 { margin-bottom: 1rem; color: #fff; }
+
+  #end-reason {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  #final-score {
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 2rem;
+  }
+
+  .big-btn {
+    padding: 0.85rem 2rem;
+    border: 1px solid #fff;
+    background: none;
+    font-family: inherit;
+    font-size: 1em;
+    color: #fff;
+    cursor: pointer
+  }
+
+  .big-btn:hover {
+    background: #fff;
+    color: #2d7a3a;
+  }
+</style>
+
+<h1>World Cup 2026 Flag Quiz</h1>
+<p>My son and I spent an afternoon making a World Cup 2026 flag quiz.</p>
+
+<div id="game">
+
+  <div id="start-screen">
+    <div style="font-size:4rem;margin-bottom:1rem;">⚽</div>
+    <h2 style="color:#fff;margin-bottom:1rem;">Finn's Football Flag Fun</h2>
+    <p>Find the right flag for each country. It gets harder with every level!</p>
+    <button class="big-btn" onclick="startGame()">Start</button>
+  </div>
+
+  <div id="play-screen" style="display:none">
+    <div id="hud">
+      <span id="timer">3:00</span>
+      <span id="score-line">Score: 0</span>
+    </div>
+    <div id="level-badge"></div>
+    <div id="level-label"></div>
+    <div id="country-name"></div>
+    <div id="question">Which flag is this country?</div>
+    <div id="choices"></div>
+    <div id="feedback"></div>
+    <button id="next-btn" onclick="advance()">Next →</button>
+  </div>
+
+  <div id="end-screen">
+    <div style="font-size:4rem;margin-bottom:1rem;" id="end-icon"></div>
+    <h2 id="end-title"></h2>
+    <p id="end-reason"></p>
+    <p id="final-score"></p>
+    <button class="big-btn" onclick="resetGame()">Try again</button>
+  </div>
+
+</div>
+
+<script>
+const LEVEL_LABELS = {
+  1: "Easy",
+  2: "Minor",
+  3: "Moderate",
+  4: "Medium",
+  5: "Major",
+  6: "Hard",
+  7: "Very Hard",
+  8: "Expert",
+};
+
+const ALL_FLAGS = [
+  { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", name: "England",              level: 1 },
+  { flag: "🇫🇷",          name: "France",               level: 1 },
+  { flag: "🇩🇪",          name: "Germany",              level: 1 },
+  { flag: "🇵🇹",          name: "Portugal",             level: 1 },
+  { flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", name: "Scotland",             level: 1 },
+  { flag: "🇪🇸",          name: "Spain",                level: 1 },
+
+  { flag: "🇧🇪",          name: "Belgium",              level: 2 },
+  { flag: "🇭🇷",          name: "Croatia",              level: 2 },
+  { flag: "🇳🇱",          name: "Netherlands",          level: 2 },
+  { flag: "🇨🇭",          name: "Switzerland",          level: 2 },
+  { flag: "🇹🇷",          name: "Turkey",               level: 2 },
+  { flag: "🇧🇷",          name: "Brazil",               level: 2 },
+
+  { flag: "🇦🇹",          name: "Austria",              level: 3 },
+  { flag: "🇳🇴",          name: "Norway",               level: 3 },
+  { flag: "🇸🇪",          name: "Sweden",               level: 3 },
+  { flag: "🇯🇵",          name: "Japan",                level: 3 },
+  { flag: "🇰🇷",          name: "South Korea",          level: 3 },
+  { flag: "🇦🇷",          name: "Argentina",            level: 3 },
+
+  { flag: "🇨🇦",          name: "Canada",               level: 4 },
+  { flag: "🇲🇽",          name: "Mexico",               level: 4 },
+  { flag: "🇨🇿",          name: "Czechia",              level: 4 },
+  { flag: "🇪🇬",          name: "Egypt",                level: 4 },
+  { flag: "🇿🇦",          name: "South Africa",         level: 4 },
+  { flag: "🇦🇺",          name: "Australia",            level: 4 },
+
+  { flag: "🇺🇸",          name: "United States",        level: 5 },
+  { flag: "🇩🇿",          name: "Algeria",              level: 5 },
+  { flag: "🇨🇩",          name: "DR Congo",             level: 5 },
+  { flag: "🇬🇭",          name: "Ghana",                level: 5 },
+  { flag: "🇮🇷",          name: "Iran",                 level: 5 },
+  { flag: "🇶🇦",          name: "Qatar",                level: 5 },
+
+  { flag: "🇳🇿",          name: "New Zealand",          level: 6 },
+  { flag: "🇵🇾",          name: "Paraguay",             level: 6 },
+  { flag: "🇺🇾",          name: "Uruguay",              level: 6 },
+  { flag: "🇧🇦",          name: "Bosnia & Herzegovina", level: 6 },
+  { flag: "🇨🇻",          name: "Cabo Verde",           level: 6 },
+  { flag: "🇲🇦",          name: "Morocco",              level: 6 },
+
+  { flag: "🇸🇳",          name: "Senegal",              level: 7 },
+  { flag: "🇹🇳",          name: "Tunisia",              level: 7 },
+  { flag: "🇨🇴",          name: "Colombia",             level: 7 },
+  { flag: "🇵🇦",          name: "Panama",               level: 7 },
+  { flag: "🇨🇮",          name: "Côte d'Ivoire",        level: 7 },
+  { flag: "🇮🇶",          name: "Iraq",                 level: 7 },
+
+  { flag: "🇯🇴",          name: "Jordan",               level: 8 },
+  { flag: "🇸🇦",          name: "Saudi Arabia",         level: 8 },
+  { flag: "🇺🇿",          name: "Uzbekistan",           level: 8 },
+  { flag: "🇪🇨",          name: "Ecuador",              level: 8 },
+  { flag: "🇨🇼",          name: "Curaçao",              level: 8 },
+  { flag: "🇭🇹",          name: "Haiti",                level: 8 },
+];
+
+const TOTAL_SECONDS = 180;
+
+let queue = [];
+let currentIdx = 0;
+let current = null;
+let score = 0;
+let answered = false;
+let timerInterval = null;
+let secondsLeft = TOTAL_SECONDS;
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildQueue() {
+  queue = [];
+  for (let l = 1; l <= 8; l++) {
+    queue = queue.concat(shuffle(ALL_FLAGS.filter(f => f.level === l)));
+  }
+}
+
+function startGame() {
+  buildQueue();
+  score = 0;
+  currentIdx = 0;
+  secondsLeft = TOTAL_SECONDS;
+
+  document.getElementById("start-screen").style.display = "none";
+  document.getElementById("end-screen").style.display = "none";
+  document.getElementById("play-screen").style.display = "block";
+
+  updateTimerDisplay();
+  timerInterval = setInterval(tickTimer, 1000);
+  showQuestion();
+}
+
+function tickTimer() {
+  secondsLeft--;
+  updateTimerDisplay();
+  if (secondsLeft <= 0) {
+    endGame("time");
+  }
+}
+
+function updateTimerDisplay() {
+  const m = Math.floor(secondsLeft / 60);
+  const s = secondsLeft % 60;
+  const el = document.getElementById("timer");
+  el.textContent = `${m}:${String(s).padStart(2, "0")}`;
+  el.classList.toggle("urgent", secondsLeft <= 30);
+}
+
+function showQuestion() {
+  answered = false;
+  current = queue[currentIdx];
+
+  const levelFlags = shuffle(ALL_FLAGS.filter(f => f.level === current.level));
+
+  document.getElementById("level-badge").textContent = `Level ${current.level} of 8`;
+  document.getElementById("level-label").textContent = LEVEL_LABELS[current.level];
+  document.getElementById("country-name").textContent = current.name;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("next-btn").style.display = "none";
+  document.getElementById("score-line").textContent = `Score: ${score}`;
+
+  const choicesEl = document.getElementById("choices");
+  choicesEl.innerHTML = "";
+  levelFlags.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.textContent = opt.flag;
+    btn.onclick = () => handleAnswer(btn, opt.name === current.name);
+    choicesEl.appendChild(btn);
+  });
+}
+
+function handleAnswer(btn, isCorrect) {
+  if (answered) return;
+  answered = true;
+
+  const allBtns = document.querySelectorAll(".choice");
+
+  if (isCorrect) {
+    btn.classList.add("correct");
+    score++;
+    document.getElementById("score-line").textContent = `Score: ${score}`;
+    document.getElementById("feedback").textContent = "⚽";
+    currentIdx++;
+
+    if (currentIdx >= queue.length) {
+      setTimeout(() => endGame("complete"), 800);
+    } else {
+      setTimeout(showQuestion, 600);
+    }
+  } else {
+    allBtns.forEach(b => {
+      if (b.textContent === current.flag) b.classList.add("correct");
+      else b.classList.add("wrong");
+    });
+    setTimeout(() => endGame("wrong"), 900);
+  }
+}
+
+function advance() {
+  showQuestion();
+}
+
+function endGame(reason) {
+  clearInterval(timerInterval);
+  timerInterval = null;
+
+  document.getElementById("play-screen").style.display = "none";
+  document.getElementById("end-screen").style.display = "flex";
+
+  const highestLevel = currentIdx > 0 ? queue[Math.min(currentIdx, queue.length - 1)].level : 1;
+
+  if (reason === "complete") {
+    document.getElementById("end-icon").textContent = "🏆";
+    document.getElementById("end-title").textContent = "Full time!";
+    document.getElementById("end-reason").textContent = "You got all 48 flags!";
+  } else if (reason === "time") {
+    document.getElementById("end-icon").textContent = "⏱️";
+    document.getElementById("end-title").textContent = "Time's up!";
+    document.getElementById("end-reason").textContent = `You reached level ${current ? current.level : 1}.`;
+  } else {
+    document.getElementById("end-icon").textContent = "🥅";
+    document.getElementById("end-title").textContent = "Wrong answer!";
+    document.getElementById("end-reason").textContent = `That was ${current.name}. You reached level ${current.level}.`;
+  }
+
+  document.getElementById("final-score").textContent = `You got ${score} flag${score !== 1 ? "s" : ""} correct.`;
+}
+
+function resetGame() {
+  document.getElementById("end-screen").style.display = "none";
+  document.getElementById("start-screen").style.display = "block";
+}
+</script>

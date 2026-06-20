@@ -16,3 +16,4 @@ Things I am maintaining right now:
 
 - [Style](/things/style/) – a design system of sorts for my blog.
 - [Sixt Boot Comparison](sixt-boot-comparison/) – a boot size comparison table of cars available from Sixt.
+- [Flag Quiz](flag-quiz/) – Made with Finn, a World Cup flag guessing game.
