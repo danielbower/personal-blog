@@ -56,7 +56,7 @@ permalink: /things/flag-quiz/
     font-size: 2.4rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
     line-height: 1.2;
     color: #fff;
   }
@@ -89,10 +89,12 @@ permalink: /things/flag-quiz/
     transition: border-color 0.1s, background 0.1s;
   }
 
-  .choice:hover {
-    border-color: #fff;
-    border-style: solid;
-    background: rgba(255,255,255,0.18);
+  @media (hover: hover) {
+    .choice:hover {
+      border-color: #fff;
+      border-style: solid;
+      background: rgba(255,255,255,0.18);
+    }
   }
 
   .choice.correct {
@@ -203,8 +205,9 @@ permalink: /things/flag-quiz/
   <div id="start-screen">
     <div style="font-size:4rem;margin-bottom:1rem;">⚽</div>
     <h2 style="color:#fff;margin-bottom:1rem;">Finn's Football Flag Fun</h2>
-    <p>Find the right flag for each country. It gets harder with every level!</p>
-    <button class="big-btn" onclick="startGame()">Start</button>
+    <p>You have three minutes to find the right flag for each country.</p> 
+    <p>There are eight levels, it gets harder with every level!</p>
+    <button class="big-btn" onclick="startGame()">Kick Off</button>
   </div>
 
   <div id="play-screen" style="display:none">
@@ -215,7 +218,6 @@ permalink: /things/flag-quiz/
     <div id="level-badge"></div>
     <div id="level-label"></div>
     <div id="country-name"></div>
-    <div id="question">Which flag is this country?</div>
     <div id="choices"></div>
     <div id="feedback"></div>
     <button id="next-btn" onclick="advance()">Next →</button>
@@ -422,18 +424,21 @@ function endGame(reason) {
 
   const highestLevel = currentIdx > 0 ? queue[Math.min(currentIdx, queue.length - 1)].level : 1;
 
+  const levelName = LEVEL_LABELS[current ? current.level : highestLevel] || "Easy";
+  const countryName = current ? current.name : (queue[queue.length - 1] ? queue[queue.length - 1].name : "");
+
   if (reason === "complete") {
     document.getElementById("end-icon").textContent = "🏆";
     document.getElementById("end-title").textContent = "Full time!";
-    document.getElementById("end-reason").textContent = "You got all 48 flags!";
+    document.getElementById("end-reason").textContent = `That was ${countryName}. You reached ${levelName} level.`;
   } else if (reason === "time") {
     document.getElementById("end-icon").textContent = "⏱️";
     document.getElementById("end-title").textContent = "Time's up!";
-    document.getElementById("end-reason").textContent = `You reached level ${current ? current.level : 1}.`;
+    document.getElementById("end-reason").textContent = `That was ${countryName}. You reached ${levelName} level.`;
   } else {
     document.getElementById("end-icon").textContent = "🥅";
     document.getElementById("end-title").textContent = "Wrong answer!";
-    document.getElementById("end-reason").textContent = `That was ${current.name}. You reached level ${current.level}.`;
+    document.getElementById("end-reason").textContent = `That was ${countryName}. You reached ${levelName} level.`;
   }
 
   document.getElementById("final-score").textContent = `You got ${score} flag${score !== 1 ? "s" : ""} correct.`;
@@ -441,6 +446,6 @@ function endGame(reason) {
 
 function resetGame() {
   document.getElementById("end-screen").style.display = "none";
-  document.getElementById("start-screen").style.display = "block";
+  document.getElementById("start-screen").style.display = "flex";
 }
 </script>
