@@ -5,6 +5,7 @@ permalink: /things/flag-quiz/
 ---
 
 <style>
+  /* This is the big green box that holds the whole game, like a picture frame */
   #game {
     max-width: 520px;
     margin: 0 auto;
@@ -15,6 +16,8 @@ permalink: /things/flag-quiz/
     color: #fff;
   }
 
+  /* HUD means "heads-up display" - it's the bar at the top with the clock and score,
+     just like the score bar you see in a video game */
   #hud {
     display: flex;
     justify-content: space-between;
@@ -25,15 +28,18 @@ permalink: /things/flag-quiz/
     color: rgba(255,255,255,0.75);
   }
 
+  /* The countdown clock */
   #timer {
     font-weight: 600;
     transition: color 0.3s;
   }
 
+  /* When time is almost out, the clock turns red to warn you, like a smoke alarm */
   #timer.urgent {
     color: #ff6b6b;
   }
 
+  /* The little tag that says which level you're on, e.g. "Level 3 of 8" */
   #level-badge {
     text-align: center;
     font-size: 1.1rem;
@@ -44,6 +50,7 @@ permalink: /things/flag-quiz/
     margin-bottom: 0.25rem;
   }
 
+  /* The word under the level badge, like "Easy" or "Hard" */
   #level-label {
     text-align: center;
     font-size: 1.1rem;
@@ -52,6 +59,7 @@ permalink: /things/flag-quiz/
     font-style: italic;
   }
 
+  /* The big country name you need to find the flag for */
   #country-name {
     font-size: 2.4rem;
     font-weight: 600;
@@ -61,6 +69,7 @@ permalink: /things/flag-quiz/
     color: #fff;
   }
 
+  /* The little instruction line, like "PICK THE FLAG" */
   #question {
     font-size: 1.2rem;
     color: rgba(255,255,255,0.75);
@@ -71,6 +80,7 @@ permalink: /things/flag-quiz/
     font-weight: 600;
   }
 
+  /* The grid of flag buttons you get to choose from, arranged in 3 columns */
   #choices {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -78,6 +88,7 @@ permalink: /things/flag-quiz/
     margin-bottom: 2rem;
   }
 
+  /* Each flag button before you click anything */
   .choice {
     font-size: 4rem;
     line-height: 1;
@@ -89,6 +100,8 @@ permalink: /things/flag-quiz/
     transition: border-color 0.1s, background 0.1s;
   }
 
+  /* Only light up a flag on hover if the device actually has a mouse
+     (so it doesn't stick funny on phones and tablets) */
   @media (hover: hover) {
     .choice:hover {
       border-color: #fff;
@@ -97,16 +110,21 @@ permalink: /things/flag-quiz/
     }
   }
 
+  /* This is how a flag looks once we tell you it was the RIGHT answer -
+     it gets a bright glowing box around it */
   .choice.correct {
     border-color: #fff;
     border-style: solid;
     background: rgba(255,255,255,0.3);
   }
 
+  /* This is how the flags you did NOT pick look when you got it wrong -
+     they fade out almost like a ghost */
   .choice.wrong {
     opacity: 0.2;
   }
 
+  /* The little message that pops up after you answer, like a soccer ball emoji */
   #feedback {
     text-align: center;
     font-size: 1.3rem;
@@ -115,6 +133,7 @@ permalink: /things/flag-quiz/
     color: #fff;
   }
 
+  /* The "Score: 0" line */
   #score-line {
     text-align: center;
     font-size: 1.2rem;
@@ -123,6 +142,8 @@ permalink: /things/flag-quiz/
     font-family: monospace;
   }
 
+  /* The button that takes you to the next question. It's hidden at first
+     and only shows up once you get an answer right */
   #next-btn {
     display: none;
     width: 100%;
@@ -136,12 +157,13 @@ permalink: /things/flag-quiz/
     text-align: center;
   }
 
+  /* Button turns white when your mouse hovers over it, like a light switching on */
   #next-btn:hover {
     background: #fff;
     color: #2d7a3a;
   }
 
-  /* Start screen */
+  /* Start screen - this is the very first thing you see, like a menu screen */
   #start-screen {
     display: flex;
     flex-direction: column;
@@ -157,7 +179,8 @@ permalink: /things/flag-quiz/
     margin-bottom: 2rem;
   }
 
-  /* End screen */
+  /* End screen - the screen you see once the game is over. It's hidden
+     until the game finishes, then it swaps places with the play screen */
   #end-screen {
     display: none;
     flex-direction: column;
@@ -181,6 +204,7 @@ permalink: /things/flag-quiz/
     margin-bottom: 2rem;
   }
 
+  /* The big buttons like "Kick Off" and "Try again" */
   .big-btn {
     padding: 0.85rem 2rem;
     border: 1px solid #fff;
@@ -202,14 +226,17 @@ permalink: /things/flag-quiz/
 
 <div id="game">
 
+  <!-- This is the first screen you see, before you press play -->
   <div id="start-screen">
     <div style="font-size:4rem;margin-bottom:1rem;">⚽</div>
     <h2 style="color:#fff;margin-bottom:1rem;">Finn's Football Flag Fun</h2>
-    <p>You have three minutes to find the right flag for each country.</p> 
+    <p>You have three minutes to find the right flag for each country.</p>
     <p>There are eight levels, it gets harder with every level!</p>
     <button class="big-btn" onclick="startGame()">Kick Off</button>
   </div>
 
+  <!-- This is the screen you see while you're actually playing the game.
+       It's hidden to start with (display:none) until you press Kick Off -->
   <div id="play-screen" style="display:none">
     <div id="hud">
       <span id="timer">3:00</span>
@@ -223,6 +250,8 @@ permalink: /things/flag-quiz/
     <button id="next-btn" onclick="advance()">Next →</button>
   </div>
 
+  <!-- This is the screen you see when the game is over, whether you won,
+       ran out of time, or got a question wrong -->
   <div id="end-screen">
     <div style="font-size:4rem;margin-bottom:1rem;" id="end-icon"></div>
     <h2 id="end-title"></h2>
@@ -234,6 +263,7 @@ permalink: /things/flag-quiz/
 </div>
 
 <script>
+// These are the friendly names for each level, from super easy to super tricky
 const LEVEL_LABELS = {
   1: "Easy",
   2: "Minor",
@@ -245,6 +275,10 @@ const LEVEL_LABELS = {
   8: "Expert",
 };
 
+// This is the big list of every country in the game. Think of it like a deck
+// of cards - each card has a flag emoji, the country's name, and which level
+// (1 to 8) it belongs to. Level 1 is the flags almost everyone knows, and
+// level 8 has the trickiest ones!
 const ALL_FLAGS = [
   { flag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", name: "England",              level: 1 },
   { flag: "🇫🇷",          name: "France",               level: 1 },
@@ -303,16 +337,27 @@ const ALL_FLAGS = [
   { flag: "🇭🇹",          name: "Haiti",                level: 8 },
 ];
 
+// The whole game lasts 180 seconds, which is the same as 3 minutes
 const TOTAL_SECONDS = 180;
 
+// "queue" is like a line of questions waiting their turn, one after another
 let queue = [];
+// This keeps track of which question in the line we're up to right now
 let currentIdx = 0;
+// This holds the country you're being asked about right now
 let current = null;
+// How many flags you've gotten right so far
 let score = 0;
+// A little flag (true/false) that remembers if you've already clicked an
+// answer for this question, so you can't click two different answers
 let answered = false;
+// This holds the "ticking clock" that counts down every second
 let timerInterval = null;
+// How many seconds are left on the clock
 let secondsLeft = TOTAL_SECONDS;
 
+// This mixes up a list into a random order, like shuffling a deck of cards
+// so you don't get asked the same order every time you play
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -322,6 +367,10 @@ function shuffle(arr) {
   return a;
 }
 
+// This builds the full line of questions for the game: it takes all the
+// level 1 flags and shuffles them, then all the level 2 flags and shuffles
+// those, and so on up to level 8. That way the game always gets harder
+// step by step, but the flags inside each level are still a surprise
 function buildQueue() {
   queue = [];
   for (let l = 1; l <= 8; l++) {
@@ -329,41 +378,55 @@ function buildQueue() {
   }
 }
 
+// This runs when you press the "Kick Off" button - it sets everything back
+// to the start and gets the game going
 function startGame() {
   buildQueue();
   score = 0;
   currentIdx = 0;
   secondsLeft = TOTAL_SECONDS;
 
+  // Hide the start screen and the end screen, and show the play screen instead
   document.getElementById("start-screen").style.display = "none";
   document.getElementById("end-screen").style.display = "none";
   document.getElementById("play-screen").style.display = "block";
 
   updateTimerDisplay();
+  // Start the clock: every 1000 milliseconds (that's 1 second) run tickTimer
   timerInterval = setInterval(tickTimer, 1000);
   showQuestion();
 }
 
+// This runs once every second while you're playing, like a heartbeat
 function tickTimer() {
   secondsLeft--;
   updateTimerDisplay();
+  // If the clock hits zero, the game ends because time ran out
   if (secondsLeft <= 0) {
     endGame("time");
   }
 }
 
+// This updates the clock on the screen so it shows something like "2:45"
 function updateTimerDisplay() {
   const m = Math.floor(secondsLeft / 60);
   const s = secondsLeft % 60;
   const el = document.getElementById("timer");
   el.textContent = `${m}:${String(s).padStart(2, "0")}`;
+  // If there are 30 seconds or less left, add the "urgent" class so the
+  // clock turns red as a warning
   el.classList.toggle("urgent", secondsLeft <= 30);
 }
 
+// This sets up the next question on the screen: picks the country, shows
+// its name, and lays out the flag buttons you can choose from
 function showQuestion() {
   answered = false;
   current = queue[currentIdx];
 
+  // Grab all the flags that belong to the same level as the current
+  // question, then shuffle them so the correct flag isn't always in the
+  // same spot
   const levelFlags = shuffle(ALL_FLAGS.filter(f => f.level === current.level));
 
   document.getElementById("level-badge").textContent = `Level ${current.level} of 8`;
@@ -373,24 +436,30 @@ function showQuestion() {
   document.getElementById("next-btn").style.display = "none";
   document.getElementById("score-line").textContent = `Score: ${score}`;
 
+  // Clear out the old flag buttons and build brand new ones for this question
   const choicesEl = document.getElementById("choices");
   choicesEl.innerHTML = "";
   levelFlags.forEach(opt => {
     const btn = document.createElement("button");
     btn.className = "choice";
     btn.textContent = opt.flag;
+    // When this button is clicked, check whether its flag matches the
+    // country we're asking about
     btn.onclick = () => handleAnswer(btn, opt.name === current.name);
     choicesEl.appendChild(btn);
   });
 }
 
+// This runs the moment you click one of the flag buttons
 function handleAnswer(btn, isCorrect) {
+  // If you already answered this question, ignore any extra clicks
   if (answered) return;
   answered = true;
 
   const allBtns = document.querySelectorAll(".choice");
 
   if (isCorrect) {
+    // Yay! Light up the button you clicked, add a point, and show a soccer ball
     btn.classList.add("correct");
     score++;
     document.getElementById("score-line").textContent = `Score: ${score}`;
@@ -398,11 +467,16 @@ function handleAnswer(btn, isCorrect) {
     currentIdx++;
 
     if (currentIdx >= queue.length) {
+      // If that was the very last question, you win! Wait a moment, then
+      // show the end screen
       setTimeout(() => endGame("complete"), 800);
     } else {
+      // Otherwise, wait a moment, then move on to the next question
       setTimeout(showQuestion, 600);
     }
   } else {
+    // Oops, wrong flag! Show which one WAS correct by lighting it up, and
+    // fade out all the wrong ones, then end the game
     allBtns.forEach(b => {
       if (b.textContent === current.flag) b.classList.add("correct");
       else b.classList.add("wrong");
@@ -411,22 +485,29 @@ function handleAnswer(btn, isCorrect) {
   }
 }
 
+// This runs if you press the "Next" button by hand
 function advance() {
   showQuestion();
 }
 
+// This runs whenever the game finishes, whether you won, ran out of time,
+// or picked the wrong flag. "reason" tells us which of those happened
 function endGame(reason) {
+  // Stop the clock from ticking any more
   clearInterval(timerInterval);
   timerInterval = null;
 
   document.getElementById("play-screen").style.display = "none";
   document.getElementById("end-screen").style.display = "flex";
 
+  // Figure out how far you got, in case the game ended for a reason where
+  // "current" might not be set
   const highestLevel = currentIdx > 0 ? queue[Math.min(currentIdx, queue.length - 1)].level : 1;
 
   const levelName = LEVEL_LABELS[current ? current.level : highestLevel] || "Easy";
   const countryName = current ? current.name : (queue[queue.length - 1] ? queue[queue.length - 1].name : "");
 
+  // Pick the right icon and title depending on how the game ended
   if (reason === "complete") {
     document.getElementById("end-icon").textContent = "🏆";
     document.getElementById("end-title").textContent = "Full time!";
@@ -444,6 +525,8 @@ function endGame(reason) {
   document.getElementById("final-score").textContent = `You got ${score} flag${score !== 1 ? "s" : ""} correct.`;
 }
 
+// This runs when you press "Try again" - it takes you back to the very
+// first start screen so you can play once more
 function resetGame() {
   document.getElementById("end-screen").style.display = "none";
   document.getElementById("start-screen").style.display = "flex";
