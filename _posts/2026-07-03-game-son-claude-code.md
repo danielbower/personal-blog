@@ -91,7 +91,7 @@ I was interested to see how Claude would attack the same sorting problem my son 
 
 Opus 4.8 took 6 minutes to respond, certainly one of the longest single responses I've ever seen! Its rationale for the groups was cool too, it took into consideration home nation flags, "big" teams, the heritage of communities in Hackney, recognisable flags e.g. Japan, and things from kids TV.
 
-Overall my son and Claude agreed on the group more times than they didn't and there was some particularly cool examples e.g. Turkey / Scotland which were let down by some last minute hallucinations. You can [see their ranking side by side here.](https://docs.google.com/spreadsheets/d/1LyS9qc-8Khc3ayF_A5VPqpgH9Anx6FJvAfNwZ2agAB8/edit?usp=sharing)
+Overall my son and Claude agreed on the group 25% of the time, and within that there were some particularly cool examples e.g. Turkey / Scotland which were only let down by some last minute hallucinations. You can [see their ranking side by side here.](https://docs.google.com/spreadsheets/d/1LyS9qc-8Khc3ayF_A5VPqpgH9Anx6FJvAfNwZ2agAB8/edit?usp=sharing)
 
 # Inline comments
 
