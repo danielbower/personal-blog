@@ -437,10 +437,35 @@ p.readmore {
   margin-left: 8px;
 }
 
+.article-content figure {
+  margin: 2.4rem 0;
+}
+
+.article-content figcaption {
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #888;
+  text-align: center;
+}
+
 /* Syntax Highlighting */
+.highlighter-rouge {
+  margin: 2.4rem 0;
+}
+
 .highlight {
   background-color: #eef;
   color: #586e75;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 1.5rem;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 1.3rem;
+  line-height: 1.6;
 }
 
 .highlight .c { color: #93a1a1; } /* Comment */

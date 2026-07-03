@@ -24,6 +24,18 @@ layout: default
     {{ page.content }}
   </div>
 
+  <script>
+    document.querySelectorAll('.article-content p > img:only-child').forEach(function (img) {
+      if (!img.alt) return;
+      var figure = document.createElement('figure');
+      var figcaption = document.createElement('figcaption');
+      figcaption.textContent = img.alt;
+      img.parentElement.replaceWith(figure);
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+    });
+  </script>
+
   <footer class="article-footer">
 
   {% include share.html %}
