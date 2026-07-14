@@ -16,18 +16,31 @@ permalink: /archive/
 
     <p>I also like
         to share interesting links on my blog along with some brief notes. You can find all of them on <a
-            href="/link-rolling/">Link Rolling.</p>
+            href="/link-rolling/">Link Rolling</a>.</p>
 
     <hr>
 
-    <section class="archive_list">
-        {% for post in site.posts %}
-        {% unless post.title == "Link roll" %}
-        <div class="post_title">
-            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
-            <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
-        </div>
-        {% endunless %}
+    {% assign archive_posts = site.posts | where_exp: "post", "post.title != 'Link roll'" %}
+    {% assign years = archive_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
+    <section class="archive_by_year">
+        {% for year in years %}
+        <details class="archive_year" {% if forloop.first %}open{% endif %}>
+            <summary class="archive_year_summary">
+                <span class="archive_year_row">
+                    <span class="archive_year_label">{{ year.name }}</span>
+                    <span class="archive_year_count">{{ year.items | size }} posts</span>
+                </span>
+            </summary>
+            <div class="archive_year_posts">
+                {% for post in year.items %}
+                <div class="post_title">
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title}}</a>
+                    <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </details>
         {% endfor %}
     </section>
 

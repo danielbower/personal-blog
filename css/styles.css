@@ -412,6 +412,59 @@ p.readmore {
   width: 24px;
 }
 
+.archive_by_year {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive_year {
+  border-bottom: 1px dotted var(--grey-color-light);
+  padding: 1.5rem 0;
+}
+
+.archive_year:first-child {
+  padding-top: 0;
+}
+
+.archive_year:last-child {
+  border-bottom: none;
+}
+
+.archive_year_summary {
+  display: block;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text-color);
+}
+
+.archive_year_summary::-webkit-details-marker {
+  display: none;
+}
+
+.archive_year_summary::marker {
+  content: "";
+}
+
+.archive_year_row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.archive_year_label {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.archive_year_count {
+  font-size: 1.4rem;
+  color: var(--grey-color);
+}
+
+.archive_year_posts {
+  margin-top: 1.5rem;
+}
+
 .article-content a {
   border-bottom: 1px dotted black;
   text-decoration: none;
