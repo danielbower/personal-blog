@@ -10,6 +10,8 @@ In Night of the Living Dead (1968), George Romero's horror classic, the driving 
 
 What was particularly ingenious about Romero's idea was that his films (and the many that have followed his lead) refuse the vindicate either side of the debate. Yes the horde outside is dangerous, but so are the people on the inside!<a id="ref1" href="#ftn1"><sup>1</sup></a>
 
+![Harry and Ben in Night of the Living Dead (1968)](/assets/img/ben-harry.jpg)
+
 Inside the zombie sub-genre risk is symmetric. There is no *gradient* with which the characters can lean towards for a more consistent upside. If there were, the movies would be less fun. But some environments do display such a gradient, where a consistent approach *does* yield a more consistent, if not inevitable, positive outcome.
 
 Medicine, appears to me, to be one domain in which the gradient means we lean towards restraint. Humans are (by and large) self-healing systems and so doing nothing isn't passivity, it's the delegation of effort to a system that's already on your side: homeostasis, tissue healing, and immune response are all examples of this. Intervention, by contrast, introduces new risk. We see this represented in "primum non nocere" (first, do no harm) the maxim taught to medical students the world over. We see it in the field of quaternary prevention, which aims to avoid unncessary medical intervention and the iatrogenetic harm that follows. And I have seen it first hand in the world of healthcare screening, a formalised *interventionist* stance, where the subject of overscreening and overdiagnosis is rightly debated.
