@@ -199,6 +199,13 @@ permalink: /things/style/
     <span class="ds-type-meta">.post_date · 1.4rem · color #888</span>
     <p class="post_date">14 January 2025</p>
   </div>
+  <div class="ds-item">
+    <span class="ds-type-meta">ul, ol · 1.7rem · line-height 1.6 · matches paragraph text · list item text always matches the marker size, even when Markdown wraps an item in a &lt;p&gt; (loose list)</span>
+    <ol>
+      <li><p>Loose-list item — Markdown wrapped this in a &lt;p&gt;, but it still renders at 1.7rem like the number beside it.</p></li>
+      <li><p>Second item, same size as the first.</p></li>
+    </ol>
+  </div>
 </div>
 
 <!-- Links -->
@@ -244,35 +251,28 @@ permalink: /things/style/
   <h2>Archive Year Group</h2>
   <span class="ds-name">.archive_by_year / .archive_year / .archive_year_summary / .archive_year_posts</span>
 
+  {% assign archive_posts = site.posts | where_exp: "post", "post.title != 'Link roll'" %}
+  {% assign years = archive_posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+
   <section class="archive_by_year">
-    <details class="archive_year" open>
+    {% for year in years limit:2 %}
+    <details class="archive_year" {% if forloop.first %}open{% endif %}>
       <summary class="archive_year_summary">
         <span class="archive_year_row">
-          <span class="archive_year_label">2026</span>
-          <span class="archive_year_count">5 posts</span>
+          <span class="archive_year_label">{{ year.name }}</span>
+          <span class="archive_year_count">{{ year.items | size }} posts</span>
         </span>
       </summary>
       <div class="archive_year_posts">
+        {% for post in year.items limit:1 %}
         <div class="post_title">
-          <a href="#">Example post title</a>
-          <span class="date">13 Jul, 2026</span>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <span class="date">{{ post.date | date: "%-d %b, %Y" }}</span>
         </div>
+        {% endfor %}
       </div>
     </details>
-    <details class="archive_year">
-      <summary class="archive_year_summary">
-        <span class="archive_year_row">
-          <span class="archive_year_label">2025</span>
-          <span class="archive_year_count">4 posts</span>
-        </span>
-      </summary>
-      <div class="archive_year_posts">
-        <div class="post_title">
-          <a href="#">Example post title</a>
-          <span class="date">8 Dec, 2025</span>
-        </div>
-      </div>
-    </details>
+    {% endfor %}
   </section>
 </div>
 
