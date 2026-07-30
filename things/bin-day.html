@@ -1,0 +1,310 @@
+---
+layout: default
+title: Bin Day
+permalink: /things/bin-day/
+---
+
+<style>
+  .bin-wrap {
+    border: 1px dotted var(--grey-color-light);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .bin-status {
+    font-size: 1em;
+    color: var(--grey-color);
+  }
+
+  .bin-hero {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .bin-hero-emoji {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .bin-hero-label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    display: block;
+  }
+
+  .bin-hero-date {
+    font-size: 1.1rem;
+    color: var(--grey-color-dark);
+  }
+
+  .bin-hero-sep {
+    font-size: 1.1rem;
+    color: var(--grey-color-light);
+    margin: 0 0.4rem;
+  }
+
+  .bin-hero-report {
+    font-size: 1.1rem;
+  }
+
+  .bin-error {
+    color: #b23b3b;
+  }
+</style>
+
+<h1 class="article_title">Bin Day</h1>
+
+<div class="bin-wrap">
+  <p class="bin-status" id="bin-status">Checking Hackney's waste API…</p>
+  <div id="bin-result" style="display:none;">
+    <div class="bin-hero">
+      <span class="bin-hero-emoji" id="bin-hero-emoji"></span>
+      <div>
+        <span class="bin-hero-label" id="bin-hero-label"></span>
+        <span class="bin-hero-date" id="bin-hero-date"></span><span class="bin-hero-sep">•</span><a class="bin-hero-report" href="https://hackney-missedbinal.egovhub.net/MissedBinFormYA/launch" target="_blank" rel="noopener">Report a missed collection</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Hackney Council collects household and garden waste on alternating weeks, something my brain finds incredibly hard to keep track of. To make matters worse (for me) they also change the collection date from time to time to even out the service during bank holidays. The outcome is that I need to check what is being collected every single week.</p>
+
+<p>This doesn't sound too frustrating until you <a href="https://www.hackney.gov.uk/rubbish-and-recycling/rubbish-recycling-and-food-waste-collections/check-your-collection-day">visit the council website to check your collection day</a> and a required to: hit a 'check you collection' button, enter your postcode (remember the space!) and then select your properly from a dropdown list. Yes you can download an annual PDF (they don't post our printed copies anymore), but this is not the easiest to read, and also, how do you remember where you even saved that?!</p>
+
+<p>Fortunately, hidden within the Azure app the runs the lookup service is a public API that returns details about your next collection without any authentication. You can actually get quite a bit of detail from the API, for example what bins are being collected on what day for the next 100 collections. However, all I need to know is whether it's garden or household waste this week and what date it's being collected. Recycling and food waste are collected every time.</p>
+
+<p>This thing is completely useless to you unless you happen to live on my road or any of the surrounding roads that follow the same collection pattern. But... if you are interested in how it works, or recreating it yourself, you can check out my Bin Day code on Github.</p>
+
+<script>
+
+(function () {
+
+  // --- Config -----------------------------------------------------------
+  // Hackney's bin lookup tool (hackney-waste-pages.azurewebsites.net) calls
+  // this API under the hood. It's public and needs no login or API key -
+  // I found the URL by watching the network tab while using their tool.
+  var API_BASE = 'https://waste-api-hackney-live.ieg4.net/f806d91c-e133-43a6-ba9a-c0ae4f4cccf6/alloywastepages';
+
+  // Every property has a property ID, the one below is mine. This 
+  // is how the API knows whose bins to return. It's meaningless to
+  // anyone without access to Hackney's database, so it's safe to leave in
+  // the page source even though this file is public.
+  var PROPERTY_ID = '5f898d4790478c0067f8a7e3';
+
+  // Where we stash the last successful result in the browser's localStorage,
+  // and how long we trust it before asking the API again. Collections only
+  // happen weekly, so re-fetching once every 24 hours is already generous -
+  // it means repeat visits (or refreshes) in the same day cost zero extra
+  // requests to Hackney's API, which is polite and avoids getting rate-limited.
+  // (Versioned in case the shape of what we cache ever changes again, so old
+  // cached data from a previous version of this script is never misread.)
+  var CACHE_KEY = 'binDayCache_v2';
+  var CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours, in milliseconds
+
+  // Grab references to the bits of the page we'll fill in once we have data.
+  var statusEl = document.getElementById('bin-status');
+  var resultEl = document.getElementById('bin-result');
+  var heroEmojiEl = document.getElementById('bin-hero-emoji');
+  var heroLabelEl = document.getElementById('bin-hero-label');
+  var heroDateEl = document.getElementById('bin-hero-date');
+
+  // --- Small helper: fetch a URL and parse it as JSON --------------------
+  // `fetch()` is the browser's built-in way to make an HTTP request. It
+  // returns a Promise - an object representing "a value that will exist
+  // later" - which resolves once the response headers arrive (the body may
+  // still be streaming in). Calling `.then(callback)` says "once that
+  // Promise resolves, run this callback with the result." Importantly,
+  // `fetch()` only rejects (fails) on a network error - a 404 or 500 still
+  // counts as a successful fetch, so we check `res.ok` ourselves and throw
+  // if the request wasn't actually successful.
+  function getJSON(path) {
+    return fetch(API_BASE + '/' + path).then(function (res) {
+      if (!res.ok) throw new Error('Request failed: ' + path);
+      return res.json(); // res.json() is itself async (it reads the body
+                          // stream), so this returns another Promise - which
+                          // is fine, because returning a Promise from inside
+                          // a .then() callback chains it automatically: the
+                          // caller's .then() won't fire until this one is
+                          // done too.
+    });
+  }
+
+  function formatDate(d) {
+    return d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+  }
+
+  // Hackney's own data has internal shorthand baked into some bin names,
+  // e.g. "GW_Wheeled Bin 140l" for the garden waste bin. Translate those
+  // into something a human can read at a glance.
+  function cleanBinName(name) {
+    return name.replace(/^GW_/, 'Garden Waste ').replace(/^ES_/, '').trim();
+  }
+
+  function isGardenBin(name) {
+    return /garden/i.test(name);
+  }
+
+  function isWheeledBin(name) {
+    return /wheeled bin/i.test(name);
+  }
+
+  // --- Cache read/write ---------------------------------------------------
+  // localStorage only stores strings, so dates get saved as ISO strings
+  // (writeCache) and turned back into real Date objects when read back in
+  // (readCache) - JSON.stringify/parse alone won't do that conversion for us.
+  function readCache() {
+    try {
+      var raw = localStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      var cache = JSON.parse(raw);
+      return {
+        fetchedAt: cache.fetchedAt,
+        bins: cache.bins.map(function (b) {
+          return { name: b.name, dates: b.dates.map(function (d) { return new Date(d); }) };
+        })
+      };
+    } catch (e) {
+      return null; // corrupt or unreadable cache - just treat it as absent
+    }
+  }
+
+  function writeCache(bins) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        fetchedAt: Date.now(),
+        bins: bins.map(function (b) {
+          return { name: b.name, dates: b.dates.map(function (d) { return d.toISOString(); }) };
+        })
+      }));
+    } catch (e) {
+      // localStorage unavailable (private browsing etc) - fine to skip caching
+    }
+  }
+
+  // --- The interesting bit: walking Hackney's API ------------------------
+  // There's no single "give me the next bin day" endpoint. Getting a
+  // property's full schedule takes several separate calls, each one telling
+  // us the ID(s) we need for the next:
+  //
+  //   1. getproperty/{propertyId}   -> which bin/sack containers this
+  //                                     address has (a list of container IDs)
+  //   2. getbin/{containerId}       -> that container's display name
+  //   3. getcollection/{containerId}-> which recurring "workflow" schedules
+  //                                     its collection (usually just one)
+  //   4. getworkflow/{workflowId}   -> the actual list of collection dates,
+  //                                     stretching about two years ahead
+  //
+  // We only care about the two wheeled bins (garden waste vs household
+  // waste) - recycling sacks and food caddies go out every week regardless,
+  // so there's no point spending a request finding out their schedule. The
+  // catch is that step 1 only gives us container IDs, not names, so we
+  // can't tell which containers are wheeled bins until after step 2. We
+  // fetch step 2 (getbin) for every container - it's a small, single-object
+  // response - then only carry the wheeled-bin ones through to steps 3 and
+  // 4, which are the expensive calls: each getworkflow response is a list
+  // of roughly a hundred dates.
+  function fetchLive() {
+    return getJSON('getproperty/' + PROPERTY_ID).then(function (property) {
+      // The property record lists its containers as a single comma-separated
+      // string of IDs (a quirk of this API), so split it into an array.
+      var containerIds = (property.providerSpecificFields.attributes_wasteContainersAssignableWasteContainers || '')
+        .split(',')
+        .map(function (s) { return s.trim(); })
+        .filter(Boolean);
+
+      if (!containerIds.length) throw new Error('No bins found for this property');
+
+      // `Promise.all([...])` takes an array of Promises and gives back one
+      // Promise that resolves once *all* of them have - with an array of
+      // their results, in the same order. Firing off every container's
+      // getbin request at once (rather than waiting for each in turn) makes
+      // this pass as fast as the slowest single request, not the sum of them.
+      return Promise.all(containerIds.map(function (id) {
+        return getJSON('getbin/' + id).then(function (bin) {
+          return { id: id, name: cleanBinName(bin.subTitle) };
+        });
+      })).then(function (allBins) {
+        var wheeledBins = allBins.filter(function (b) { return isWheeledBin(b.name); });
+
+        if (!wheeledBins.length) throw new Error('No wheeled bins found for this property');
+
+        // Same parallel trick again, but now only for the containers we
+        // actually need the full schedule for.
+        return Promise.all(wheeledBins.map(function (b) {
+          return getJSON('getcollection/' + b.id).then(function (collection) {
+            var workflowIds = collection.scheduleCodeWorkflowIDs || [];
+
+            // A container is usually tied to one workflow, but the API
+            // allows more than one, so we fetch them all in parallel too and
+            // flatten every workflow's dates into a single list for this bin.
+            return Promise.all(workflowIds.map(function (wfId) { return getJSON('getworkflow/' + wfId); }))
+              .then(function (workflows) {
+                var dates = [];
+                workflows.forEach(function (wf) {
+                  (wf.trigger && wf.trigger.dates || []).forEach(function (d) { dates.push(new Date(d)); });
+                });
+                return { name: b.name, dates: dates };
+              });
+          });
+        }));
+      });
+      // The end result of this whole chain: an array of just the wheeled
+      // bins, e.g. [{ name: 'Garden Waste...', dates: [...] }, { name: 'Wheeled Bin (180ltr)', dates: [...] }]
+    });
+  }
+
+  // --- Turning the raw data into what's on screen -------------------------
+  function render(bins) {
+    var now = new Date();
+
+    // For each bin, find the soonest date that hasn't happened yet.
+    var rows = bins.map(function (bin) {
+      var next = bin.dates
+        .filter(function (d) { return d >= now; })
+        .sort(function (a, b) { return a - b; })[0];
+      return next ? { name: bin.name, date: next } : null;
+    }).filter(Boolean).sort(function (a, b) { return a.date - b.date; });
+
+    if (!rows.length) throw new Error('No upcoming collections found');
+
+    // `bins` only ever contains the wheeled bins now (fetchLive already
+    // filtered out recycling/food), so the soonest row is our answer -
+    // whichever of garden waste or household waste comes round next.
+    var heroRow = rows[0];
+    var garden = isGardenBin(heroRow.name);
+    heroEmojiEl.textContent = garden ? '🌿' : '🗑️';
+    heroLabelEl.textContent = garden ? 'Garden waste' : 'Household waste';
+    heroDateEl.textContent = formatDate(heroRow.date);
+
+    statusEl.style.display = 'none';
+    resultEl.style.display = 'block';
+  }
+
+  // --- Decide whether to trust the cache or go fetch fresh data -----------
+  var cache = readCache();
+  var cacheIsFresh = cache && (Date.now() - cache.fetchedAt < CACHE_TTL_MS);
+
+  var ready = cacheIsFresh
+    ? Promise.resolve(cache.bins) // wrap the cached value in a Promise so
+                                   // `ready` is always a Promise either way -
+                                   // that lets the code below treat "used the
+                                   // cache" and "fetched live" identically.
+    : fetchLive().then(function (bins) {
+        writeCache(bins);
+        return bins;
+      }).catch(function (err) {
+        if (cache) return cache.bins; // API unreachable - fall back to stale cache rather than erroring
+        throw err; // no cache to fall back on, so let the error propagate
+      });
+
+  // Whichever path `ready` took, render() runs once we have a bins array.
+  // If anything above threw (bad response, no cache, no upcoming dates),
+  // it lands here instead.
+  ready.then(render).catch(function () {
+    statusEl.textContent = "Couldn't reach Hackney's waste API right now — try again shortly.";
+    statusEl.className = 'bin-status bin-error';
+  });
+})();
+</script>
