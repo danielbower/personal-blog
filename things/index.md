@@ -11,7 +11,20 @@ Is the code very good? Probably not. Was my code *ever* very good? No. The point
 
 Things I am maintaining right now:
 
-- [Style](/things/style/) – a design system of sorts for my blog.
-- [Sixt Boot Comparison](sixt-boot-comparison/) – a boot size comparison table of cars available from Sixt.
-- [Flag Quiz](flag-quiz/) – Made with my 8yo, a World Cup flag guessing game.
-- [Bin Day](bin-day/) – Checks Hackney Council's waste API for my next bin collection.
+<section class="archive_by_year">
+{% for category in site.data.things %}
+<details class="archive_year" open>
+    <summary class="archive_year_summary">
+        <span class="archive_year_row">
+            <span class="archive_year_label">{{ category.name }}</span>
+            <span class="archive_year_count">{{ category.items | size }} thing{% if category.items.size != 1 %}s{% endif %}</span>
+        </span>
+    </summary>
+    <div class="archive_year_posts">
+        {% for item in category.items %}
+        <p><a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a> – {{ item.description }}</p>
+        {% endfor %}
+    </div>
+</details>
+{% endfor %}
+</section>
