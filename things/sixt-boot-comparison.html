@@ -43,6 +43,8 @@ permalink: /things/sixt-boot-comparison/
 
   tbody tr:last-child td { border-bottom: none; }
 
+  tr.highlight td { background: color-mix(in srgb, var(--brand-color) 12%, transparent); }
+
   .col-car  { width: 32%; }
   .col-boot { width: 15%; }
   .col-bar  { width: 28%; }
@@ -103,17 +105,18 @@ const cars = [
   { name:"Audi Q2",             vol:405, src:"https://www.carbuyer.co.uk/audi/q2/practicality",              lbl:"Carbuyer" },
   { name:"Citroën C3",          vol:310, src:"https://www.parkers.co.uk/citroen/c3/review/practicality/",    lbl:"Parkers"  },
   { name:"Citroën C3 Aircross",  vol:460, src:"https://www.carbuyer.co.uk/citroen/c3-aircross/practicality", lbl:"Carbuyer" },
+  { name:"Citroën C5 Aircross Max", vol:565, src:"https://www.autoexpress.co.uk/citroen/c5-aircross/practicality", lbl:"Auto Express" },
   { name:"Peugeot 408",         vol:536, src:"https://www.parkers.co.uk/peugeot/408/review/practicality/",   lbl:"Parkers"  },
   { name:"VW T-Cross",          vol:385, src:"https://www.carbuyer.co.uk/volkswagen/t-cross/practicality",   lbl:"Carbuyer" },
   { name:"Peugeot 308 SW",      vol:548, src:"https://www.carbuyer.co.uk/peugeot/308/308-sw-estate",         lbl:"Carbuyer" },
   { name:"VW ID.4",             vol:543, src:"https://www.carbuyer.co.uk/volkswagen/id4/practicality",       lbl:"Carbuyer" },
   { name:"VW ID.5",             vol:549, src:"https://www.carbuyer.co.uk/volkswagen/id5/practicality",       lbl:"Carbuyer" },
-  { name:"Volvo XC60",          vol:483, src:"https://www.carbuyer.co.uk/volvo/xc60/practicality",           lbl:"Carbuyer" },
+  { name:"Volvo XC60",          vol:483, src:"https://www.carbuyer.co.uk/volvo/xc60/practicality",           lbl:"Carbuyer", highlight:true },
   { name:"VW Tiguan",           vol:652, src:"https://www.carbuyer.co.uk/volkswagen/tiguan/practicality",    lbl:"Carbuyer" },
 ];
 
-let sortCol = 'name';
-let sortDir = 'asc';
+let sortCol = 'vol';
+let sortDir = 'desc';
 
 function getSorted(list) {
   return [...list].sort((a, b) => {
@@ -147,7 +150,7 @@ function sortBy(col) {
 function render() {
   document.getElementById('tbody').innerHTML = getSorted(cars).map(c => {
     const pct = Math.round(c.vol / MAX_VOL * 100);
-    return `<tr>
+    return `<tr class="${c.highlight ? 'highlight' : ''}">
       <td>${c.name}</td>
       <td>${c.vol} L</td>
       <td><div class="bar-wrap"><div class="bar" style="width:${pct}%"></div></div></td>
