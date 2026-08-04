@@ -6,7 +6,10 @@
     - title: Sixt Boot Comparison
       url: /things/sixt-boot-comparison/
       description: A boot size comparison table of cars available from Sixt.
-
+    - title: Fizzy Drinks
+      url: /things/fizzy-drinks-sugar-caffeine/
+      description: A sugar and caffeine comparison table for the fizzy drinks my son wants me to buy.
+      
 - name: Games
   items:
     - title: Flag Quiz

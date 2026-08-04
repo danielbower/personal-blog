@@ -1,0 +1,181 @@
+---
+layout: default
+title: Fizzy Drinks
+permalink: /things/fizzy-drinks-sugar-caffeine/
+---
+
+<style>
+  .wrap { overflow-x: auto; border: 1px dotted var(--grey-color-light); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    table-layout: fixed;
+    min-width: 480px;
+  }
+
+  thead th {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--grey-color);
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px dotted var(--grey-color-light);
+    white-space: nowrap;
+  }
+
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { color: var(--text-color); }
+
+  .sort-icon { margin-left: 4px; opacity: 0.35; }
+  .sort-icon.active { opacity: 1; color: var(--accent); }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px dotted var(--grey-color-light);
+    vertical-align: middle;
+    font-size: 1em;
+    color: var(--text-color);
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+
+  .col-drink    { width: 22%; }
+  .col-caffeine { width: 10%; }
+  .col-sugar    { width: 20%; }
+  .col-bar      { width: 23%; }
+  .col-src      { width: 25%; }
+
+  .sugar-tsp {
+    display: block;
+    font-size: 0.85em;
+    color: var(--grey-color);
+  }
+
+  .caffeine-yes { color: var(--text-color); }
+  .caffeine-no  { color: var(--grey-color-light); }
+
+  .bar-wrap {
+    background: #eef;
+    border-radius: 3px;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .bar { height: 8px; border-radius: 3px; background: var(--brand-color); }
+
+  a.src {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--grey-color-light);
+  }
+  a.src:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+</style>
+
+<h1 class="article_title">Fizzy Drinks</h1>
+
+<p>My son is always trying to convince me to buy him fizzy drinks. Rather than say no all the time, I will often bend because: it's the weekened, the summer holidays or I am just too tired to argue.</p>
+
+<p>Grabbing a drink and trying to work out how much sugar it contains, how that compares to other drinks, and if it has caffeine in it, is not easy (or desirable) when under pressure. So I have pulled this table together to help out.</p>
+
+<p>Some things to note:</p>
+
+<ul>
+<li>I've included a rough teaspoon amount as this is easier for him to conceptualise.</li>
+<li>No sugar means artificial sweetners. This is always a better choice than a drink with sugar, but the drink will still erode teeth.</li>
+</ul>
+
+<p>I hope you find it useful!</p>
+
+<div class="wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-drink sortable" onclick="sortBy('name')">Drink <span class="sort-icon" id="sort-icon-name">↕</span></th>
+        <th class="col-caffeine sortable" onclick="sortBy('caffeine')">Caffeine <span class="sort-icon" id="sort-icon-caffeine">↕</span></th>
+        <th class="col-sugar sortable" onclick="sortBy('sugar')">Sugar / 100ml <span class="sort-icon" id="sort-icon-sugar">↕</span></th>
+        <th class="col-bar">Relative amount</th>
+        <th class="col-src">Source</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<script>
+const MAX_SUGAR = 13.2;
+const drinks = [
+  { name:"Old Jamaica Ginger Beer",   caffeine:false, sugar:13.2, src:"https://world.openfoodfacts.org/product/5000177488071/old-jamaica-ginger-beer", lbl:"Open Food Facts" },
+  { name:"Mountain Dew",              caffeine:true,  sugar:12.4, src:"https://world.openfoodfacts.org/product/5949000500538/moutain-dew-mountain-dew",         lbl:"Open Food Facts" },
+  { name:"Red Bull Original",         caffeine:true,  sugar:11.0, src:"https://world.openfoodfacts.org/product/9002490100070/energy-drink-red-bull",       lbl:"Open Food Facts" },
+  { name:"Coca-Cola Original",        caffeine:true,  sugar:10.6, src:"https://www.coca-cola.com/gb/en/brands/coca-cola-original-taste",                   lbl:"Coca-Cola GB"    },
+  { name:"Pepsi Original",            caffeine:true,  sugar:4.5,  src:"https://www.pepsi.co.uk/products/pepsi",                                            lbl:"Pepsi UK"        },
+  { name:"San Pellegrino Limonata",   caffeine:false, sugar:4.7,  src:"https://world.openfoodfacts.org/product/8002270146503/san-pellegrino-limonata-nestle", lbl:"Open Food Facts" },
+  { name:"Irn-Bru",                   caffeine:true,  sugar:4.5,  src:"https://irn-bru.co.uk/products/irn-bru",                                            lbl:"Irn-Bru"         },
+  { name:"Fanta Orange",              caffeine:false, sugar:4.5,  src:"https://www.coca-cola.com/gb/en/brands/fanta",                                      lbl:"Coca-Cola GB"    },
+  { name:"Lucozade Energy Orange",    caffeine:true,  sugar:4.5,  src:"https://world.openfoodfacts.org/product/5054267010710/lucozade-energy-orange",       lbl:"Open Food Facts" },
+  { name:"Sprite",                    caffeine:false, sugar:4.4,  src:"https://www.coca-cola.com/gb/en/brands/sprite",                                     lbl:"Coca-Cola GB"    },
+  { name:"Dr Pepper",                 caffeine:true,  sugar:4.3,  src:"https://www.coca-cola.com/gb/en/brands/dr-pepper",                                  lbl:"Coca-Cola GB"    },
+  { name:"Tango Orange",              caffeine:false, sugar:4.2,  src:"https://world.openfoodfacts.org/product/50411887/tango-orange-britvic",              lbl:"Open Food Facts" },
+  { name:"Diet Coke",                 caffeine:true,  sugar:0,    src:"https://www.coca-cola.com/gb/en/brands/diet-coke",                                  lbl:"Coca-Cola GB"    },
+  { name:"Coke Zero",                 caffeine:true,  sugar:0,    src:"https://www.coca-cola.com/gb/en/brands/coca-cola-zero-sugar",                       lbl:"Coca-Cola GB"    },
+  { name:"Pepsi Max",                 caffeine:true,  sugar:0,    src:"https://www.pepsi.co.uk/products/pepsi-max",                                        lbl:"Pepsi UK"        },
+];
+
+let sortCol = 'sugar';
+let sortDir = 'desc';
+
+function getSorted(list) {
+  return [...list].sort((a, b) => {
+    let valA, valB;
+    if (sortCol === 'name') { valA = a.name; valB = b.name; }
+    else if (sortCol === 'caffeine') { valA = a.caffeine ? 1 : 0; valB = b.caffeine ? 1 : 0; }
+    else { valA = a.sugar; valB = b.sugar; }
+    if (valA < valB) return sortDir === 'asc' ? -1 : 1;
+    if (valA > valB) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
+}
+
+function updateIcons() {
+  ['name', 'caffeine', 'sugar'].forEach(col => {
+    const icon = document.getElementById('sort-icon-' + col);
+    if (col !== sortCol) { icon.textContent = '↕'; icon.className = 'sort-icon'; }
+    else { icon.textContent = sortDir === 'asc' ? '↑' : '↓'; icon.className = 'sort-icon active'; }
+  });
+}
+
+function sortBy(col) {
+  if (sortCol === col) {
+    sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+  } else {
+    sortCol = col;
+    sortDir = col === 'name' ? 'asc' : 'desc';
+  }
+  updateIcons();
+  render();
+}
+
+function render() {
+  document.getElementById('tbody').innerHTML = getSorted(drinks).map(d => {
+    const pct = Math.round(d.sugar / MAX_SUGAR * 100);
+    const tsp = Math.round(d.sugar / 4 * 10) / 10;
+    return `<tr>
+      <td>${d.name}</td>
+      <td class="${d.caffeine ? 'caffeine-yes' : 'caffeine-no'}">${d.caffeine ? 'Yes' : 'No'}</td>
+      <td>${d.sugar}g<span class="sugar-tsp">≈ ${tsp} tsp</span></td>
+      <td><div class="bar-wrap"><div class="bar" style="width:${pct}%"></div></div></td>
+      <td><a class="src" href="${d.src}" target="_blank">${d.lbl}</a></td>
+    </tr>`;
+  }).join('');
+}
+
+updateIcons();
+render();
+</script>
