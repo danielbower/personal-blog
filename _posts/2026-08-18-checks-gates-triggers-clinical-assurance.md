@@ -12,7 +12,7 @@ This conversation created a distinction in my mind that had probably always been
 
 An easy way to think about this is a simple production line. Imagine some process occurs between points A and B. Under a trigger you monitor the process and raise an alert when defects are detected, under a gate you stop the process at some point and wait for an inspector to allow the process to continue.
 
-![A gate an trigger in operation between points A and B](/assets/img/trigger-gate.jpg)
+![A tigger and a gate in operation between points A and B](/assets/img/trigger-gate.jpg)
 
 Returning to healthcare, NEWS is an example of a trigger based check, and the [Independent Second or Double Check (IDC)](https://sps.nhs.uk/articles/understanding-when-a-check-adds-value-to-medication-processes/) commonly found in pharmacy while preparing drugs, is, as the name suggests, an example of a gate. The IDC is regarded as a good example of a gate because it's typically applied to scenarios where it is quick to carry out, and it is protecting against some pretty massive, and potentially irreversible, downside.<a id="ref1" href="#ftn1"><sup>1</sup></a>
 
@@ -20,7 +20,7 @@ It would appear to me however that, in general, gates are far less effective.
 
 # Unknowable trust
 
-The obvious point is that a gate is a less efficient system than a trigger. Run up against a gate, and progress is slowed until you've been cleared to proceed.
+The obvious point is that a gate is a less efficient system than a trigger. Run up against a gate, and progress is slowed until you've been cleared to proceed by an inspector.
 
 Inspectors can also drown under the volume of their work. Is it reasonable to assume someone can understand how to do the work safely if they are, for the most part, detached from the work itself? And at this point, doesn't it just become a tickbox exercise? Or a checkbox, as it's referred to in North America.
 
@@ -34,7 +34,7 @@ A brief detour into the origins of "checking" reveals some interesting things. T
 
 But the seam of history most relevant here, starts, like many corporate processes, with Frederick Taylor, who established the inspector as a distinct role in his Principles of Scientific Management (1911). It wasn't long however until Taylor’s ideas were complicated by Walter Shewhart, whose control charts (c. late 1920s) allowed organisations to establish defined boundaries with which a process could operate safely within before requiring an intervention. In other words, control charts provided a method for investigating on the basis of evidence rather than as a matter of routine.
 
-W. Edwards Deming, a Shewhart protégé, carried this thinking to Japan at the end of the Second World War and is often cited as a key contributor to the country's rise as a manufacturing powerhouse. The important point here is that Deming, like people at Toyota, Mitsubishi and no doubt others, had all arrived at a similar place: modern companies needed to “cease dependence on inspection” and instead empower the teams working on the line to raise concerns about quality issues and ideally automate the detection of defects too.<a id="ref2" href="#ftn2"><sup>2</sup></a>
+W. Edwards Deming, a Shewhart protégé, carried this thinking to Japan at the end of the Second World War and is often cited as a key contributor to the country's rise as a manufacturing powerhouse. The important point here is that Deming, like people at Toyota, Mitsubishi and no doubt others, had all arrived at a similar place: modern companies needed to “cease dependence on inspection” and instead empower the teams working on the line to raise concerns about quality issues and, ideally, automate the detection of defects too.<a id="ref2" href="#ftn2"><sup>2</sup></a>
 
 # Mass-inspection
 
@@ -46,7 +46,7 @@ One reasonable response would be to say that digital healthcare is nothing like 
 
 A further concern could be that embedded clinical safety officers (CSO) are not the same as inspectors, and that the move to "shift left", that is, bring a CSO into the earliest phases of the work, should make the movement through the gate easier. An embedded CSO feels right to me, however shifting left doesn't empower the team in the way we've seen it operating in manufacturing or other parts of the NHS. Authority for release remains separated from the team, which makes differences of opinion harder to rectify. And this all rests of the assumption that the CSO profession is adequately resourced.
 
-Finally, you might argue that digital services can directly impact millions of people and so slowing down to ensure that work is being done safely, i.e. accepting the inefficiency of the gate, is not a particularly large price to pay. I think this argument assumes that a gate is, by default, a safer model (more on that in moment) but more to the point, this argument assumes that you can hold constant the environment in which code sits. But this is not true, the environment changes around us all the time and so we must [keep moving to keep safe]({%- post_url 2026-07-13-stay-put-keep-moving -%}). The opportunity cost of any decision to slow progress in a digital environment is measured in terms of the poor safety you are allowing to carry on.
+Finally, you might argue that digital services can directly impact millions of people and so slowing down to ensure that work is being done safely, i.e. accepting the inefficiency of the gate, is not a particularly large price to pay. I think this argument assumes that a gate is, by default, a safer model (more on that in moment) but more to the point, this argument assumes that you can hold constant the environment in which code sits. But this is not true, the environment changes around us all the time and so we must [keep moving to keep safe]({%- post_url 2026-07-13-stay-put-keep-moving -%}). The opportunity cost of any decision to slow progress in a digital environment is measured in terms of the poor safety you are allowing to carry on in the meantime.
 
 # Triggers not gates
 
