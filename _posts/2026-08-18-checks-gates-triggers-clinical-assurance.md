@@ -62,7 +62,7 @@ Charge delivery teams with the creation of leading metrics (i.e. metrics that ar
 
 ### Start small, then scale
 
-Monitor your product and the data it creates with a small subset of users first. Study it's operation, make changes and improve your definition of safe. Scale when the team is confident it is the right time to do so.
+Monitor your product and the data it creates with a small subset of users first. Study its operation, make changes and improve your definition of safe. Scale when the team is confident it is the right time to do so.
 
 # Why is this better?
 
