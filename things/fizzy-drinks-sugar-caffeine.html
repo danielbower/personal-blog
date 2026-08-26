@@ -24,13 +24,13 @@ permalink: /things/fizzy-drinks-sugar-caffeine/
     text-align: left;
     padding: 10px 12px;
     border-bottom: 1px dotted var(--grey-color-light);
-    white-space: nowrap;
+    vertical-align: top;
   }
 
   th.sortable { cursor: pointer; user-select: none; }
   th.sortable:hover { color: var(--text-color); }
 
-  .sort-icon { margin-left: 4px; opacity: 0.35; }
+  .sort-icon { margin-left: 4px; opacity: 0.35; white-space: nowrap; }
   .sort-icon.active { opacity: 1; color: var(--accent); }
 
   td {
@@ -43,9 +43,9 @@ permalink: /things/fizzy-drinks-sugar-caffeine/
 
   tbody tr:last-child td { border-bottom: none; }
 
-  .col-drink    { width: 22%; }
-  .col-caffeine { width: 10%; }
-  .col-sugar    { width: 20%; }
+  .col-drink    { width: 20%; }
+  .col-caffeine { width: 14%; }
+  .col-sugar    { width: 18%; }
   .col-bar      { width: 23%; }
   .col-src      { width: 25%; }
 
@@ -97,10 +97,10 @@ permalink: /things/fizzy-drinks-sugar-caffeine/
   <table>
     <thead>
       <tr>
-        <th class="col-drink sortable" onclick="sortBy('name')">Drink <span class="sort-icon" id="sort-icon-name">↕</span></th>
-        <th class="col-caffeine sortable" onclick="sortBy('caffeine')">Caffeine <span class="sort-icon" id="sort-icon-caffeine">↕</span></th>
-        <th class="col-sugar sortable" onclick="sortBy('sugar')">Sugar / 100ml <span class="sort-icon" id="sort-icon-sugar">↕</span></th>
-        <th class="col-bar">Relative amount</th>
+        <th class="col-drink sortable" onclick="sortBy('name')">Drink <span class="sort-icon" id="sort-icon-name">↕︎</span></th>
+        <th class="col-caffeine sortable" onclick="sortBy('caffeine')">Caffeine <span class="sort-icon" id="sort-icon-caffeine">↕︎</span></th>
+        <th class="col-sugar sortable" onclick="sortBy('sugar')">Sugar/100ml <span class="sort-icon" id="sort-icon-sugar">↕︎</span></th>
+        <th class="col-bar">Amount</th>
         <th class="col-src">Source</th>
       </tr>
     </thead>
@@ -146,7 +146,7 @@ function getSorted(list) {
 function updateIcons() {
   ['name', 'caffeine', 'sugar'].forEach(col => {
     const icon = document.getElementById('sort-icon-' + col);
-    if (col !== sortCol) { icon.textContent = '↕'; icon.className = 'sort-icon'; }
+    if (col !== sortCol) { icon.textContent = '↕︎'; icon.className = 'sort-icon'; }
     else { icon.textContent = sortDir === 'asc' ? '↑' : '↓'; icon.className = 'sort-icon active'; }
   });
 }

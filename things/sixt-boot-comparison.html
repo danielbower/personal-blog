@@ -24,13 +24,13 @@ permalink: /things/sixt-boot-comparison/
     text-align: left;
     padding: 10px 12px;
     border-bottom: 1px dotted var(--grey-color-light);
-    white-space: nowrap;
+    vertical-align: top;
   }
 
   th.sortable { cursor: pointer; user-select: none; }
   th.sortable:hover { color: var(--text-color); }
 
-  .sort-icon { margin-left: 4px; opacity: 0.35; }
+  .sort-icon { margin-left: 4px; opacity: 0.35; white-space: nowrap; }
   .sort-icon.active { opacity: 1; color: var(--accent); }
 
   td {
@@ -46,8 +46,8 @@ permalink: /things/sixt-boot-comparison/
   tr.highlight td { background: color-mix(in srgb, var(--brand-color) 12%, transparent); }
 
   .col-car  { width: 32%; }
-  .col-boot { width: 15%; }
-  .col-bar  { width: 28%; }
+  .col-boot { width: 17%; }
+  .col-bar  { width: 26%; }
   .col-src  { width: 25%; }
 
   .bar-wrap {
@@ -88,9 +88,9 @@ permalink: /things/sixt-boot-comparison/
   <table>
     <thead>
       <tr>
-        <th class="col-car sortable" onclick="sortBy('name')">Car <span class="sort-icon" id="sort-icon-name">↕</span></th>
-        <th class="col-boot sortable" onclick="sortBy('vol')">Boot <span class="sort-icon" id="sort-icon-vol">↕</span></th>
-        <th class="col-bar">Relative size</th>
+        <th class="col-car sortable" onclick="sortBy('name')">Car <span class="sort-icon" id="sort-icon-name">↕︎</span></th>
+        <th class="col-boot sortable" onclick="sortBy('vol')">Boot <span class="sort-icon" id="sort-icon-vol">↕︎</span></th>
+        <th class="col-bar">Size</th>
         <th class="col-src">Source</th>
       </tr>
     </thead>
@@ -131,7 +131,7 @@ function getSorted(list) {
 function updateIcons() {
   ['name', 'vol'].forEach(col => {
     const icon = document.getElementById('sort-icon-' + col);
-    if (col !== sortCol) { icon.textContent = '↕'; icon.className = 'sort-icon'; }
+    if (col !== sortCol) { icon.textContent = '↕︎'; icon.className = 'sort-icon'; }
     else { icon.textContent = sortDir === 'asc' ? '↑' : '↓'; icon.className = 'sort-icon active'; }
   });
 }
