@@ -28,3 +28,9 @@ kramdown:
 
 # used this for post_excerpt at index_page
 excerpt_separator: <!--description-->
+
+# Drinks tracker. The publishable key is designed to be public: it can only read
+# the weekly_totals view. Never put the secret key or database password here.
+supabase:
+  url: https://cbuhicijsovhqffmrbyx.supabase.co
+  publishable_key: sb_publishable_LWfznpKnbv3LurbCOKb66g_kPXw8Z-k

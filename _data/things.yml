@@ -9,6 +9,9 @@
     - title: Fizzy Drinks
       url: /things/fizzy-drinks-sugar-caffeine/
       description: A sugar and caffeine comparison table for the fizzy drinks my son wants me to buy.
+    - title: Booze Tracker
+      url: /drinking/
+      description: My weekly alcohol units against the 14-unit guideline.
       
 - name: Games
   items:

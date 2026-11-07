@@ -1,0 +1,187 @@
+<style>
+  .drinks-chart {
+    --drinks-under: #4b4bd2;
+    --drinks-over: #d9622b;
+  }
+  .drinks-chart__canvas { position: relative; height: 340px; }
+  .drinks-chart__canvas[hidden] { display: none; }
+</style>
+
+<div class="drinks-chart">
+  <p class="drinks-chart__summary" id="drinks-summary" aria-live="polite">Loading&hellip;</p>
+  <div class="drinks-chart__canvas" id="drinks-canvas-wrap">
+    <canvas id="drinks-canvas" role="img" aria-label="Bar chart of weekly UK units against the 14-unit guideline."></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.js"></script>
+<script>
+(function () {
+  var GUIDELINE = 14;
+  var WEEKS = 12;
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var ENDPOINT = {{ site.supabase.url | append: "/rest/v1/weekly_totals?select=week_start,total_units,days_logged&order=week_start.desc&limit=12" | jsonify }};
+  var API_KEY = {{ site.supabase.publishable_key | jsonify }};
+
+  var summary = document.getElementById('drinks-summary');
+  var wrap = document.getElementById('drinks-canvas-wrap');
+  var canvas = document.getElementById('drinks-canvas');
+
+  // All week maths happens in UTC on plain dates, so British Summer Time
+  // can never shift a week by a day.
+  function thisMonday() {
+    var now = new Date();
+    var today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    today.setUTCDate(today.getUTCDate() - ((today.getUTCDay() + 6) % 7));
+    return today;
+  }
+
+  // The last 12 Monday-start weeks, oldest first, this week last. A week with
+  // no row stays null: that means "not logged", which is different from zero.
+  function buildWeeks(rows) {
+    var byWeek = {};
+    rows.forEach(function (row) { byWeek[row.week_start] = row; });
+
+    var weeks = [];
+    var monday = thisMonday();
+    for (var i = WEEKS - 1; i >= 0; i--) {
+      var d = new Date(monday.getTime());
+      d.setUTCDate(d.getUTCDate() - i * 7);
+      var row = byWeek[d.toISOString().slice(0, 10)];
+      weeks.push({
+        label: i === 0 ? 'This week' : d.getUTCDate() + ' ' + MONTHS[d.getUTCMonth()],
+        units: row ? Number(row.total_units) : null,
+        days: row ? row.days_logged : 0
+      });
+    }
+    return weeks;
+  }
+
+  function fail() {
+    wrap.hidden = true;
+    summary.textContent = 'The chart couldn’t load just now. Please try again later.';
+  }
+
+  function plural(n, word) {
+    return n + ' ' + word + (n === 1 ? '' : 's');
+  }
+
+  function draw(weeks) {
+    var current = weeks[weeks.length - 1];
+    var text = current.units === null
+      ? 'This week: nothing logged yet'
+      : 'This week: ' + current.units + ' of ' + GUIDELINE + ' units';
+    summary.textContent = text;
+
+    var overCount = weeks.filter(function (w) { return w.units > GUIDELINE; }).length;
+    canvas.setAttribute('aria-label',
+      'Bar chart of weekly UK units for the last ' + WEEKS + ' weeks against the ' + GUIDELINE + '-unit guideline. ' +
+      text + '. ' + plural(overCount, 'week') + ' over the guideline.');
+
+    var css = getComputedStyle(document.documentElement);
+    var chartCss = getComputedStyle(canvas);
+    var ink = css.getPropertyValue('--text-color').trim();
+    var muted = css.getPropertyValue('--grey-color-dark').trim();
+    var grid = css.getPropertyValue('--grey-color-light').trim();
+    var under = chartCss.getPropertyValue('--drinks-under').trim();
+    var over = chartCss.getPropertyValue('--drinks-over').trim();
+
+    var barColours = weeks.map(function (w) { return w.units > GUIDELINE ? over : under; });
+
+    Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+    Chart.defaults.font.size = 13;
+    Chart.defaults.color = muted;
+
+    new Chart(canvas, {
+      data: {
+        labels: weeks.map(function (w) { return w.label; }),
+        datasets: [
+          {
+            type: 'bar',
+            label: 'Units',
+            order: 2,
+            data: weeks.map(function (w) { return w.units; }),
+            backgroundColor: barColours,
+            hoverBackgroundColor: barColours,
+            borderRadius: { topLeft: 4, topRight: 4 },
+            borderSkipped: 'bottom',
+            minBarLength: 2, // keeps a logged 0-unit week visible, unlike a gap
+            maxBarThickness: 28
+          },
+          {
+            type: 'line',
+            label: GUIDELINE + '-unit guideline',
+            order: 1,
+            data: weeks.map(function () { return GUIDELINE; }),
+            borderColor: ink,
+            borderWidth: 2,
+            borderDash: [6, 4],
+            pointRadius: 0,
+            pointHoverRadius: 0,
+            pointHitRadius: 0,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { autoSkip: false, maxRotation: 60, minRotation: 0 }
+          },
+          y: {
+            beginAtZero: true,
+            suggestedMax: GUIDELINE + 4,
+            grid: { color: grid, lineWidth: 0.5 },
+            border: { display: false },
+            ticks: { stepSize: 2 },
+            title: { display: true, text: 'UK units' }
+          }
+        },
+        plugins: {
+          legend: {
+            position: 'bottom',
+            onClick: null,
+            labels: {
+              boxWidth: 14,
+              boxHeight: 14,
+              generateLabels: function () {
+                return [
+                  { text: 'Units', fillStyle: under, strokeStyle: under, lineWidth: 0 },
+                  { text: 'Over ' + GUIDELINE, fillStyle: over, strokeStyle: over, lineWidth: 0 },
+                  { text: GUIDELINE + '-unit guideline', fillStyle: 'transparent', strokeStyle: ink, lineWidth: 2, lineDash: [6, 4] }
+                ];
+              }
+            }
+          },
+          tooltip: {
+            // Describe the week's bar only, not the guideline as well.
+            filter: function (item) { return item.datasetIndex === 0; },
+            displayColors: false,
+            callbacks: {
+              label: function (ctx) {
+                var week = weeks[ctx.dataIndex];
+                if (week.units === null) { return 'Not logged'; }
+                return [plural(week.units, 'unit'), plural(week.days, 'day') + ' logged'];
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+
+  if (typeof Chart === 'undefined') { fail(); return; }
+
+  fetch(ENDPOINT, { headers: { apikey: API_KEY } })
+    .then(function (response) {
+      if (!response.ok) { throw new Error('HTTP ' + response.status); }
+      return response.json();
+    })
+    .then(function (rows) { draw(buildWeeks(rows)); })
+    .catch(fail);
+})();
+</script>
