@@ -10,9 +10,9 @@
       url: /things/fizzy-drinks-sugar-caffeine/
       description: A sugar and caffeine comparison table for the fizzy drinks my son wants me to buy.
     - title: Booze Tracker
-      url: /booze-tracker/
-      description: My weekly alcohol units against the 14-unit guideline.
-      
+      url: /things/booze-tracker/
+      description: Logging how much I drink using a scheduled Claude message, some charts and an MCP connection.
+
 - name: Games
   items:
     - title: Flag Quiz

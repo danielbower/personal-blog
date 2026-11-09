@@ -1,3 +1,10 @@
+---
+layout: page
+title: Booze Tracker
+permalink: /things/booze-tracker/
+og: "Tracking how much booze I drink with the aim of keeping under 14 units a week."
+---
+
 <style>
   .drinks-chart {
     --dc-accent: #4b4bd2; /* house blue, as used on page titles */
@@ -42,8 +49,8 @@
 </style>
 
 <div class="drinks-chart" id="drinks-chart">
-  <p class="dc-date">Weekly, Monday to Sunday · last 12 weeks</p>
-
+<p>This is my personal booze tracker. My goal is to try and drink <a href="https://www.nhs.uk/live-well/alcohol-advice/calculating-alcohol-units/">less than 14 units per week</a> as recommended by the NHS.</p>
+<p>This thing was built using a small Postgres SQL database hosted on <a href="https://supabase.com">Supabase</a>, a public API and <a href="https://www.chartjs.org/">charts.js</a>. I make updates using an MCP connection and a daily check-in from Claude.</p>
   <section class="dc-section dc-figures" aria-live="polite">
     <div class="dc-fig dc-fig--week">
       <div class="dc-label">This week</div>
@@ -64,7 +71,7 @@
 
   <section class="dc-section">
     <h2>Weekly units</h2>
-    <p class="dc-note">UK units per week. The dashed line is the 14-unit guideline, and weeks over it are blue. A gap means the week wasn't logged, and a thin line at zero is a logged dry week.</p>
+    <p class="dc-note">The bars are in UK units per week. The dashed line is the 14-unit guideline, and weeks that go over it are blue.</p>
     <div class="dc-chart" id="dc-chart">
       <canvas id="drinks-canvas" role="img" aria-label="Bar chart of weekly UK units against the 14-unit guideline."></canvas>
     </div>
@@ -72,7 +79,7 @@
 
   <section class="dc-section" id="dc-numbers">
     <h2>The numbers</h2>
-    <p class="dc-note" id="dc-numbers-note">Every entry as logged, newest first. A 0.0 is a dry day. Blue marks a day over 2 units in total, the daily average that keeps a week within 14.</p>
+    <p class="dc-note" id="dc-numbers-note">Raw daily data. Blue marks a day over 2 units in total.</p>
     <div class="dc-table-wrap">
       <table>
         <thead><tr><th>Date</th><th class="dc-n">Units</th></tr></thead>

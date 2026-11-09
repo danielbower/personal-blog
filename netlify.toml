@@ -34,3 +34,9 @@
     to = "/music-streaming-venture-capital-kill-zones/"
     status = 301
     force = false
+
+[[redirects]]
+  from = "/booze-tracker/"
+  to = "/things/booze-tracker/"
+  status = 301
+  force = false
