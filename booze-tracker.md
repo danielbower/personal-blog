@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Booze Tracker
-permalink: /drinking/
+permalink: /booze-tracker/
 og: "Weekly UK units against the 14-unit guideline."
 ---
 

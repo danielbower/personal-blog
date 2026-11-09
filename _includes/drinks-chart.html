@@ -1,31 +1,107 @@
 <style>
   .drinks-chart {
-    --drinks-under: #4b4bd2;
-    --drinks-over: #d9622b;
+    --dc-accent: #4b4bd2; /* house blue, as used on page titles */
+    --dc-text: var(--text-color);
+    --dc-grey: var(--grey-color);
+    --dc-grey-dark: var(--grey-color-dark);
+    --dc-grey-light: var(--grey-color-light);
+    --dc-date: #888;
+    --dc-rule: #ddd;
+    --dc-grid: #ececec;
   }
-  .drinks-chart__canvas { position: relative; height: 340px; }
-  .drinks-chart__canvas[hidden] { display: none; }
+  .drinks-chart .dc-date { color: var(--dc-date); font-size: 14px; margin: -1.4rem 0 32px; }
+
+  .drinks-chart .dc-section { padding: 32px 0; border-top: 1px dotted var(--dc-grey-light); }
+  .drinks-chart .dc-section h2 { font-weight: 400; font-size: 19px; line-height: 1.3; letter-spacing: -0.1rem; margin: 0 0 4px; }
+  @media (min-width: 550px) { .drinks-chart .dc-section h2 { font-size: 22px; } }
+  .drinks-chart .dc-note { color: var(--dc-date); font-size: 14px; line-height: 1.5; margin: 0; }
+
+  .drinks-chart .dc-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 32px; }
+  @media (max-width: 550px) {
+    /* Keeps the two streaks side by side, with this week on its own row above. */
+    .drinks-chart .dc-figures { grid-template-columns: 1fr 1fr; }
+    .drinks-chart .dc-fig--week { grid-column: 1 / -1; }
+  }
+  .drinks-chart .dc-label { color: var(--dc-date); font-size: 14px; }
+  .drinks-chart .dc-big { font-size: 48px; font-weight: 400; line-height: 1.1; letter-spacing: -0.1rem; margin: 6px 0 4px; font-variant-numeric: tabular-nums; }
+  .drinks-chart .dc-big--over { color: var(--dc-accent); }
+  .drinks-chart .dc-sub { font-size: 14px; color: var(--dc-grey-dark); font-variant-numeric: tabular-nums; }
+
+  .drinks-chart .dc-chart { position: relative; height: 340px; margin-top: 20px; }
+  .drinks-chart .dc-failed { display: flex; align-items: center; justify-content: center; gap: 6px; height: 100%; color: var(--dc-date); font-size: 13px; }
+  .drinks-chart .dc-failed::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: #c0392b; }
+
+  .drinks-chart .dc-table-wrap { max-height: 448px; overflow: auto; margin-top: 16px; }
+  .drinks-chart table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .drinks-chart th, .drinks-chart td { text-align: left; padding: 7px 12px 7px 0; border-bottom: 1px dotted var(--dc-grey-light); }
+  .drinks-chart th { position: sticky; top: 0; background: var(--background-color); font-weight: 400; color: var(--dc-date); border-bottom: 1px solid var(--dc-rule); }
+  .drinks-chart .dc-n { text-align: right; padding-right: 0; }
+  .drinks-chart .dc-heavy-day .dc-n { color: var(--dc-accent); }
+  .drinks-chart .dc-heavy-day .dc-n::before { content: ""; display: inline-block; width: .375rem; height: .375rem; border-radius: 50%; background: var(--dc-accent); margin-right: 8px; vertical-align: middle; }
+  .drinks-chart .dc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 </style>
 
-<div class="drinks-chart">
-  <p class="drinks-chart__summary" id="drinks-summary" aria-live="polite">Loading&hellip;</p>
-  <div class="drinks-chart__canvas" id="drinks-canvas-wrap">
-    <canvas id="drinks-canvas" role="img" aria-label="Bar chart of weekly UK units against the 14-unit guideline."></canvas>
-  </div>
+<div class="drinks-chart" id="drinks-chart">
+  <p class="dc-date">Weekly, Monday to Sunday · last 12 weeks</p>
+
+  <section class="dc-section dc-figures" aria-live="polite">
+    <div class="dc-fig dc-fig--week">
+      <div class="dc-label">This week</div>
+      <div class="dc-big" id="dc-this-week">—</div>
+      <div class="dc-sub" id="dc-this-week-sub">Loading&hellip;</div>
+    </div>
+    <div class="dc-fig">
+      <div class="dc-label">Current streak</div>
+      <div class="dc-big" id="dc-current">—</div>
+      <div class="dc-sub" id="dc-current-sub">&nbsp;</div>
+    </div>
+    <div class="dc-fig">
+      <div class="dc-label">Longest streak</div>
+      <div class="dc-big" id="dc-longest">—</div>
+      <div class="dc-sub" id="dc-longest-sub">&nbsp;</div>
+    </div>
+  </section>
+
+  <section class="dc-section">
+    <h2>Weekly units</h2>
+    <p class="dc-note">UK units per week. The dashed line is the 14-unit guideline, and weeks over it are blue. A gap means the week wasn't logged, and a thin line at zero is a logged dry week.</p>
+    <div class="dc-chart" id="dc-chart">
+      <canvas id="drinks-canvas" role="img" aria-label="Bar chart of weekly UK units against the 14-unit guideline."></canvas>
+    </div>
+  </section>
+
+  <section class="dc-section" id="dc-numbers">
+    <h2>The numbers</h2>
+    <p class="dc-note" id="dc-numbers-note">Every entry as logged, newest first. A 0.0 is a dry day. Blue marks a day over 2 units in total, the daily average that keeps a week within 14.</p>
+    <div class="dc-table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th class="dc-n">Units</th></tr></thead>
+        <tbody id="dc-rows"></tbody>
+      </table>
+    </div>
+  </section>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.js"></script>
 <script>
 (function () {
   var GUIDELINE = 14;
+  var DAILY = GUIDELINE / 7; // 2 units a day on average keeps a week within the guideline
   var WEEKS = 12;
+  var NARROW = 560;
+  var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  var ENDPOINT = {{ site.supabase.url | append: "/rest/v1/weekly_totals?select=week_start,total_units,days_logged&order=week_start.desc&limit=12" | jsonify }};
+  var ENDPOINT = {{ site.supabase.url | append: "/rest/v1/weekly_totals?select=week_start,total_units,days_logged&order=week_start.desc" | jsonify }};
+  var ENTRIES_ENDPOINT = {{ site.supabase.url | append: "/rest/v1/public_entries?select=drank_on,units&order=drank_on.desc" | jsonify }};
   var API_KEY = {{ site.supabase.publishable_key | jsonify }};
 
-  var summary = document.getElementById('drinks-summary');
-  var wrap = document.getElementById('drinks-canvas-wrap');
+  var root = document.getElementById('drinks-chart');
+  var box = document.getElementById('dc-chart');
   var canvas = document.getElementById('drinks-canvas');
+
+  function setText(id, text) { document.getElementById(id).textContent = text; }
+  function formatUnits(n) { return n.toFixed(1); }
+  function plural(n, word) { return n + ' ' + word + (n === 1 ? '' : 's'); }
 
   // All week maths happens in UTC on plain dates, so British Summer Time
   // can never shift a week by a day.
@@ -50,6 +126,7 @@
       var row = byWeek[d.toISOString().slice(0, 10)];
       weeks.push({
         label: i === 0 ? 'This week' : d.getUTCDate() + ' ' + MONTHS[d.getUTCMonth()],
+        axisLabel: i === 0 ? 'Now' : d.getUTCDate() + '/' + (d.getUTCMonth() + 1),
         units: row ? Number(row.total_units) : null,
         days: row ? row.days_logged : 0
       });
@@ -58,41 +135,159 @@
   }
 
   function fail() {
-    wrap.hidden = true;
-    summary.textContent = 'The chart couldn’t load just now. Please try again later.';
+    setText('dc-this-week-sub', 'Failed to load');
+    box.textContent = '';
+    var message = document.createElement('div');
+    message.className = 'dc-failed';
+    message.textContent = 'Failed to load';
+    box.appendChild(message);
   }
 
-  function plural(n, word) {
-    return n + ' ' + word + (n === 1 ? '' : 's');
+  // A streak is consecutive weeks at or under the guideline, across all history.
+  // A week with no row breaks it, because "not logged" isn't "at or under". The one
+  // exception is this week: with nothing logged yet it can't break anything.
+  function findStreaks(rows) {
+    var byWeek = {};
+    var earliest = null;
+    rows.forEach(function (row) {
+      byWeek[row.week_start] = row;
+      if (earliest === null || row.week_start < earliest) { earliest = row.week_start; }
+    });
+    if (earliest === null) { return { longest: 0, current: 0 }; }
+
+    var monday = thisMonday();
+    var week = new Date(earliest + 'T00:00:00Z');
+    var run = 0;
+    var longest = 0;
+    while (week <= monday) {
+      var row = byWeek[week.toISOString().slice(0, 10)];
+      if (row && Number(row.total_units) <= GUIDELINE) {
+        run++;
+        longest = Math.max(longest, run);
+      } else if (row || week.getTime() !== monday.getTime()) {
+        run = 0;
+      }
+      week.setUTCDate(week.getUTCDate() + 7);
+    }
+    return { longest: longest, current: run };
   }
 
-  function draw(weeks) {
+  function drawFigures(weeks, rows) {
     var current = weeks[weeks.length - 1];
-    var text = current.units === null
-      ? 'This week: nothing logged yet'
-      : 'This week: ' + current.units + ' of ' + GUIDELINE + ' units';
-    summary.textContent = text;
+    var streaks = findStreaks(rows);
+    var over = weeks.filter(function (w) { return w.units > GUIDELINE; }).length;
 
-    var overCount = weeks.filter(function (w) { return w.units > GUIDELINE; }).length;
+    setText('dc-this-week', current.units === null ? '—' : formatUnits(current.units));
+    document.getElementById('dc-this-week').classList.toggle('dc-big--over', current.units > GUIDELINE);
+    setText('dc-this-week-sub', current.units === null ? 'Nothing logged yet' : 'of ' + GUIDELINE + ' units');
+    setText('dc-longest', String(streaks.longest));
+    setText('dc-longest-sub', (streaks.longest === 1 ? 'week' : 'weeks') + ' at ' + GUIDELINE + ' or under');
+    setText('dc-current', String(streaks.current));
+    setText('dc-current-sub', (streaks.current === 1 ? 'week' : 'weeks') + ' at ' + GUIDELINE + ' or under');
+
     canvas.setAttribute('aria-label',
       'Bar chart of weekly UK units for the last ' + WEEKS + ' weeks against the ' + GUIDELINE + '-unit guideline. ' +
-      text + '. ' + plural(overCount, 'week') + ' over the guideline.');
+      (current.units === null ? 'Nothing logged this week yet. ' : 'This week: ' + formatUnits(current.units) + ' of ' + GUIDELINE + ' units. ') +
+      plural(over, 'week') + ' over the guideline.');
+  }
 
-    var css = getComputedStyle(document.documentElement);
-    var chartCss = getComputedStyle(canvas);
-    var ink = css.getPropertyValue('--text-color').trim();
-    var muted = css.getPropertyValue('--grey-color-dark').trim();
-    var grid = css.getPropertyValue('--grey-color-light').trim();
-    var under = chartCss.getPropertyValue('--drinks-under').trim();
-    var over = chartCss.getPropertyValue('--drinks-over').trim();
+  // "2026-11-07" becomes "Sat 7 Nov", worked out in UTC from the string,
+  // so no timezone can move an entry to a different day.
+  function formatDate(iso) {
+    var parts = iso.split('-');
+    var weekday = new Date(Date.UTC(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]))).getUTCDay();
+    return DAYS[weekday] + ' ' + Number(parts[2]) + ' ' + MONTHS[Number(parts[1]) - 1];
+  }
 
-    var barColours = weeks.map(function (w) { return w.units > GUIDELINE ? over : under; });
+  function drawEntries(entries) {
+    var body = document.getElementById('dc-rows');
+    body.textContent = '';
 
-    Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
-    Chart.defaults.font.size = 13;
-    Chart.defaults.color = muted;
+    // A day can have several entries, so the marker goes by the day's total.
+    var dayTotals = {};
+    entries.forEach(function (entry) {
+      dayTotals[entry.drank_on] = (dayTotals[entry.drank_on] || 0) + Number(entry.units);
+    });
+
+    entries.forEach(function (entry) {
+      var row = document.createElement('tr');
+      var date = document.createElement('td');
+      var units = document.createElement('td');
+      date.textContent = formatDate(entry.drank_on);
+      units.textContent = formatUnits(Number(entry.units));
+      units.className = 'dc-n';
+      if (Math.round(dayTotals[entry.drank_on] * 10) / 10 > DAILY) {
+        row.className = 'dc-heavy-day';
+        var hidden = document.createElement('span');
+        hidden.className = 'dc-sr';
+        hidden.textContent = ' (day over ' + DAILY + ' units)';
+        units.appendChild(hidden);
+      }
+      row.appendChild(date);
+      row.appendChild(units);
+      body.appendChild(row);
+    });
+    if (!entries.length) { setText('dc-numbers-note', 'Nothing logged yet.'); }
+  }
+
+  function failEntries() {
+    document.querySelector('#dc-numbers .dc-table-wrap').hidden = true;
+    setText('dc-numbers-note', 'Failed to load');
+  }
+
+  function getJson(url) {
+    return fetch(url, { headers: { apikey: API_KEY } }).then(function (response) {
+      if (!response.ok) { throw new Error('HTTP ' + response.status); }
+      return response.json();
+    });
+  }
+
+  function drawChart(weeks) {
+    var styles = getComputedStyle(root);
+    var read = function (name) { return styles.getPropertyValue(name).trim(); };
+    var text = read('--dc-text') || '#111';
+    var grey = read('--dc-grey');
+    var accent = read('--dc-accent');
+    var date = read('--dc-date');
+    var rule = read('--dc-rule');
+    var gridColour = read('--dc-grid');
+    var font = getComputedStyle(document.body).fontFamily;
+    var guideColour = 'rgba(17, 17, 17, 0.8)';
+
+    var barColours = weeks.map(function (w) { return w.units > GUIDELINE ? accent : grey; });
+
+    // Draws the two things Chart.js has no option for: a pale rule on the
+    // hovered week, and the guideline's own label at the end of its line.
+    var extras = {
+      id: 'drinksExtras',
+      beforeDatasetsDraw: function (chart) {
+        var active = chart.tooltip.getActiveElements();
+        if (!active.length || !chart.tooltip.opacity) { return; }
+        var area = chart.chartArea;
+        var ctx = chart.ctx;
+        ctx.save();
+        ctx.strokeStyle = rule;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(active[0].element.x, area.top);
+        ctx.lineTo(active[0].element.x, area.bottom);
+        ctx.stroke();
+        ctx.restore();
+      },
+      afterDatasetsDraw: function (chart) {
+        if (chart.width < NARROW) { return; }
+        var ctx = chart.ctx;
+        ctx.save();
+        ctx.font = '12px ' + font;
+        ctx.fillStyle = guideColour;
+        ctx.textBaseline = 'middle';
+        ctx.fillText(GUIDELINE + ' units', chart.chartArea.right + 8, chart.scales.y.getPixelForValue(GUIDELINE));
+        ctx.restore();
+      }
+    };
 
     new Chart(canvas, {
+      plugins: [extras],
       data: {
         labels: weeks.map(function (w) { return w.label; }),
         datasets: [
@@ -103,19 +298,18 @@
             data: weeks.map(function (w) { return w.units; }),
             backgroundColor: barColours,
             hoverBackgroundColor: barColours,
-            borderRadius: { topLeft: 4, topRight: 4 },
-            borderSkipped: 'bottom',
+            borderRadius: 0,
             minBarLength: 2, // keeps a logged 0-unit week visible, unlike a gap
-            maxBarThickness: 28
+            maxBarThickness: 32
           },
           {
             type: 'line',
             label: GUIDELINE + '-unit guideline',
             order: 1,
             data: weeks.map(function () { return GUIDELINE; }),
-            borderColor: ink,
-            borderWidth: 2,
-            borderDash: [6, 4],
+            borderColor: guideColour,
+            borderWidth: 1.5,
+            borderDash: [5, 4],
             pointRadius: 0,
             pointHoverRadius: 0,
             pointHitRadius: 0,
@@ -126,19 +320,36 @@
       options: {
         responsive: true,
         maintainAspectRatio: false,
+        animation: false,
+        font: { family: font, size: 13 },
+        layout: {
+          padding: function (ctx) { return { right: ctx.chart.width < NARROW ? 12 : 56 }; }
+        },
         interaction: { mode: 'index', intersect: false },
         scales: {
           x: {
             grid: { display: false },
-            ticks: { autoSkip: false, maxRotation: 60, minRotation: 0 }
+            border: { color: rule },
+            ticks: {
+              color: date,
+              font: { family: font, size: 13 },
+              autoSkip: false,
+              maxRotation: 0,
+              minRotation: 0,
+              // Thin the labels when narrow, always keeping "Now".
+              callback: function (value, index) {
+                var width = this.chart.width;
+                var step = width < 500 ? 2 : 1;
+                return (WEEKS - 1 - index) % step === 0 ? weeks[index].axisLabel : '';
+              }
+            }
           },
           y: {
             beginAtZero: true,
             suggestedMax: GUIDELINE + 4,
-            grid: { color: grid, lineWidth: 0.5 },
+            grid: { color: gridColour, lineWidth: 1 },
             border: { display: false },
-            ticks: { stepSize: 2 },
-            title: { display: true, text: 'UK units' }
+            ticks: { color: date, font: { family: font, size: 13 }, stepSize: 4, padding: 8 }
           }
         },
         plugins: {
@@ -146,13 +357,14 @@
             position: 'bottom',
             onClick: null,
             labels: {
-              boxWidth: 14,
-              boxHeight: 14,
+              font: { family: font, size: 12 },
+              boxWidth: 10,
+              boxHeight: 10,
+              padding: 14,
               generateLabels: function () {
                 return [
-                  { text: 'Units', fillStyle: under, strokeStyle: under, lineWidth: 0 },
-                  { text: 'Over ' + GUIDELINE, fillStyle: over, strokeStyle: over, lineWidth: 0 },
-                  { text: GUIDELINE + '-unit guideline', fillStyle: 'transparent', strokeStyle: ink, lineWidth: 2, lineDash: [6, 4] }
+                  { text: 'Up to ' + GUIDELINE, fillStyle: grey, strokeStyle: grey, fontColor: text, lineWidth: 0 },
+                  { text: 'Over ' + GUIDELINE, fillStyle: accent, strokeStyle: accent, fontColor: text, lineWidth: 0 }
                 ];
               }
             }
@@ -161,11 +373,23 @@
             // Describe the week's bar only, not the guideline as well.
             filter: function (item) { return item.datasetIndex === 0; },
             displayColors: false,
+            backgroundColor: '#fff',
+            borderColor: rule,
+            borderWidth: 1,
+            cornerRadius: 0,
+            caretSize: 0,
+            caretPadding: 12,
+            padding: { x: 10, y: 6 },
+            titleColor: date,
+            titleFont: { family: font, size: 13, weight: 'normal' },
+            titleMarginBottom: 2,
+            bodyColor: text,
+            bodyFont: { family: font, size: 13 },
             callbacks: {
               label: function (ctx) {
                 var week = weeks[ctx.dataIndex];
                 if (week.units === null) { return 'Not logged'; }
-                return [plural(week.units, 'unit'), plural(week.days, 'day') + ' logged'];
+                return [formatUnits(week.units) + ' units', plural(week.days, 'day') + ' logged'];
               }
             }
           }
@@ -174,14 +398,17 @@
     });
   }
 
+  // The table doesn't depend on Chart.js or the weekly totals, so it loads on its own.
+  getJson(ENTRIES_ENDPOINT).then(drawEntries).catch(failEntries);
+
   if (typeof Chart === 'undefined') { fail(); return; }
 
-  fetch(ENDPOINT, { headers: { apikey: API_KEY } })
-    .then(function (response) {
-      if (!response.ok) { throw new Error('HTTP ' + response.status); }
-      return response.json();
+  getJson(ENDPOINT)
+    .then(function (rows) {
+      var weeks = buildWeeks(rows);
+      drawFigures(weeks, rows);
+      drawChart(weeks);
     })
-    .then(function (rows) { draw(buildWeeks(rows)); })
     .catch(fail);
 })();
 </script>
